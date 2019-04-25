@@ -3,6 +3,8 @@
 """Make static website/blog with Python."""
 
 
+import commonmark
+
 import os
 import shutil
 import re
@@ -72,14 +74,7 @@ def read_content(filename):
 
     # Convert Markdown content to HTML.
     if filename.endswith((".md", ".mkd", ".mkdn", ".mdown", ".markdown")):
-        try:
-            if _test == "ImportError":
-                raise ImportError("Error forced by test")
-            import commonmark
-
-            text = commonmark.commonmark(text)
-        except ImportError as e:
-            log("WARNING: Cannot render Markdown in {}: {}", filename, str(e))
+        text = commonmark.commonmark(text)
 
     # Update the dictionary with content and RFC 2822 date.
     content.update({"content": text, "rfc_2822_date": rfc_2822_format(content["date"])})
