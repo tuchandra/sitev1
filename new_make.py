@@ -176,7 +176,7 @@ def main():
 
     # Create Spark summit notes
     spark_notes = make_pages(
-        Path("content/spark/*.md"), "site/spark/{{ slug }}.html", post_layout, blog="blog", **params
+        Path("content/spark/*.md"), "site/spark/{{ slug }}.html", post_layout, **params
     )
 
     # Copy contents to root directory
