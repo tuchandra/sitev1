@@ -179,16 +179,6 @@ def main():
         Path("content/spark/*.md"), "site/spark/{{ slug }}.html", post_layout, blog="blog", **params
     )
 
-    make_list(
-        spark_notes,
-        "site/spark/index.html",
-        list_layout,
-        item_layout,
-        blog="blog",
-        title="Spark + AI 2019",
-        **params,
-    )
-
     # Copy contents to root directory
     # dir_util.copy_tree("site", "./", update=1)
 
