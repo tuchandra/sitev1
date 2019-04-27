@@ -7,6 +7,7 @@ import commonmark
 
 import os
 import shutil
+import distutils.dir_util as dir_util
 import re
 import glob
 import sys
@@ -198,6 +199,9 @@ def main():
         title="News",
         **params
     )
+
+    # Copy contents to root directory
+    dir_util.copy_tree("_site", "./", update=1)
 
 
 # Test parameter to be set temporarily by unit tests.
