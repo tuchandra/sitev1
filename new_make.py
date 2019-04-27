@@ -174,23 +174,18 @@ def main():
     make_pages(Path("content/[!_]*.html"), "site/{{ slug }}.html", page_layout, **params)
     make_pages(Path("content/[!_]*.md"), "site/{{ slug }}.html", page_layout, **params)
 
-    # Create blogs.
-    blog_posts = make_pages(
-        Path("content/blog/*.md"),
-        "site/blog/{{ slug }}/index.html",
-        post_layout,
-        blog="blog",
-        **params,
+    # Create Spark summit notes
+    spark_notes = make_pages(
+        Path("content/spark/*.md"), "site/spark/{{ slug }}.html", post_layout, blog="blog", **params
     )
 
-    # Create blog list pages.
     make_list(
-        blog_posts,
-        "site/blog/index.html",
+        spark_notes,
+        "site/spark/index.html",
         list_layout,
         item_layout,
         blog="blog",
-        title="Blog",
+        title="Spark + AI 2019",
         **params,
     )
 

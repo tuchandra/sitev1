@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{ title }} - Help me what does this do?</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body id="graph_technology">
+
+    <nav>
+        <section>
+            <span class="home">
+                <a href="/">Home</a>
+            </span>
+            <span class="links">
+                <a href="/blog/">Blog</a>
+                <a href="/news/">News</a>
+                <a href="/contact/">Contact</a>
+                <a href="/about/">About</a>
+            </span>
+        </section>
+    </nav>
+
+    <main>
+        <article>
+<h1><a href="/blog/graph_technology/">{{ title }}</a></h1>
+<p class="meta">Published on 1970-01-01 by <b>Tushar Chandra</b></p>
+<h1>How Graph Technology is Changing AI</h1>
+<h2>Jake Graham and Alicia Frame (Neo4j) - 4/24</h2>
+<h2>Introduction</h2>
+<p>There's always the quote &quot;it's not what you know … it's who you know,&quot; and that's a graph-centered view. Questions about connections and relationships are often very difficult to represent as rows and columns. You need a graph — what are some of the use cases?</p>
+<ul>
+<li><strong>fraud detection</strong>, by understanding what community a particular acount is part of</li>
+<li><strong>drug discovery</strong>, by looking into the relationships between drugs</li>
+<li><strong>recommendations</strong>, thinking about the paths people take between products</li>
+<li><strong>customer segmentation</strong>, by looking into clusters of customers, how people are connected to each other, how people are making decisions</li>
+<li><strong>cybersecurity</strong>, looking into paths for intrusion networks</li>
+<li><strong>churn prediction</strong></li>
+<li><strong>predictive maintenance</strong>, looking at dependency chains</li>
+<li><strong>search</strong>, and pagerank, obviously</li>
+</ul>
+<p>You have <strong>nodes</strong> and <strong>relationships</strong> that connect them, but the nodes and relationships also have <strong>properties</strong>.</p>
+<h2>Motivation</h2>
+<p>Graphs provide more accurate predictions with the data that you already have: SOTA data science models ignore network structure and complex relationships, and graph models add highly predictive features to existing ML models. They're here to talk about how you can start adding graph information to current models, without rebuilding everything from the ground up.</p>
+<p>They showed an article &quot;<a href="https://www.zdnet.com/article/google-ponders-the-shortcomings-of-machine-learning/">Google ponders the shortcomings of machine learning</a>&quot;, which summarizes a <a href="https://arxiv.org/abs/1806.01261">paper (&quot;Relational inductive biases, deep learning, and graph networks&quot;)</a>, and they talk about how graphs add a structure that traditional ML models do not have.</p>
+<h2>Graph Building</h2>
+<p>In Spark, you're <em>exploring graphs</em> by taking advantage of the massive scalability, powerful data pipelining, and robust ML libraries. But Spark is non-persistent and non-native, so it's best to understand where you have graphs and what your graph features are.</p>
+<p>In Neo4j, you build persistent and dynamic graphs, and have graph-native querying and algorithms. They are always adding more graph algorithms, embeddings, and approaches. Note that the speakers are from Neo4j.</p>
+<p>The steps of graph data science, in increasing order of complexity and abstraction:</p>
+<ul>
+<li><strong>Query-based knowledge graph</strong>, building a knowledge graph to help individual users make decisions</li>
+<li><strong>Query-based feature engineering</strong>, moving towards a model, but you still have domain experts</li>
+<li><strong>Graph algorithm feature engineering</strong>, run unsupervised models to find graph features, then throw them into an ML model)</li>
+<li><strong>Graph embeddings</strong>, where you create embeddings of a graph, very active area of research</li>
+<li><strong>Graph neural networks</strong>, what the fuck? <a href="https://towardsdatascience.com/a-gentle-introduction-to-graph-neural-network-basics-deepwalk-and-graphsage-db5d540d50b3">Towards Data Science article</a> and <a href="https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/46568.pdf">Neural Graph Learning paper</a></li>
+</ul>
+<p>Note that the last few are active areas of research.</p>
+<h3>Query-based knowledge graph</h3>
+<p>NASA is using Neo4j to put together a knowledge graph; someone from the Orion project found information from the Apollo project that let them present an issue, saving $1M and at least two years of work. They digitized thousands of documents that were functionally useless to individuals, but were able to be combined into a &quot;lessons learned knowledge graph.&quot;</p>
+<h3>Query-based feature engineering</h3>
+<p>Once you have a knowledge graph, that's great; but you still have to know what you're trying to get out. How do you make inferences from the knowledge graph?</p>
+<p>One use case is <a href="https://het.io/">HetioNet</a>, which integrates 50 years of biomedical data. It is used to predict new uses for drugs: it uses graph algorithms to create features that predict where new links might be. For example, they see IRF1 and multiple sclerosis without an explicit edge between them … but they see that they're second degree connections via a lot of other genes. They create a score that captures how far you have to go to get from one node to another, and this score can be fed into an ML model.</p>
+<h3>Graph algorithm feature engineering</h3>
+<p>Make use of your existing machine learning pipeline by taking your tabular data and adding graph-based features, then combining those into a stronger pipeline. Features include:</p>
+<ul>
+<li><strong>community detection</strong>, detecting group clustering or partitioning</li>
+<li><strong>centrality / importance</strong>, determining the importance of distinct nodes in the network</li>
+<li><strong>pathfinding &amp; search</strong>, finding optimal paths or evaluating route availability / quality</li>
+<li><strong>heuristic link prediction</strong>, estimating likelihood of nodes forming a relationship</li>
+<li><strong>embeddings</strong>, capturing connectivity or topology in vectors</li>
+<li><strong>similarity</strong>, wondering how similar two nodes are given their connections</li>
+</ul>
+<p>Case study: financial crime to detect fraud. Many financial institutions have existing pipelines to identify fraud, but adding graph based features improves accuracy. Adding <strong>connected components</strong> to identify disjoint subgraphs (seeing if there are fraud rings), <strong>PageRank</strong> to measure influence of individuals (could tell you about unusual transaction volumes, money laundering, etc.), <strong>Louvain</strong> to identify communities (looking at accounts that interact with each other really frequently in an unsupervised manner), and <strong>Jaccard</strong> to measure account similarity (who else behaves similarly to this account).</p>
+<p>This is where Neo4j is now, with early adopters. The rest of this is <em>the future</em>.</p>
+<h3>Graph embeddings</h3>
+<p><strong>Embeddings</strong> transform a graph into a vector or set of vectors that describe … something: topology, connectivity, or other attributes of nodes / edges.</p>
+<ul>
+<li><strong>vertex embeddings</strong> describe connectivity of a node</li>
+<li><strong>path embeddings</strong> describe traversals across the graph</li>
+<li><strong>graph embeddings</strong> encode an entire graph into a single vector</li>
+</ul>
+<p><a href="http://www.perozzi.net/publications/14_kdd_deepwalk.pdf">DeepWalk</a> takes random nodes, then takes random walks across the graph from those nodes, then trains a skip-gram model too generate embeddings.</p>
+<p>Case study: <a href="https://arxiv.org/pdf/1811.04540.pdf">Explainable Reasoning over Knowledge Graphs for Recommendations</a> (paper). Take a song that a user listened to and predict another based on graph walks. You train an embedding layer based on path traversals between Users and Songs, then feed those into an LSTM to come up with a prediction.</p>
+<p>Neo4j has POC versions of DeepWalk and DeepGL, which do not yet scale well at all … but they're getting there.</p>
+<h3>Graph Native Learning</h3>
+<p>Everyone knows what deep learning is … but <strong>graph native learning</strong> is when you take a graph as an input, perform computations, and return a graph. Paper: <a href="https://arxiv.org/pdf/1803.03324.pdf">Learning Deep Generative Models of Graphs</a>.</p>
+<p>Example is electron path prediction: looking at where electrons will end up based on the chemical reaction graphs … holy shit (<a href="https://arxiv.org/pdf/1805.10970.pdf">paper</a>).</p>
+
+</article>
+
+    </main>
+
+    <footer>
+        <section>
+            <p>&copy; 2019 Lorem Ipsum</p>
+            <p>
+                <a href="https://github.com/tuchandra">GitHub</a>
+                <a href="https://tusharc.dev/">Website</a>
+            </p>
+        </section>
+    </footer>
+
+</body>
+
+</html>

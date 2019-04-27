@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{ title }} - Help me what does this do?</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body id="smart_join">
+
+    <nav>
+        <section>
+            <span class="home">
+                <a href="/">Home</a>
+            </span>
+            <span class="links">
+                <a href="/blog/">Blog</a>
+                <a href="/news/">News</a>
+                <a href="/contact/">Contact</a>
+                <a href="/about/">About</a>
+            </span>
+        </section>
+    </nav>
+
+    <main>
+        <article>
+<h1><a href="/blog/smart_join/">{{ title }}</a></h1>
+<p class="meta">Published on 1970-01-01 by <b>Tushar Chandra</b></p>
+<h1>Smart Join Algorithms for Fighting Skew at Scale</h1>
+<h2>Andrew Clegg (Applied ML Group @ Yelp) - 4/24</h2>
+<p>Slides available <a href="https://drive.google.com/file/d/1D5vWUAjZBKHmF1uFT--a_U1n8nW3z9Ac/view">here</a>.</p>
+<h2>Data skew</h2>
+<p>Everyone knows the classical statistical definitions of skew, where the mean and median are very different, whatever; but we are generally interested in the more practical definitions. One example is when you have a few outliers … or maybe you have a multimodal distribution (e.g., two different sub communities, two different processes).</p>
+<p>But one area is particularly important: <strong>power law distributions</strong> (<a href="https://en.wikipedia.org/wiki/Power_law">Wikipedia</a>), which show up all the time when you're working with data from the web. You have a very <em>very</em> long tail, and a true power-law will show up linearly if you plot it on a log-log scale. Examples in nature include:</p>
+<ul>
+<li>electrostatic and graviational forces (inverse squares)</li>
+<li>distribution of earthquake magnitudes</li>
+<li>80/20 rule in the distribution of income / Pareto principle</li>
+<li>Relationship between body size and metabolism</li>
+</ul>
+<p>And then they show up in datasets that we have to deal with:</p>
+<ul>
+<li>word frequencies in natural language coprora (Zipf's law)</li>
+<li>degree distribution in social networks (referred to in the past as the &quot;Bieber problem&quot; on Twitter, lol) - this was a problem because if you're sharding by user ID, then as soon as Justin Bieber does something it becomes a problem for whatever machines are processing that action …</li>
+<li>participation inequality on wikis and forum sites (1% rule)</li>
+<li>popularity of websites and content</li>
+</ul>
+<p>But <strong>why is this a problem?</strong> Computer science has come up with solutions to common cases of this:</p>
+<ul>
+<li><strong>hot shards</strong> in databases: salt your keys, change the schema</li>
+<li><strong>slow load times</strong> for certain users: look for O(n^2) mistakes, e.g., certain users would use their shopping baskets as bookmarks and that caused some quadratic algorithm in the background to crash in the extreme case.</li>
+<li><strong>hot mappers</strong> in map-only tasks: repartition randomly</li>
+<li><strong>hot reducers</strong> during joins and aggregations: … what do …? This talk will focus on joins (aggregations could be another talk).</li>
+</ul>
+<h3>Diagnosing hot executors</h3>
+<p>Usually, you can figure this out by looking at the <em>max</em> runtime of things. The example he gave was where quartiles are 0ms / 3s / 5s / 10s / 55m, which is insane. Scheduler delay was 8ms / 14ms / 19ms / 42ms / 1.1h. We're interesting in figuring out what's happening on the tails.</p>
+<p>This turns into a cost problem; while all the executors except one are waiting for something to finish, you could be using those nodes for other problems or tasks.</p>
+<h2>Joins in Spark</h2>
+<p>Standard joins in Spark are called &quot;shuffle hash joins.&quot; Suppose you have two datasets and you want to join on some key; in order to do this, Spark shuffles the rows by key and partitions based on them. This is because each executor has to have the right rows to be able to join them together. The important point is that you can't have one key split over several executors; they all have to be colocated.</p>
+<p>That's usually fine, but when you have very skewed data things become uh oh. You'll end up with one executor that has a ton of rows and others that are just waiting on it.</p>
+<p>One way around this is a <strong>broadcast join</strong>, which avoids doing a shuffle altogether. It loads one (small) dataset into memory and broadcasts it to all the executors, so the join can just happen in memory; this becomes a <em>map-only task</em>. The problem here is that one of the datasets has to fit in memory, and it can also have reliability issues (sometimes Spark is overoptimistic about what it can broadcast, he turned autobroadcast off).</p>
+<h2>Faster joins</h2>
+<p>We really want to split a single key across multiple tasks, so what we can do is pick a <em>replication factor R</em>. In the <strong>skewed data</strong>, randomly append a number between 0 and R to the existing key, so basically you make a composite key. In the <strong>nonskewed data</strong>, replicate the rows R times and append the replica ID to the original key. Then join on the composite key.</p>
+<p>Your skewed dataframe now has the big key split up over partitions, and you have the second dataset copied around that can be joined to everything. This is no longer memory bound, so you're not limited by having to have the dataset in memory.</p>
+<pre><code class="language-python">replication_ids = f.broadcast(
+    spark.range(replication_factor).withColumnRenamed(&quot;id&quot;, &quot;replica_id&quot;)
+)
+
+# Randomly assign rows in skewed data to buckets
+skewed_data_tagged = skewed_data.withColumn(
+    &quot;composite_key&quot;, f.concat(&quot;original_id&quot;, f.lit(&quot;@&quot;), randint(replication_factor))
+)
+
+# Replicate uniform data, one copy of each row per bucket
+uniform_data_replicated = (  
+    uniform_data  
+    .crossJoin(replication_ids)  
+    .withColumn(  
+        &quot;composite_key&quot;,  f.concat(&quot;original_id&quot;, f.lit(&quot;@&quot;), &quot;replica_id&quot;)  
+    )  
+) 
+
+# Now you can join on the composite key
+joined = skewed_data_tagged.join(  
+    uniform_data_replicated,  
+    on=&quot;composite_key&quot;,  
+    how=&quot;inner&quot;
+) 
+</code></pre>
+<p>This only works for inner and left outer joins … so be careful.</p>
+<p><strong>Benchmark:</strong> Generated 100M rows with uniformly-distributed keys, and 100B rows of data with Zipf-distributed keys. A standard inner join ran for <strong>7+ hours</strong> before he killed it (on a super beefy cluster), and a 10x replicated join completed in <strong>1h16m</strong>.</p>
+<h3>Can we do better?</h3>
+<p><strong>Differential replication</strong> (which is a term he pulled out of his ass) - well, only the keys that are really common need to be replicated many times. The rare keys don't need to be replicated as much (or at all). Identify the frequent keys before replication, then use a different replication policy for those.</p>
+<p>You basically take advantage of Spark's freqItems method that lets you find the most frequent items via an approximation algorithm, which is super powerful.</p>
+<pre><code class="language-python">replication_factor_high = 50  
+replication_high = f.broadcast(  
+    spark.range(replication_factor_high).withColumnRenamed('id', 'replica_id')  
+)  
+replication_factor_low = 10  
+replication_low = f.broadcast(  
+    spark.range(replication_factor_low).withColumnRenamed('id', 'replica_id')  
+)  
+
+# Determine which keys are highly over-represented, broadcast everywhere
+top_keys = f.broadcast(  
+    skewed_data  
+    .freqItems([&quot;original_id&quot;], 0.0001)  # return keys with frequency &gt; this
+    .select(f.explode(&quot;id_freqItems&quot;).alias(&quot;id_freqItems&quot;))  
+)  
+
+uniform_data_top_keys = (
+    uniform_data
+    .join(
+        top_keys,
+        uniform_data.original_id == top_keys.id_freqItems,
+        how=&quot;inner&quot;,
+    )
+    .crossJoin(replication_high)
+    .withColumn(&quot;composite_key&quot;, f.concat(&quot;original_id&quot;, f.lit(&quot;@&quot;), &quot;replica_id&quot;))
+)
+
+uniform_data_rest = (
+    uniform_data
+    .join(
+        top_keys,
+        uniform_data.original_id == top_keys.id_freqItems,
+        how=&quot;leftanti&quot;,
+    )
+    .crossJoin(replication_low)
+    .withColumn(&quot;composite_key&quot;, f.concat(&quot;original_id&quot;, f.lit(&quot;@&quot;), &quot;replica_id&quot;))
+)
+
+# This is now the entire uniform dataset replicated differentially
+uniform_data_replicated = uniform_data_top_keys.union(uniform_data_rest)
+
+# Do the same tagging for skewed data
+skewed_data_tagged = (
+    skewed_data
+    .join(
+        top_keys,  # Remember this is broadcasted, no shuffling required
+        skewed_data.id == top_keys.id_freqItems,
+        how=&quot;left&quot;,
+    )
+    .withColumn(&quot;replica_id&quot;,
+        f.when(
+            f.isnull(f.col(&quot;id_freqItems&quot;)), randint(replication_factor_low),
+        )
+        .otherwise(randint(replication_factor_high))
+    )
+    .withColumn(&quot;composite_key&quot;, f.concat(&quot;original_id&quot;, f.lit(&quot;@&quot;), &quot;replica_id&quot;))
+)
+</code></pre>
+<p>This lets you replicate very frequent keys more often, and the nonskewed data is replicated if needed. This was a really cool example.</p>
+<p><strong>Benchmark</strong>: Generated 100M rows with uniformly-distributed keys, and 100B rows of data with Zipf-distributed keys, just like before. A 10x replicated join completed in <strong>1h16m</strong>, and the 10x/50x differential replication completed in <strong>under 1h</strong>.</p>
+<h3>Partial broadcasting</h3>
+<p>Identify the very common keys in the skewed data, then select these rows from the uniform data and broadcast join those. The rare keys are joined the traditional way (without replication), and then you can union the resulting joined DataFrames.</p>
+<p>Intuitively, this seems like a better way of dealing with the case where they are a few specific outliers that you want to single out and treat differently. Probably not better when you have a sliding scale of popularity behavior, but useful sometimes.</p>
+<h3>Dynamic replication</h3>
+<p>Get the approximate frequency of every key in the skewed data, and replicate the uniform data proportionally to the key frequency. The intuition is that you replicate by an amount somewhere on a sliding scale between the rarest and most common keys; but this can be hard to make work in practice.</p>
+<h3>Double-sided skew</h3>
+<p>Uh oh, what happens if you have two skewed datasets? The intuition is that you have two replication factors, one for each dataset, and create composite keys based off id / left_replica / right_replica … that's an ouch.</p>
+<h2>Checklist</h2>
+<p>Things to ask yourself before you do this:</p>
+<ul>
+<li>is the problem just <strong>outliers</strong>? can you safely ignore them?</li>
+<li>try the <strong>broadcast join</strong> if possible</li>
+<li><strong>look at your data</strong> to get an idea of the distributions</li>
+<li><strong>start simple</strong> with a fixed replication factor, then iterate if needed</li>
+</ul>
+<p>But this can be a really useful thing to do when broadcasts are insufficient. Wow, awesome talk.</p>
+
+</article>
+
+    </main>
+
+    <footer>
+        <section>
+            <p>&copy; 2019 Lorem Ipsum</p>
+            <p>
+                <a href="https://github.com/tuchandra">GitHub</a>
+                <a href="https://tusharc.dev/">Website</a>
+            </p>
+        </section>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{ title }} - Help me what does this do?</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body id="data_agility">
+
+    <nav>
+        <section>
+            <span class="home">
+                <a href="/">Home</a>
+            </span>
+            <span class="links">
+                <a href="/blog/">Blog</a>
+                <a href="/news/">News</a>
+                <a href="/contact/">Contact</a>
+                <a href="/about/">About</a>
+            </span>
+        </section>
+    </nav>
+
+    <main>
+        <article>
+<h1><a href="/blog/data_agility/">{{ title }}</a></h1>
+<p class="meta">Published on 1970-01-01 by <b>Tushar Chandra</b></p>
+<h1>Data Agility - A Journey to Advanced Analytics and ML at Scale</h1>
+<h2>Hari Subramanian (Eng. Manager @ Uber) - 4/25</h2>
+<p>At the time of writing the talk proposal, he was leading the &quot;big data analytics and data science workbench&quot; teams at Uber, but now he's running &quot;customer obsession engineering.&quot;</p>
+<h2>Introduction</h2>
+<p>Data-driven company - make data-driven decisions throughout the org. Their scale is millions of Uber trips daily, 2T messages processed by Kafka, 1M queries across Hive / Vertica / Presto, and 150TB of data ingested into HDFS. They're constantly at the limits of OSS, and so they often have to build their own tools (like the data platform).</p>
+<h2>Data Platform</h2>
+<p>Walked through the layers of their data platform:</p>
+<ul>
+<li>They have lots of data sources, which is where raw data comes from; tons of in-house storage infrastructure.</li>
+<li>Then ETL frameworks and data integrity to keep the data sane, enforce constraints, etc.</li>
+<li>Modeled tables and custom datasets live on top of the ETL layer, which is useful for business analysts or people with well-defined data needs.</li>
+<li>And then there are the data-driven applications: mining business insights, experimentation, and data science / machine learning. This is the data exploration, query engines, and knowledge bases.</li>
+<li>Finally, on top, are the business insights and conclusions that are for nontechnical people.</li>
+</ul>
+<p>The problem that new employees faced was that getting started with data processing was hard; everyone had their own expertise and packages, and getting access to data was (as usual) super challenging. There was no standardized environment, so lots of local analyses and local environments, and this made collaboration difficult. People transferring internally had to learn new sets of tools. People's environments different from what was happening in prod meant that challenges arose unexpectedly.</p>
+<h2>Data Science Workbench</h2>
+<p>The mission for the Data Science Workbench team was to build a platform that:</p>
+<ul>
+<li>worked for many users, and not necessarily technical ones</li>
+<li>handle the different infrastructure needs (CPUs vs. GPUs, cloud, etc.)</li>
+<li>have single window access to bring together everything instead of run four different programs</li>
+<li>met cost and compliance requirements, was secure, met GDPR, etc.</li>
+</ul>
+<p>And so DSW started as a web-based applicaiton for hosting notebooks, but now its mission is to &quot;democratize data science by enabling access to reliable infrastructure and advanced tooling in a community-driven learning environment.&quot; That's a mouthful, but wow that's great.</p>
+<h3>Today's version</h3>
+<ul>
+<li>1-click access to get started with Jupyter Notebooks or RStudio</li>
+<li>Secure access to all internal data sources, stored in multiple data centers, and GDPR compliant</li>
+<li>Pre-baked environments that meet common needs and also increase standardization</li>
+<li>Easy ways to share notebooks internally to get feedback or present results</li>
+<li>1-click Shiny dashboard publication</li>
+<li>Scalability, via various session types, machine sizes, access to compute engines</li>
+<li>Great documentation</li>
+</ul>
+<p>Some of the key features include:</p>
+<ul>
+<li><strong>interactive workspaces</strong>, for exploration, preparation, ad-hoc analyses, or model exploration</li>
+<li><strong>advanced dashboards</strong>, visualizing insights from complex analyses or dsiplaying business metrics</li>
+<li><strong>business process automations</strong>, which was not planned; but it allows them to automate complex processes, train small models, or schedule data pulls</li>
+</ul>
+<p>To the last point: each operations team across the world has different requirements (for compliance with the local laws, for reporting, for growth strategies, etc.). And DSW was able to automate a ton of operational analyses or data pulls that previously required manual work. A central engineering team was never able to do this because the requirements were so disparate, but baking in automation into DSW made it possible.</p>
+<h3>Architecture</h3>
+<p>The <strong>workbench</strong> is Shiny / Bokey, RStudio, or Jupyter. This interfaces with an <strong>application management service</strong> that lets you create / delete / search / share / publish / schedule your sessions / files / dashboards / jobs. Then there are <strong>docker containers</strong> hosting different environments on a dedicated cluster, all with access to a <strong>shared filesystem</strong>. And they have connections to all their <strong>data sources</strong>, obviously.</p>
+<h3>Problems Solved</h3>
+<p>Uber has a fairly mature data science environment; so DSW turned into a swiss army knife. If something didn't exist, data scientists would typically go into a notebook and start writing it.</p>
+<p>It helped them to enable operations folks or MBAs to do simple analyses that helped them make decisions. It seems to me that the big wins came here from reducing the barrier to entry by giving everyone access to DSW and creating useful interfaces.</p>
+<p>Business process automation is huge, which yeah good. Business analysts were able to automate analyses that were super maual before.</p>
+<p>And, of course, engineers or data scientists or researchers were able to do exploratory work, model training, and productionalization. Tons of models were built for specific problems and then deployed on DSW.</p>
+<h3>Case study</h3>
+<p>He went into a case study about the customer success team that I was only listening to, and not taking notes on.</p>
+<h2>Lessons Learned</h2>
+<p>Build tools for the experts but design for the less technical. Open up services via APIs, but keep everyone in mind when designing.</p>
+<p>Don't stop building what's known, but rather empower people to look for the unknown.</p>
+<p>Create communities with both data scientists and non-data scientists; let them work together and collaborate.</p>
+
+</article>
+
+    </main>
+
+    <footer>
+        <section>
+            <p>&copy; 2019 Lorem Ipsum</p>
+            <p>
+                <a href="https://github.com/tuchandra">GitHub</a>
+                <a href="https://tusharc.dev/">Website</a>
+            </p>
+        </section>
+    </footer>
+
+</body>
+
+</html>

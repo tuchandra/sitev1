@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{ title }} - Help me what does this do?</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body id="transfer_learning">
+
+    <nav>
+        <section>
+            <span class="home">
+                <a href="/">Home</a>
+            </span>
+            <span class="links">
+                <a href="/blog/">Blog</a>
+                <a href="/news/">News</a>
+                <a href="/contact/">Contact</a>
+                <a href="/about/">About</a>
+            </span>
+        </section>
+    </nav>
+
+    <main>
+        <article>
+<h1><a href="/blog/transfer_learning/">{{ title }}</a></h1>
+<p class="meta">Published on 1970-01-01 by <b>Tushar Chandra</b></p>
+<h1>High Performance Transfer Learning for Classifying Intent of Sales Engagement Emails: An Experimental Study</h1>
+<h2>Yong Liu (Outreach) and Corey Zumar (Databricks) - 4/24</h2>
+<h2>Data Science Research Objectives</h2>
+<p>To establish a high-performance transfer learning evaluation framework for email classification. Research questions include:</p>
+<ul>
+<li>which embeddings and pre-trained language models should we use?</li>
+<li>which transfer learning implementation strategies (feature-based vs. fine-tuning) should we use?</li>
+<li>how many labeled samples are needed?</li>
+</ul>
+<h3>Sales Engagement Platform</h3>
+<p>This is a new category of software, and where Outreach sits. It sits on top of CRMs (e.g., Salesforce, SAP, Microsoft Dynamics). SEPs encode and automate sales activities into workflows. Examples include:</p>
+<ul>
+<li>automating execution and capture of activities, which get recorded in a CRM</li>
+<li>scheduling and remidning the rep when it is time to do manual tasks</li>
+<li>enabling reps to perform 1:1 personalized outreach up to 10x faster than before</li>
+</ul>
+<h3>So why email classification?</h3>
+<p>Email content is critical to driving sales, obviously. A replier's email <em>intent</em> is much more powerful than a simple &quot;reply rate&quot; metric. If you A/B test the metrics themselves, you can pick winners even more confidently.</p>
+<p>But this is hard. You have different contexts (emails could be anywhere in the sales process from prospecting to closing) and different players (multiple audiences, multiple organizations, multiple levels of importance within an org). You also have a limited dataset, especially when factoring in privacy cnosiderations (maybe emails are so tightly locked down that it's not even possible to label them).</p>
+<h3>Which brings us to transfer learning</h3>
+<p>Because pretrained language models open the doors for high performance transfer learning (fewer training samples necessary, better accuracy, reduced training time). And we know that pretrained language models like BERT are SOTA, though it is unclear whether they can be translated to practical applications.</p>
+<h2>Experiment Setup</h2>
+<p>They used four pretrained language models:</p>
+<ul>
+<li>GloVe (2014): count-based, context-free word embeddings</li>
+<li>ELMo (2018): context-aware character-based embeddings, based on RNN</li>
+<li>Flair (2018): contextual string embeddings</li>
+<li>BERT (2018): SOTA transformer-based deep bidirectional language model, from Google</li>
+</ul>
+<p>Then they annotated their own email dataset into four categories: not sure, objection, positive, unsubscribe. The dataset is unbalanced and only has 3K examples or so.</p>
+<p>So they designed two sets of experiments, both using the feature-based and fine-tuning approaches:</p>
+<ul>
+<li>using the full set of training examples</li>
+<li>using different training sizes</li>
+</ul>
+<p>The feature-based approach tuned the last 4 layers to extract vectors, and used the uncased (small) BERT model.</p>
+<h3>Results</h3>
+<p>The first set of experiments found that BERT fine-tuning had the best F1 score, and GloVe did the best of the feature-based approaches. Classical ML models (LightGBM + TF-IDF) underperformed BERT.</p>
+<p>The second set of experiments found that BERT fine-tuning outperformed all feature-based approaches, but only when training size &gt; 300. BERT fine-tuning required 500 training examples to get F1 &gt; 0.8, whereas feature-based approaches required 2000 examples.</p>
+<h3>MLflow</h3>
+<p>They used MLflow to manage experiments and keep track of results here. Corey talked about the different components of it, which I already knew about. This was mostly just a demo of what MLflow can do.</p>
+<h2>Summary</h2>
+<p>Transfer learning using fine-tuning BERT outperformed <em>all</em> feature-based approaches that were using different embeddings … given sufficient (300+) training examples.</p>
+<p>Pretrained language models solve the cold start problem when there is very little training data; but to get F1 &gt; 0.8, you may still need 1–2K examples for a feature-based approach or 300+ for fine-tuning.</p>
+<p>MLflow enabled all of this work. Future work includes using MLflow to track what's going on in production, and not just in experiments. They are considering extending this to cross-org transfer learning, too.</p>
+
+</article>
+
+    </main>
+
+    <footer>
+        <section>
+            <p>&copy; 2019 Lorem Ipsum</p>
+            <p>
+                <a href="https://github.com/tuchandra">GitHub</a>
+                <a href="https://tusharc.dev/">Website</a>
+            </p>
+        </section>
+    </footer>
+
+</body>
+
+</html>

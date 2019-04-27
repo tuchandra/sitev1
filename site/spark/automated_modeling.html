@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{ title }} - Help me what does this do?</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body id="automated_modeling">
+
+    <nav>
+        <section>
+            <span class="home">
+                <a href="/">Home</a>
+            </span>
+            <span class="links">
+                <a href="/blog/">Blog</a>
+                <a href="/news/">News</a>
+                <a href="/contact/">Contact</a>
+                <a href="/about/">About</a>
+            </span>
+        </section>
+    </nav>
+
+    <main>
+        <article>
+<h1><a href="/blog/automated_modeling/">{{ title }}</a></h1>
+<p class="meta">Published on 1970-01-01 by <b>Tushar Chandra</b></p>
+<h1>Automating Predictive Modeling at Zynga with Pandas UDFs</h1>
+<h2>Ben Weber (Principal Data Scientist @ Zynga) - 4/25</h2>
+<p>Zynga is a mobile gaming company that has a rich portfolio of games … they have a ton of analytics folks and run an annual internal analytics conference. It brings together all of their analytics folks for knowledge sharing internally.</p>
+<ul>
+<li>analytics engineering: handling ingestion and data platform, and also live production services</li>
+<li>embedded analysts: work on product / game teams, whose job is to improve games and understand how changes might impact games</li>
+<li>central analytics: focused on publishing functions, marketing, advertising, corporate development; build data products that any team could use and plug in and scale.</li>
+</ul>
+<h2>Challenge</h2>
+<p>Their challenge is that they want to support game teams to act on their data, but they have a variety of types of games … card games have &quot;hands played&quot; but match three games have &quot;matches made&quot; but etc etc etc ...</p>
+<p>In other words, they want to build game-specific models for behaviors such as likelihood to purchase, likelihood to churn, etc., but the games have diverse event taxonomies. They have tnes tens of millions of players and dozens of games for multiple platforms.</p>
+<h2>AutoModel</h2>
+<p>Tool set: <strong>Featuretools</strong> for automating feature engineering, <strong>Pandas UDFs</strong> for distributing Featuretools, and <strong>Databricks / Pyspark</strong> for building the model pipeline.</p>
+<p>So they created <strong>AutoModel</strong>, which is their first portfolio-scale product. It generates hundreds of propensity models and powers features in their games &amp; live services. They can plug it in to any new game and have it work out of the game.</p>
+<p>The data pipeline is:</p>
+<ul>
+<li><strong>data extract</strong>, from S3 and parquet files
+<ul>
+<li>handled by their ingestion and platform team</li>
+<li>they use Spark SQL to transform this</li>
+</ul>
+</li>
+<li><strong>feature engineering</strong>, with featuretools
+<ul>
+<li>&quot;here's a deep but narrow format … we want to create a shallow but wide format that we can use later&quot;</li>
+<li>use featuretools to do this programatically and at scale</li>
+</ul>
+</li>
+<li><strong>feature application</strong>, where you take the featuretools output
+<ul>
+<li>using Pandas UDFs on Spark</li>
+</ul>
+</li>
+<li>model training using Spark ML</li>
+<li>model publish</li>
+</ul>
+<h3>Automated Feature Engineering with FeatureTools</h3>
+<p>Goals include:</p>
+<ul>
+<li>translate narrow and deep data tables into a shallow and wide representation</li>
+<li>support dozens of titles with diverse event taxonomies</li>
+<li>scale to billions of records and millions of players</li>
+<li>minimize manual data science workflows</li>
+</ul>
+<p>Instead of a data scientist saying &quot;count the number of distinct days played,&quot; they use this to automate that and much more.</p>
+<p><strong><a href="https://github.com/Featuretools/featuretools">Feature Tools</a></strong> is a library for deep feature synthesis. Represent your data as entity sets and identify feature descriptors for transforming data into new representations. They went into detail about the entity set; you have entities customers and transactions, which share a customer_id relationship … etc.</p>
+<p>Once you've done that, you can perform <strong>deep feature synthesis</strong>. It comes up with a ton of different features for you. He went on and demoed some code about how they did this.</p>
+<p>&quot;For anyone worried about GDPR, this isn't our dataset, it's a sample dataset … that's a note for our legal team.&quot; Love it.</p>
+<h3>Scaling up via Pandas UDFs</h3>
+<p>FeatureTools only works on a Pandas dataframe, so uh oh. Their options were to either (1) parallelize the process, (2) translate feature descriptions to Spark SQL, or (3) find a way to distribute the task.</p>
+<ul>
+<li>Parallelizing the process was just way too daunting to be able to do</li>
+<li>Translating to Spark SQL worked but still didn't work very well, it was still slow</li>
+<li>So they had to learn about Pandas UDFs.</li>
+</ul>
+<p><strong>Pandas UDFs</strong> were introduced in Spark 2.3, and it lets you partition the Spark DF into Pandas DFs across your cluster, do a computation, then bring it back to Spark. Each worker takes a Pandas input, runs UDFs on it, and generates a Pandas output. PyArrow does the conversion between Spark and Pandas.</p>
+<p>You can use Pandas UDFs when:</p>
+<ul>
+<li>you need to operate on Pandas data frames</li>
+<li>your data can be represented as a single Spark data frame</li>
+<li>and you can partition your dataset.</li>
+</ul>
+<p>See this <a href="https://towardsdatascience.com/automated-feature-engineering-for-predictive-modeling-d8c9fa4e478b">Towards Data Science article</a> for an example of distributing this.</p>
+<p>But then they hit a lot of issues:</p>
+<ul>
+<li>debugging is a challenge; since you're executing on worker nodes, you have to go to the Spark logs to see what's going on when an exception occurs</li>
+<li>pushing the limits of PyArrow, they found some edge cases that were open Github issues</li>
+<li>Pandas UDFs are also newer and so you're going to hit some edge case bugs</li>
+<li>data type mismatches between Pandas and Spark caused bugs, too</li>
+<li>the schema needs to be known before the UDF is computed; for them, this means they have to do a sampling step where they figure out what the schema will be after deep feature synthesis happens … but you can't just distribute DFS and go.</li>
+</ul>
+<h3>Modeling and Publishing</h3>
+<p>They use gradient boosted trees and XGBoost for classification. They tune hyperparameters with ParamGridBuilder and CrossValidator. Great, that's all standard.</p>
+<p>They publish to Couchbase for game teams to use. Then they decided to productionalize with Databricks — a driver notebook can use the jobs API to have different models running for different games in different notebooks.</p>
+<h3>Other uses of Pandas UDFs</h3>
+<p>They found out ways to distribute statsmodels, scipy, and numpy to help distribute experimentation. None of these were intended to be run on Spark, but Pandas UDFs enables this … as long as you can partition your data in some way.</p>
+<p><strong>Old approach</strong>: custom data science and engineering work for each model, months-long development process, and an ad-hoc process for productionalizing models.</p>
+<p><strong>New approach</strong>: minimal effort for building new propensity models, and no custom work for new games. Predictions are deployed to their application database. Gonna start using MLflow soon.</p>
+<p>Pandas UDFs unlock a new magnitude of processing for Python libraries. Zynga can now use Pyspark to build portfolio-scale data products.</p>
+
+</article>
+
+    </main>
+
+    <footer>
+        <section>
+            <p>&copy; 2019 Lorem Ipsum</p>
+            <p>
+                <a href="https://github.com/tuchandra">GitHub</a>
+                <a href="https://tusharc.dev/">Website</a>
+            </p>
+        </section>
+    </footer>
+
+</body>
+
+</html>

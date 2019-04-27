@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{ title }} - Help me what does this do?</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body id="query_plans">
+
+    <nav>
+        <section>
+            <span class="home">
+                <a href="/">Home</a>
+            </span>
+            <span class="links">
+                <a href="/blog/">Blog</a>
+                <a href="/news/">News</a>
+                <a href="/contact/">Contact</a>
+                <a href="/about/">About</a>
+            </span>
+        </section>
+    </nav>
+
+    <main>
+        <article>
+<h1><a href="/blog/query_plans/">{{ title }}</a></h1>
+<p class="meta">Published on 1970-01-01 by <b>Tushar Chandra</b></p>
+<h1>Understanding Query Plans and Spark UIs</h1>
+<h2>Xiao Li (Databricks) - 4/25</h2>
+<p>One of the core committers to Spark, @gatorsmile on Twitter.</p>
+<h2>Intro: how queries get executed</h2>
+<ul>
+<li>you have SQL / datasets / dataframes</li>
+<li>that turn into an unresolved logical plan via a parser</li>
+<li>that turn into a logical plan via an analyzer (and metadata catalog)</li>
+<li>that turn into an optimized logical plan via an optimizer (and cache manager)</li>
+<li>that turns into man physical plans via a planner, which uses a cost model to select one</li>
+<li>which then finally gets executed into DAGs</li>
+</ul>
+<p>In the Spark UI, you can read the parsed plan, analyzed plan, optimized plan, and physical plan. Great. How do you understand and tune them?</p>
+<h2>Understanding and tuning plans</h2>
+<p>This section is a bunch of examples followed by pieces of advice.</p>
+<h3>Read the analyzed plan to check implicit type casting</h3>
+<p>This followed an example where you got different results with a constraint <code>where x != 0</code> vs. <code>where x != 0.0</code>, due to implict type casting within the analyzed plan. His suggestion is to explicitly cast the types in your queries.</p>
+<h3>Create native tables</h3>
+<p>Not sure what this was about … create native data source tables for better performance and stability. Using something called ORC.</p>
+<h3>Collapse projects</h3>
+<p>Look out for UDFs being called multiple times in the query plan.</p>
+<pre><code>df.select(
+    some_udf(&quot;col1&quot;).alias(&quot;new_col1&quot;)
+).selectExpr(
+    &quot;new_col1&quot;,
+    &quot;new_col1 + new_col1&quot;,
+)
+
+# --&gt; causes udf to be executed three times. forgot what to do to fix this.
+</code></pre>
+<h3>Cross-session SQL cache</h3>
+<p>If a query is cached in one session, the new queries in all sessions might be impacted.</p>
+<pre><code># ?
+</code></pre>
+<h3>Join hints in Spark 3.0</h3>
+<p>They'll help you with broadcasting and … other things that I didn't see in time.</p>
+<h2>Tracking Execution in the Spark UI</h2>
+<p>A single SQL query can correspond to multiple Spark jobs: broadcast exchange, suffle exchange, subqueries, … and each Spark job is an RDD DAG.</p>
+<p>In query execution (selected physical plan —&gt; DAGs) you can see both the higher level SQL physical operators (Filter, Project, HashAggregate, Exchange, etc.) and lower level Spark RDD primitives.</p>
+<p>The Stages tab has task-specific information, letting you know how time is spent, what tasks are blocking others, how well things are balanced, etc. … each task corresponds to a partition, so maybe you have to repartition things. You can use the Duration column to see if task execution times are balanced, Input Size / Records column to look for skew in your data (based on partitioning).</p>
+<p>The Executors tab tells you about … the executors, crazy. You can see used/free memory of each executor, task time, and the size of data transferred between stages.</p>
+<p>Then he showed off how when you change <code>using parquet</code> to <code>using delta</code> you reduce write time from 8M to 27S, hahaha.</p>
+<p>Lots of resources on the last slide.</p>
+
+</article>
+
+    </main>
+
+    <footer>
+        <section>
+            <p>&copy; 2019 Lorem Ipsum</p>
+            <p>
+                <a href="https://github.com/tuchandra">GitHub</a>
+                <a href="https://tusharc.dev/">Website</a>
+            </p>
+        </section>
+    </footer>
+
+</body>
+
+</html>

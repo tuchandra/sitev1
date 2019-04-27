@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{ title }} - Help me what does this do?</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body id="explain_yourself">
+
+    <nav>
+        <section>
+            <span class="home">
+                <a href="/">Home</a>
+            </span>
+            <span class="links">
+                <a href="/blog/">Blog</a>
+                <a href="/news/">News</a>
+                <a href="/contact/">Contact</a>
+                <a href="/about/">About</a>
+            </span>
+        </section>
+    </nav>
+
+    <main>
+        <article>
+<h1><a href="/blog/explain_yourself/">{{ title }}</a></h1>
+<p class="meta">Published on 1970-01-01 by <b>Tushar Chandra</b></p>
+<h1>Explain Yourself: why you get the recommendations you do</h1>
+<h2>Niels Hanson (KPMG), Kishori Konwar (Broad Institute @ Harvard/MIT), Guohao Xiao (KPMG)</h2>
+<h2>Recommender engines</h2>
+<p>… are now essential tools for personalizing the web, but there's a huge problem with explainable recommendations. There is a growing need for transparency, but most models are viewed as black boxes. We should be striving for models that are both effective and understandable.</p>
+<p>This talk is about explaining recommendations from the ALS Recommender model in Spark ML.</p>
+<p>There are two ways to develop a recommender system: <strong>collaborative filtering</strong> which looks at user / item interactions (&quot;you're starting to look like somebody who consumes these kinds of things …&quot;) and <strong>content-based filtering</strong> which recommends items that are similar to other items. Collaborative filtering has the cold-start problem (what do you recommend to a new person?) but content-based filtering makes it difficult to move beyond the starting point.</p>
+<p>They are often combined to form <strong>hybrid recommender systems.</strong></p>
+<h2>Matrix-based collaborative filtering</h2>
+<p>This is the most widely used recommender model; try to predict missing values of the user-item matrix by decomposing the matrix into latent factors, whcih represent general trends of user-item consumption. This is also the model implemented in <a href="https://spark.apache.org/docs/2.4.0/ml-collaborative-filtering.html">Spark ML</a>.</p>
+<p>The model has a number of tuneable factors: rank (number of factors to fit), lambda (regularization parameter), alpha (confidence on user data), model type (is user interaction actively given or inferred from observations).</p>
+<p>An overlooked aspect is that implicit factors capture tons of information about how customers consume products:</p>
+<ul>
+<li>you can find users and items with similar consumption patterns easily; similar users will have similar user factors, similar items will have similar item factors</li>
+<li>Grouping users might inform advertising campaigns around interests</li>
+<li>Grouping items might inform cross-selling initiatives</li>
+</ul>
+<h2>User-specific item spaces</h2>
+<p>They propose a <strong>user-specific item space</strong> where you create a linear mapping $$W^u$$ that linearly tarnsforms item similarities based on the user's interests $$C^u$$. Holy linear algebra! OK, time to stop trying to write down everything on the slide and actually understand.</p>
+<p>For a runner, you might warp their itemspace so that there is more distance between the running shoes, and move the musical instruments closer together. Do the opposite weighting for a musician. But why?</p>
+<p>The user-specific item-space allows you to decompose recommendations into their component parts; decomposing the recommended value into the sum of the distances (within the space) as weightings times the scores. Now you can say &quot;you got this recommendation because you clicked on this, bought this, and added this to your cart.&quot;</p>
+<p>This lets you decompose recommendations!</p>
+<ul>
+<li>relative numbers explain which items have a strong influence over specific recommendations</li>
+<li>absolute numbers let us look at items that drive popular recommendations in general</li>
+<li>and gives intuition about how CF works</li>
+<li>lets you add new prior information or perform man-in-the-middle corrections</li>
+</ul>
+<p>They created a new class ALSExplain that lets you do this on the SparkML ALS implementation, and they've made a PR against Spark itself to add this in. They showed a demo of how this works on the MovieLens dataset, why someone would be recommended <em>Home Alone</em> or <em>Fight Club</em>.</p>
+<h2>Future work</h2>
+<p>Currently ALSExplain only generates recommendations and decomposition scores without explicitly generating the full user-specific item-item matrix; it does it for the recommendations only. This might be interesting, but performance.</p>
+<p>Performance improvements can come — approximations to the matrix inverse and sparse matrix algorithms.</p>
+<p>Their proposed code design is their first attempt to change Spark ML, so they've gotta work with the community on that.</p>
+<p>And the ALS paper is 10 years old, but this wasn't implemented in Spark! They want to explore generating explainable recommendations from more complex models (autoencoders, feed-forward neural nets, etc.). The paper they've been referencing just has this in the back!</p>
+
+</article>
+
+    </main>
+
+    <footer>
+        <section>
+            <p>&copy; 2019 Lorem Ipsum</p>
+            <p>
+                <a href="https://github.com/tuchandra">GitHub</a>
+                <a href="https://tusharc.dev/">Website</a>
+            </p>
+        </section>
+    </footer>
+
+</body>
+
+</html>
