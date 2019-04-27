@@ -163,12 +163,10 @@ def main():
     # Load layouts.
     page_layout = fread(Path("layout/page.html"))
     post_layout = fread(Path("layout/post.html"))
-    list_layout = fread(Path("layout/list.html"))
-    item_layout = fread(Path("layout/item.html"))
+    item_layout = fread(Path("layout/item.html"))  # not used right now
 
     # Combine layouts to form final layouts.
     post_layout = render(page_layout, content=post_layout)
-    list_layout = render(page_layout, content=list_layout)
 
     # Create site pages.
     make_pages(Path("content/[!_]*.html"), "site/{{ slug }}.html", page_layout, **params)
