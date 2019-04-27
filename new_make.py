@@ -141,10 +141,10 @@ def make_list(posts, dst, list_layout, item_layout, **params):
 
 
 def main():
-    if Path("./_site").is_dir():
-        shutil.rmtree("_site")
+    if Path("./site").is_dir():
+        shutil.rmtree("site")
 
-    shutil.copytree("static", "_site")
+    shutil.copytree("static", "site")
 
     # Default parameters.
     params: Dict[str, str] = {
@@ -177,7 +177,7 @@ def main():
     # Create blogs.
     blog_posts = make_pages(
         Path("content/blog/*.md"),
-        "_site/blog/{{ slug }}/index.html",
+        "site/blog/{{ slug }}/index.html",
         post_layout,
         blog="blog",
         **params,
@@ -186,7 +186,7 @@ def main():
     # Create blog list pages.
     make_list(
         blog_posts,
-        "_site/blog/index.html",
+        "site/blog/index.html",
         list_layout,
         item_layout,
         blog="blog",
@@ -195,7 +195,7 @@ def main():
     )
 
     # Copy contents to root directory
-    # dir_util.copy_tree("_site", "./", update=1)
+    # dir_util.copy_tree("site", "./", update=1)
 
 
 # Test parameter to be set temporarily by unit tests.
