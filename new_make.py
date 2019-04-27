@@ -95,8 +95,11 @@ def render(template: str, **params) -> str:
     )
 
 
-def make_pages(src: Path, template: str, layout: str, **params):
-    """Generate pages from page content."""
+def make_pages(src: Path, dst: str, layout: str, **params):
+    """Generate pages from page content.
+    
+    dst: optionally renderable string for destination page, i.e., you can include {{ parameters }} in it.
+    """
 
     items = []
 
@@ -110,7 +113,7 @@ def make_pages(src: Path, template: str, layout: str, **params):
 
         items.append(content)
 
-        dst_path = render(template, **page_params)
+        dst_path = render(dst, **page_params)
         output = render(layout, **page_params)
 
         log("Rendering {} => {} ...", src_path, dst_path)
@@ -168,8 +171,8 @@ def main():
     list_layout = render(page_layout, content=list_layout)
 
     # Create site pages.
-    make_pages(Path("content/index.html"), "_site/index.html", page_layout, **params)
-    make_pages(Path("content/[!_]*.html"), "_site/{{ slug }}/index.html", page_layout, **params)
+    make_pages(Path("content/[!_]*.html"), "site/{{ slug }}.html", page_layout, **params)
+    make_pages(Path("content/[!_]*.md"), "site/{{ slug }}.html", page_layout, **params)
 
     # Create blogs.
     blog_posts = make_pages(
