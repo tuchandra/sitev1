@@ -5,10 +5,8 @@ import commonmark
 from pathlib import Path
 from typing import Dict, Generator, Tuple
 
-import os
 import shutil
 import re
-import glob
 import sys
 
 
