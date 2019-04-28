@@ -34,12 +34,6 @@ def log(msg: str, *args):
     sys.stderr.write(msg.format(*args) + "\n")
 
 
-def truncate(text: str, words: int = 25):
-    """Remove tags and truncate text to the specified number of words."""
-
-    return " ".join(re.sub("(?s)<.*?>", " ", text).split()[:words])
-
-
 def read_headers(text: str) -> Generator[Tuple[str, str, int], None, None]:
     """Parse headers in text and yield (key, value, end-index) tuples.
 
@@ -57,19 +51,12 @@ def read_content(filename: Path) -> Dict[str, str]:
     """Read content and metadata from file into a dictionary."""
 
     text = fread(filename)
+    content = {"slug": filename.stem}
 
-    # Read metadata and save it in a dictionary.
-    match = re.search(r"^(?:(\d\d\d\d-\d\d-\d\d)-)?(.+)$", filename.stem)
-    if not match:
-        raise FileNotFoundError
-    content = {"date": match.group(1) or "1970-01-01", "slug": match.group(2)}
-
-    # Read headers.
+    # Read headers from top of file, then separate out the rest of the text
     end = 0
     for key, val, end in read_headers(text):
         content[key] = val
-
-    # Separate content from headers.
     text = text[end:]
 
     # Convert Markdown content to HTML.
@@ -96,25 +83,22 @@ def make_pages(src: str, dst: str, layout: str, **params):
     dst: optionally renderable string for destination page, i.e., you can include {{ parameters }} in it.
     """
 
-    items = []
-
     for src_path in glob.glob(src):
+        # Read content and metadata from source
         content = read_content(Path(src_path))
         page_params = dict(params, **content)
 
         rendered_content = render(page_params["content"], **page_params)
         page_params["content"] = rendered_content
-        content["content"] = rendered_content
 
-        items.append(content)
-
+        # Render the destination path, then render the output, then write the output to the file
         dst_path = render(dst, **page_params)
         output = render(layout, **page_params)
 
         log("Rendering {} => {} ...", src_path, dst_path)
         fwrite(Path(dst_path), output)
 
-    return sorted(items, key=lambda x: x["date"], reverse=True)
+    return
 
 
 def main():
@@ -137,10 +121,6 @@ def main():
     make_pages("content/[!_]*.html", "site/{{ slug }}.html", page_layout, **params)
     make_pages("content/[!_]*.md", "site/{{ slug }}.html", page_layout, **params)
     make_pages("content/spark/*.md", "site/spark/{{ slug }}.html", page_layout, **params)
-
-
-# Test parameter to be set temporarily by unit tests.
-_test = None
 
 
 if __name__ == "__main__":
