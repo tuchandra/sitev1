@@ -2,7 +2,6 @@
 
 import commonmark
 
-
 from pathlib import Path
 from typing import Dict, Generator, Tuple
 
@@ -23,7 +22,7 @@ def fread(filename: Path) -> str:
 def fwrite(filename: Path, text: str):
     """Write content to file and close the file."""
 
-    filename.parent.mkdir(exist_ok=True)
+    filename.parent.mkdir(exist_ok=True, parents=True)
     with open(filename, "w") as f:
         f.write(text)
 
@@ -77,28 +76,42 @@ def render(template: str, **params) -> str:
     )
 
 
-def make_pages(src: str, dst: str, layout: str, **params):
-    """Generate pages from page content.
+def make_page(src: Path, dst: Path, layout: str, **params):
+    """Render one output page
     
-    dst: optionally renderable string for destination page, i.e., you can include {{ parameters }} in it.
+    src: a file, either HTML or Markdown, and notably not a directory.
+    dst: the output directory for the page (the filename will be generated automatically)
     """
 
-    for src_path in glob.glob(src):
-        # Read content and metadata from source
-        content = read_content(Path(src_path))
-        page_params = dict(params, **content)
+    # Read content and metadata from source
+    content = read_content(src)
+    page_params = dict(params, **content)
 
-        rendered_content = render(page_params["content"], **page_params)
-        page_params["content"] = rendered_content
+    rendered_content = render(page_params["content"], **page_params)
+    page_params["content"] = rendered_content
 
-        # Render the destination path, then render the output, then write the output to the file
-        dst_path = render(dst, **page_params)
-        output = render(layout, **page_params)
+    # Render the destination path, then render the output, then write the output to the file
+    dst_renderable = Path(dst) / "{{ slug }}.html"
+    dst_path = render(dst_renderable.as_posix(), **page_params)
+    output = render(layout, **page_params)
 
-        log("Rendering {} => {} ...", src_path, dst_path)
-        fwrite(Path(dst_path), output)
+    log("Rendering {} => {} ...", src, dst_path)
+    fwrite(Path(dst_path), output)
 
-    return
+
+def make_pages(src: Path, dst: Path, layout: str, **params):
+    """Generate output pages from given content.
+    
+    src should be a directory from which to render pages; this will render all top-level pages but not
+    work recursively.
+    """
+
+    for src_path in src.iterdir():
+        if src_path.is_dir():
+            dst = dst / src_path.stem
+            return make_pages(src_path, dst, layout, **params)
+
+        make_page(src_path, dst, layout, **params)
 
 
 def main():
@@ -117,10 +130,7 @@ def main():
     }
 
     page_layout = fread(Path("layout/page.html"))
-
-    make_pages("content/[!_]*.html", "site/{{ slug }}.html", page_layout, **params)
-    make_pages("content/[!_]*.md", "site/{{ slug }}.html", page_layout, **params)
-    make_pages("content/spark/*.md", "site/spark/{{ slug }}.html", page_layout, **params)
+    make_pages(Path("content/"), Path(params["base_path"]), page_layout, **params)
 
 
 if __name__ == "__main__":
