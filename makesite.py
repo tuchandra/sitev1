@@ -1,4 +1,4 @@
-"""Generate my static website with Python"""
+"""Generate my static website with Python; adapted from https://github.com/sunainapai/makesite"""
 
 import commonmark
 
@@ -44,6 +44,17 @@ def read_headers(text: str) -> Generator[Tuple[str, str, int], None, None]:
         yield match.group(1), match.group(2), match.end()
 
 
+def get_title(text: str) -> str:
+    """Get the title (first top-level heading line) from a Markdown file"""
+
+    lines = text.splitlines()
+    for line in lines:
+        if line.startswith("#"):
+            return line.replace("#", "").strip()
+
+    return ""
+
+
 def read_content(filename: Path) -> Dict[str, str]:
     """Read content and metadata from file into a dictionary."""
 
@@ -56,9 +67,10 @@ def read_content(filename: Path) -> Dict[str, str]:
         content[key] = val
     text = text[end:]
 
-    # Convert Markdown content to HTML: parse the Markdown and then replace any links to other Markdown
-    # files with ones to the generated HTML files
+    # Convert Markdown content to HTML: get the title from the original text, then parse the Markdown
+    # as HTML, then replace any links to other Markdown files with ones to the generated HTML files
     if filename.suffix in (".md", ".mkd", ".mkdn", ".mdown", ".markdown"):
+        content["title"] = get_title(text)
         text = commonmark.commonmark(text)
         text = re.sub(
             r'<a href="([\w\d\s]+).md">', lambda match: f'<a href="{match.group(1)}.html">', text
