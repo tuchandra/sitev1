@@ -6,7 +6,7 @@
 /* Body */
 html {
   font-size: 62.5%;
-  font-family: serif; }
+  font-family: Geneva, sans-serif; }
 
 body {
   font-size: 1.8rem;
@@ -55,6 +55,11 @@ h5 {
 
 h6 {
   font-size: 1em; }
+
+footer {
+  font-size: 1.4rem;
+  padding-top: 2rem;
+  line-height: 1.618; }
 
 small, sub, sup {
   font-size: 75%; }

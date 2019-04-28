@@ -95,7 +95,7 @@ def render(template: str, **params) -> str:
     )
 
 
-def make_pages(src: Path, dst: str, layout: str, **params):
+def make_pages(src: str, dst: str, layout: str, **params):
     """Generate pages from page content.
     
     dst: optionally renderable string for destination page, i.e., you can include {{ parameters }} in it.
@@ -103,7 +103,7 @@ def make_pages(src: Path, dst: str, layout: str, **params):
 
     items = []
 
-    for src_path in glob.glob(src.as_posix()):
+    for src_path in glob.glob(src):
         content = read_content(Path(src_path))
         page_params = dict(params, **content)
 
@@ -122,24 +122,6 @@ def make_pages(src: Path, dst: str, layout: str, **params):
     return sorted(items, key=lambda x: x["date"], reverse=True)
 
 
-def make_list(posts, dst, list_layout, item_layout, **params):
-    """Generate list page for a blog."""
-
-    items = []
-    for post in posts:
-        item_params = dict(params, **post)
-        item_params["summary"] = truncate(post["content"])
-        item = render(item_layout, **item_params)
-        items.append(item)
-
-    params["content"] = "".join(items)
-    dst_path = render(dst, **params)
-    output = render(list_layout, **params)
-
-    log("Rendering list => {} ...", dst_path)
-    fwrite(Path(dst_path), output)
-
-
 def main():
     if Path("./site").is_dir():
         shutil.rmtree("site")
@@ -148,37 +130,18 @@ def main():
 
     # Default parameters.
     params: Dict[str, str] = {
-        "base_path": "",
-        "subtitle": "Help me what does this do?",
+        "base_path": "site",
+        "subtitle": "Tushar Chandra",
         "author": "Tushar Chandra",
         "site_url": "tusharc.dev",
         "current_year": "2019",
     }
 
-    # If params.json exists, load it.
-    params_path = Path("params.json")
-    if params_path.exists():
-        params.update(json.loads(fread(params_path)))
-
-    # Load layouts.
     page_layout = fread(Path("layout/page.html"))
-    post_layout = fread(Path("layout/post.html"))
-    item_layout = fread(Path("layout/item.html"))  # not used right now
 
-    # Combine layouts to form final layouts.
-    post_layout = render(page_layout, content=post_layout)
-
-    # Create site pages.
-    make_pages(Path("content/[!_]*.html"), "site/{{ slug }}.html", page_layout, **params)
-    make_pages(Path("content/[!_]*.md"), "site/{{ slug }}.html", page_layout, **params)
-
-    # Create Spark summit notes
-    spark_notes = make_pages(
-        Path("content/spark/*.md"), "site/spark/{{ slug }}.html", post_layout, **params
-    )
-
-    # Copy contents to root directory
-    # dir_util.copy_tree("site", "./", update=1)
+    make_pages("content/[!_]*.html", "site/{{ slug }}.html", page_layout, **params)
+    make_pages("content/[!_]*.md", "site/{{ slug }}.html", page_layout, **params)
+    make_pages("content/spark/*.md", "site/spark/{{ slug }}.html", page_layout, **params)
 
 
 # Test parameter to be set temporarily by unit tests.
