@@ -1,6 +1,7 @@
 # How Graph Technology is Changing AI
 
-## Jake Graham and Alicia Frame (Neo4j) - 4/24
+Jake Graham and Alicia Frame (Neo4j) - 4/24
+___
 
 ## Introduction
 
