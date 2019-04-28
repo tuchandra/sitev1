@@ -1,6 +1,7 @@
 # Defending Deep Learning from Adversarial Attacks
 
-## Animesh Singh and Svetlana Levitan (IBM) - 4/25
+Animesh Singh and Svetlana Levitan (IBM) - 4/25
+___
 
 They work at the "center for open source data and AI technologies" @ IBM.
 

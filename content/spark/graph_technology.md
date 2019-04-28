@@ -1,4 +1,3 @@
-<!-- title: How Graph Technology is Changing AI -->
 # How Graph Technology is Changing AI
 
 Jake Graham and Alicia Frame (Neo4j) - 4/24

@@ -1,6 +1,7 @@
 # Understanding Query Plans and Spark UIs
 
-## Xiao Li (Databricks) - 4/25
+Xiao Li (Databricks) - 4/25
+___
 
 One of the core committers to Spark, @gatorsmile on Twitter.
 

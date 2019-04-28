@@ -1,6 +1,7 @@
 # Explain Yourself: why you get the recommendations you do
 
-## Niels Hanson (KPMG), Kishori Konwar (Broad Institute @ Harvard/MIT), Guohao Xiao (KPMG)
+Niels Hanson (KPMG), Kishori Konwar (Broad Institute @ Harvard/MIT), Guohao Xiao (KPMG)
+___
 
 ## Recommender engines
 

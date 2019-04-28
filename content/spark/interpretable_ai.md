@@ -1,6 +1,7 @@
 # Beyond reason codes: a blueprint for human-centered, low-risk ML
 
-## Patrick Hall (H2O.ai) - 4/24
+Patrick Hall (H2O.ai) - 4/24
+___
 
 ## The ML Lifecycle
 

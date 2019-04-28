@@ -1,6 +1,7 @@
 # Modular Apache Spark: Transform Your Code into Pieces
 
-## Albert Franzi (SWE @ Alpha Health) - 4/25
+Albert Franzi (SWE @ Alpha Health) - 4/25
+___
 
 Slides available [here](https://docs.google.com/presentation/d/19XWds36PwDeYQw3A9UwaRBZvDi5g2p79-9aljEWHknI/edit#slide=id.g41055d5fd6_0_62). The audience was 60–70% data engineers, remainder data scientists and random others.
 

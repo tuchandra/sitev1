@@ -1,6 +1,7 @@
 # Moving a Fraud-fighting random forest from sklearn to Spark with ML, MLflow, and Jupyter
 
-## Josh Johnston (Director of AI Science @ Kount) - 4/24
+Josh Johnston (Director of AI Science @ Kount) - 4/24
+___
 
 ## Data science lifecycle
 

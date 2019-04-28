@@ -1,6 +1,7 @@
 # Smart Join Algorithms for Fighting Skew at Scale
 
-## Andrew Clegg (Applied ML Group @ Yelp) - 4/24
+Andrew Clegg (Applied ML Group @ Yelp) - 4/24
+___
 
 Slides available [here](https://drive.google.com/file/d/1D5vWUAjZBKHmF1uFT--a_U1n8nW3z9Ac/view).
 

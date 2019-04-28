@@ -1,6 +1,7 @@
 # High Performance Transfer Learning for Classifying Intent of Sales Engagement Emails: An Experimental Study
 
-## Yong Liu (Outreach) and Corey Zumar (Databricks) - 4/24
+Yong Liu (Outreach) and Corey Zumar (Databricks) - 4/24
+___
 
 ## Data Science Research Objectives
 

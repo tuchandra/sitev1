@@ -1,6 +1,7 @@
 # Data Agility - A Journey to Advanced Analytics and ML at Scale
 
-## Hari Subramanian (Eng. Manager @ Uber) - 4/25
+Hari Subramanian (Eng. Manager @ Uber) - 4/25
+___
 
 At the time of writing the talk proposal, he was leading the "big data analytics and data science workbench" teams at Uber, but now he's running "customer obsession engineering."
 

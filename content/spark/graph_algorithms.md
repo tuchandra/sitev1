@@ -1,5 +1,7 @@
 # Predicting communities via graph algorithms
-## Amy Holder and Soren Reichardt (Neo4j) - 4/24
+
+Amy Holder and Soren Reichardt (Neo4j) - 4/24
+___
 
 ## Intro
 Graphs are everywhere; anything with connections can be represented as a graph. And for them, graphs drive innovation. One of the questions they get is "is this a graph analytics problem?"

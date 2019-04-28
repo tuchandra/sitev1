@@ -1,6 +1,7 @@
 # Automating Predictive Modeling at Zynga with Pandas UDFs
 
-## Ben Weber (Principal Data Scientist @ Zynga) - 4/25
+Ben Weber (Principal Data Scientist @ Zynga) - 4/25
+___
 
 Zynga is a mobile gaming company that has a rich portfolio of games … they have a ton of analytics folks and run an annual internal analytics conference. It brings together all of their analytics folks for knowledge sharing internally.
 
