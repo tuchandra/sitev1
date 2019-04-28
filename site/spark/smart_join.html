@@ -29,8 +29,8 @@
     <main>
         <h1>Smart Join Algorithms for Fighting Skew at Scale</h1>
 <p>Andrew Clegg (Applied ML Group @ Yelp) - 4/24</p>
-<hr />
 <p>Slides available <a href="https://drive.google.com/file/d/1D5vWUAjZBKHmF1uFT--a_U1n8nW3z9Ac/view">here</a>.</p>
+<hr />
 <h2>Data skew</h2>
 <p>Everyone knows the classical statistical definitions of skew, where the mean and median are very different, whatever; but we are generally interested in the more practical definitions. One example is when you have a few outliers … or maybe you have a multimodal distribution (e.g., two different sub communities, two different processes).</p>
 <p>But one area is particularly important: <strong>power law distributions</strong> (<a href="https://en.wikipedia.org/wiki/Power_law">Wikipedia</a>), which show up all the time when you're working with data from the web. You have a very <em>very</em> long tail, and a true power-law will show up linearly if you plot it on a log-log scale. Examples in nature include:</p>
