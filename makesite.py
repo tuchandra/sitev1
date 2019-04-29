@@ -114,10 +114,11 @@ def make_page(src: Path, dst: Path, layout: str, **params):
 
 
 def make_pages(src: Path, dst: Path, layout: str, **params):
-    """Generate output pages from given content.
-    
-    src should be a directory from which to render pages; this will render all top-level pages but not
-    work recursively.
+    """Recursively generate output pages from given source, destination, and layout
+
+    src: directory of HTML / MD files from which to render pages
+    dst: target directory where rendered pages should go
+    layout: page layout, stored as renderable string
     """
 
     for src_path in src.iterdir():
