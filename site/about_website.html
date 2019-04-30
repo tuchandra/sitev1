@@ -56,10 +56,8 @@
 <p>After static site generators seemed to be overkill, I started searching for more basic solutions. One stuck out: makesite.py (<a href="https://github.com/sunainapai/makesite">Github link</a>), which described itself as a &quot;simple, lightweight, and magic-free static site/blog generator for Python coders.&quot; I know Python well, and this seemed easy enough to understand. Sounded great!</p>
 <p>This turned out to be awesome: write in Markdown, run the script, have it all render as HTML. It sounded dead simple, and yet I still didn't need everything that this offered me. But I figured that this was as simple as I was going to find online, so I dove into the code and started stripping things down myself. Let's walk through some of the changes that I made:</p>
 <ul>
-<li>removed everything to do with RSS feeds, since I don't anticipate anyone adding my blog to their RSS reader</li>
-<li>removed three of the four custom page layouts, since I expect every page to have the same one</li>
-<li>removed everything to do with date parsing, since it was not needed after the two points above this</li>
-<li>removed optional configuration from a <code>params.json</code> file, since I can just specify parameters in code</li>
+<li>removed everything to do with RSS feeds, three custom page layouts, and date parsing</li>
+<li>removed optional config from a <code>params.json</code> file, since I can just specify parameters in code</li>
 <li>added code to get the title of a Markdown file as the first top-level heading, since otherwise you had to specify it with a redundant <code>&lt;!-- title: Name of Post --&gt;</code> comment</li>
 <li>added code to replace links to Markdown pages with links to their generated HTML pages, since otherwise you get broken links</li>
 <li>removed the try/except logic surrounding the optional commonmark dependency, since I definitely need it</li>
