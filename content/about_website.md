@@ -1,29 +1,61 @@
 # How I built this website
-You may notice that the [Github repo](https://github.com/tuchandra/tuchandra.github.io) for this website has a tagline "... for people who aren't web developers." I most certainly fit that description, and so I'm going to talk about my very simple website structure.
+You may have noticed that the [Github repo](https://github.com/tuchandra/tuchandra.github.io) for this website has a tagline "... for people who *aren't* web developers." I am a data scientist and certainly fit that description, and so I'm going to talk about how I built this site using the tools I already know.
+
+This website is hosted on Github Pages, which means its source is available in the repo above. I write posts in Markdown and render them via a 150-line Python script (`python makesite.py`) which lives in the repo. Deploying my website is as simple as pushing my changes. Sounds simple, right? It is.
 
 ## Motivation
-My requirements were simple; all I *really* needed was a website that I could give to others that had basic things like my contact information, a web version of my resume, and some blog posts. I wanted to be able to write posts in Markdown and have them render as HTML. I wanted minimal styling to make the whole thing look nice. And, whatever tool I chose, I didn't want it to do more than necessary.
+My requirements are simple, and can be boiled down to a website that:
+ * has basic, static content like my contact info, my resume, and some blog posts
+ * lets me write blog posts in Markdown
+ * uses minimal styling to make everything look nice
+ * does not use JavaScript at all
+
+In short, I don't need anything fancy. Notably, I also want my toolchain to have a similar degree of simplicity.
+
+This post isn't about setting up a Github Pages site, or about hooking up your domain name to it. I followed some tutorial a month ago, and while I don't remember the exact one, [any](https://dev.to/trentyang/how-to-setup-google-domain-for-github-pages-1p58) [of](https://hackernoon.com/use-custom-domain-with-github-pages-2-straightforward-steps-cf561eee244f) [these](https://medium.com/employbl/launch-a-website-with-a-custom-url-using-github-pages-and-google-domains-3dd8d90cc33b) should probably work.
 
 ## Static site generators
-So, like any programmer, I started Googling for solutions. Common **static site generators** like [Jekyll](https://jekyllrb.com/), [Gatsby](https://www.gatsbyjs.org/), or [Hugo](https://gohugo.io/) are seriously impressive. They offer things like:
+Like any programmer, I started by Googling for solutions that did what I wanted. The term "static site generator" captured what I wanted, and I came across common ones like [Jekyll](https://jekyllrb.com/), [Gatsby](https://www.gatsbyjs.org/), or [Hugo](https://gohugo.io/). These were seriously impressive, offering things like:
  * easy installation via NPM
  * being able to pull data from multiple sources
  * hundreds of themes
  * powerful templating syntax
  * and much, much, more
 
-... but I don't need any of it. I didn't want to have to manage an NPM installation on the basic Chromebook from which I'm writing this. I don't even *know* React, and though my roommate loves it, I don't need it to build my simple website. And the idea of a [static site generator rendering pages entirely in JS](https://old.reddit.com/r/programming/comments/adbu86/why_medium_is_no_longer_the_goto_platform_for/edfyuj4/?context=2) sounded like an oxymoron to me -- nothing on my site even needs JS.
+... and I didn't need any of it.
 
-Note that I'm not trying to rag on these technologies -- rather the opposite. I know React is super powerful, and that you can do almost anything in it, and that's exactly why I know I don't need it. I am a firm believer in not overengineering, and so throughout this whole progress I intentionally avoided solutions that would be overkill for this simple website.
+I don't want to have to manage an NPM installation on the Chromebook from which I'm writing this. I don't even *know* React, and though my roommate loves it, I am certain that I don't need to learn it just to build this simple website. And the idea of a [static site generator rendering pages entirely in JavaScript](https://old.reddit.com/r/programming/comments/adbu86/why_medium_is_no_longer_the_goto_platform_for/edfyuj4/?context=2) still sounds like an oxymoron to me -- again, nothing on my site even *needs* JS.
 
-## Finding puzzle pieces
-So I took another approach: what smaller pieces did I need to bring this together?
+Please do note that I'm not trying to hate on these technologies -- rather the opposite. I know that React is incredibly powerful, and that much of the modern web is built in it, and that it can do almost anything. All of those are exactly the reasons why I *don't* want it. I am a firm believer in not overengineering; when my requirements are minimal and well-defined, I don't need the flexibility or features that a powerful SSG offers me. Put another way, the abstraction that SSGs introduce create unnecessary complexity.
 
-### sakura.css
-I came across [sakura.css](https://github.com/oxalorg/sakura), which described itself as a "minimal classless CSS theme." You just drop it in your folder and include it in your HTML files, and everything magically gets prettier. Perfect!
+## Another approach: makesite.py
+After static site generators seemed to be overkill, I started searching for more basic solutions. One stuck out: makesite.py ([Github link](https://github.com/sunainapai/makesite)), which described itself as a "simple, lightweight, and magic-free static site/blog generator for Python coders." I know Python well, and this seemed easy enough to understand. Sounded great!
 
-At the time of writing, I am using a [modified version](https://github.com/tuchandra/tuchandra.github.io/blob/master/static/sakura.css) of sakura.css - I made the headings smaller, used a sans-serif font, and moved the footer a bit lower. The file being so simple allowed me to change this easily!
+This turned out to be awesome: write in Markdown, run the script, have it all render as HTML. It sounded dead simple, and yet I still didn't need everything that this offered me. But I figured that this was as simple as I was going to find online, so I dove into the code and started stripping things down myself. Let's walk through some of the changes that I made:
+ * removed everything to do with RSS feeds, since I don't anticipate anyone adding my blog to their RSS reader
+ * removed three of the four custom page layouts, since I expect every page to have the same one
+ * removed everything to do with date parsing, since it was not needed after the two points above this
+ * removed optional configuration from a `params.json` file, since I can just specify parameters in code
+ * added code to get the title of a Markdown file as the first top-level heading, since otherwise you had to specify it with a redundant `<!-- title: Name of Post -->` comment
+ * added code to replace links to Markdown pages with links to their generated HTML pages, since otherwise you get broken links
+ * removed the try/except logic surrounding the optional commonmark dependency, since I definitely need it
 
-### makesite.py
+I also used some newer features of Python that I encourage everyone to check out:
+ * used [Pathlib](https://docs.python.org/3/library/pathlib.html) where I could; it's great to be able to distinguish between strings and paths
+ * added [type hints](https://www.python.org/dev/peps/pep-0484/) to my function signatures; a [static type checker](http://mypy-lang.org/) catches bugs ahead of time
+ * I used [Poetry](https://github.com/sdispater/poetry/) for environment management, since I like it better than basic virtualenvs or pipenv, and I don't have conda on my Chromebook
 
+Finally, I cleaned up the main function `make_pages` to be considerably simpler. I wanted to throw everything into a `content` directory and have my generated site retain that structure, so I wrote a dead-simple recursion to take care of it for me.
 
+### sakura.css - minimal, classless CSS
+I came across [sakura.css](https://github.com/oxalorg/sakura), which described itself as a "minimal classless CSS theme." In theory, you drop it in your folder, include it in your HTML files, and everything magically gets prettier. In practice, that's exactly what happened; I added the file to my `static` folder and updated the template, and that was it.
+
+My site uses a slightly modified version of this file -- I used a sans-serif font, made the headings smaller, and moved the footer a little lower. CSS is one of the things that I appreciate and respect, but, as a data scientist, also dread working with. Having a single, easy to modify file made applying a theme to my site painless.
+
+### Workflow
+The entire `makesite.py` script is just over 150 lines of code, including comments and whitespace, and it handles my use case flawlessly. See the source [here](https://github.com/tuchandra/tuchandra.github.io/blob/master/makesite.py).
+
+I can write my blog posts in Markdown -- see the [source of this page](https://github.com/tuchandra/tuchandra.github.io/blob/master/content/about_website.md) for an example -- and then type `poetry run python makesite.py` to generate the `site/` directory. Because the entire repo is hosted on Github Pages, the rendered website actually lives at tusharc.dev/site; to get around this, the [base index.html](https://github.com/tuchandra/tuchandra.github.io/blob/master/index.html) in my home directory just redirects to that page.
+
+## Wrapping up
+This post describes how I wrote my own minimal website by using an equally minimal set of tools. While I'm still working on adding content to my website, it feels great knowing that I can write in Markdown, run a Python script, and have everything *just work*. For the Python programmer out there who has no experience with the web, I promise that it's not all NPM hell and React apps -- you can build your own nice-looking site with the tools you already know!
