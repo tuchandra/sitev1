@@ -123,8 +123,8 @@ def make_pages(src: Path, dst: Path, layout: str, **params):
 
     for src_path in src.iterdir():
         if src_path.is_dir():
-            dst = dst / src_path.stem
-            make_pages(src_path, dst, layout, **params)
+            subdir = dst / src_path.stem
+            make_pages(src_path, subdir, layout, **params)
         else:
             make_page(src_path, dst, layout, **params)
 
