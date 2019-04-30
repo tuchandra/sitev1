@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>How I built this website - Tushar Chandra</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="/site/sakura.css">
+</head>
+
+<body id="about_website">
+
+    <nav>
+        <section>
+            <span class="home">
+                <a href="/site/">Home</a>
+            </span>
+            <span class="links">
+                //
+                <a href="/site/contact.html">Contact</a>
+                //
+                <a href="/site/about.html">About</a>
+                //
+                <a href="/site/projects.html">Projects</a>
+            </span>
+        </section>
+    </nav>
+
+    <main>
+        <h1>How I built this website</h1>
+<p>You may notice that the <a href="https://github.com/tuchandra/tuchandra.github.io">Github repo</a> for this website has a tagline &quot;... for people who aren't web developers.&quot; I most certainly fit that description, and so I'm going to talk about my very simple website structure.</p>
+<h2>Motivation</h2>
+<p>My requirements were simple; all I <em>really</em> needed was a website that I could give to others that had basic things like my contact information, a web version of my resume, and some blog posts. I wanted to be able to write posts in Markdown and have them render as HTML. I wanted minimal styling to make the whole thing look nice. And, whatever tool I chose, I didn't want it to do more than necessary.</p>
+<h2>Static site generators</h2>
+<p>So, like any programmer, I started Googling for solutions. Common <strong>static site generators</strong> like <a href="https://jekyllrb.com/">Jekyll</a>, <a href="https://www.gatsbyjs.org/">Gatsby</a>, or <a href="https://gohugo.io/">Hugo</a> are seriously impressive. They offer things like:</p>
+<ul>
+<li>easy installation via NPM</li>
+<li>being able to pull data from multiple sources</li>
+<li>hundreds of themes</li>
+<li>powerful templating syntax</li>
+<li>and much, much, more</li>
+</ul>
+<p>... but I don't need any of it. I didn't want to have to manage an NPM installation on the basic Chromebook from which I'm writing this. I don't even <em>know</em> React, and though my roommate loves it, I don't need it to build my simple website. And the idea of a <a href="https://old.reddit.com/r/programming/comments/adbu86/why_medium_is_no_longer_the_goto_platform_for/edfyuj4/?context=2">static site generator rendering pages entirely in JS</a> sounded like an oxymoron to me -- nothing on my site even needs JS.</p>
+<p>Note that I'm not trying to rag on these technologies -- rather the opposite. I know React is super powerful, and that you can do almost anything in it, and that's exactly why I know I don't need it. I am a firm believer in not overengineering, and so throughout this whole progress I intentionally avoided solutions that would be overkill for this simple website.</p>
+<h2>Finding puzzle pieces</h2>
+<p>So I took another approach: what smaller pieces did I need to bring this together?</p>
+<h3>sakura.css</h3>
+<p>I came across <a href="https://github.com/oxalorg/sakura">sakura.css</a>, which described itself as a &quot;minimal classless CSS theme.&quot; You just drop it in your folder and include it in your HTML files, and everything magically gets prettier. Perfect!</p>
+<p>At the time of writing, I am using a <a href="https://github.com/tuchandra/tuchandra.github.io/blob/master/static/sakura.css">modified version</a> of sakura.css - I made the headings smaller, used a sans-serif font, and moved the footer a bit lower. The file being so simple allowed me to change this easily!</p>
+<h3>makesite.py</h3>
+
+    </main>
+
+    <footer>
+        <section>
+            <p>&copy; 2019 Tushar Chandra
+                (<a href="https://github.com/tuchandra">GitHub</a> // <a href="https://tusharc.dev/">Website</a>)
+            </p>
+        </section>
+    </footer>
+
+</body>
+
+</html>
