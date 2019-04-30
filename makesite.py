@@ -67,13 +67,15 @@ def read_content(filename: Path) -> Dict[str, str]:
         content[key] = val
     text = text[end:]
 
-    # Convert Markdown content to HTML: get the title from the original text, then parse the Markdown
-    # as HTML, then replace any links to other Markdown files with ones to the generated HTML files
+    # Convert Markdown content to HTML: get the title from the original text, then parse the
+    # Markdown as HTML, then replace any links to other Markdown files with ones to the generated
+    # HTML files (using regex that matches <a href="filename.md">, where filename is anything
+    # without whitespace or a colon)
     if filename.suffix in (".md", ".mkd", ".mkdn", ".mdown", ".markdown"):
         content["title"] = get_title(text)
         text = commonmark.commonmark(text)
         text = re.sub(
-            r'<a href="([\w\d\s]+).md">', lambda match: f'<a href="{match.group(1)}.html">', text
+            r'<a href="([^:\s]+).md">', lambda match: f'<a href="{match.group(1)}.html">', text
         )
 
     content.update({"content": text})
