@@ -72,7 +72,8 @@ def read_content(filename: Path) -> Dict[str, str]:
     # HTML files (using regex that matches <a href="filename.md">, where filename is anything
     # without whitespace or a colon)
     if filename.suffix in (".md", ".mkd", ".mkdn", ".mdown", ".markdown"):
-        content["title"] = get_title(text)
+        if "title" not in content:  # only overwrite if title not already found
+            content["title"] = get_title(text)
         text = commonmark.commonmark(text)
         text = re.sub(
             r'<a href="([^:\s]+).md">', lambda match: f'<a href="{match.group(1)}.html">', text
