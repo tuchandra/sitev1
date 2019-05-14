@@ -1,3 +1,4 @@
+<!-- date: 2019-04-29 -->
 # How I built this website
 You may have noticed that the [Github repo](https://github.com/tuchandra/tuchandra.github.io) for this website has a tagline "... for people who *aren't* web developers." I am a data scientist and certainly fit that description, and so I'm going to talk about how I built this site using the tools I already know.
 

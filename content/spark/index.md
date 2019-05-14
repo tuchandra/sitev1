@@ -1,5 +1,6 @@
-# Spark+AI Summit 2019 Notes
-This page links to all the notes that I took during Spark+AI Summit 2019. The source for all of these files can be found in the [Github repo](https://github.com/tuchandra/tuchandra.github.io) for this website in the "content/spark" directory.
+<!-- date: 2019-04-26 -->
+# Spark + AI Summit 2019 Notes
+I was fortunate enough to attend [Spark + AI Summit](https://databricks.com/sparkaisummit/north-america) in San Francisco in April 2019. I took notes on the talks I attended in Markdown, and those notes made up the first pieces of content of this website. The source for all of these files can be found in the [Github repo](https://github.com/tuchandra/tuchandra.github.io) for this website in the "content/spark" directory.
 
 ## Wednesday, April 25, 2019
  * [Predicting communities via graph algorithms](graph_algorithms.md)
