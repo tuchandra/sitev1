@@ -2,16 +2,18 @@
  * ================
  * Minimal css theme.
  * Project: https://github.com/oxalorg/sakura
+ * Modifications by Tushar Chandra
  */
+
 /* Body */
 html {
   font-size: 62.5%;
-  font-family: Noto Sans, Roboto, sans-serif; }
+  font-family: Roboto, sans-serif; }
 
 body {
   font-size: 1.6rem;
   line-height: 1.618;
-  max-width: 42em;
+  max-width: 44em;
   margin: auto;
   color: #1a1a1a;
   background-color: #f9f9f9;
