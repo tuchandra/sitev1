@@ -1,10 +1,7 @@
 # Resume
-This is a web version of my resume. A PDF is available here.
+This is a web version of my resume. A PDF is available [here](https://tusharc.dev/static/resume.pdf).
 
-My contact info:
- * email: me [at] this domain
- * github: [tuchandra](http://github.com/tuchandra/)
- * location: Chicago, IL
+My email address is me [at] this domain. My github is [tuchandra](https://github.com/tuchandra/). I am located in Chicago, IL.
 
 ## Employment
 **Data Scientist - Nielsen** (July 2018 - present)
