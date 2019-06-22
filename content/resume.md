@@ -5,7 +5,7 @@ tl;dr: I'm currently a data scientist at Nielsen. I did my master's in computer 
 
 ## Employment
 **Data Scientist - Nielsen** (July 2018 - present)
- * Redeveloped model for TV viewing to train 10x faster; admit 4x fewer false positives; be more defensible to clients; and enable further development with a modular, extensible codebase written in Pyspark (US patent pending)
+ * Redeveloped model for TV viewing to train 10x faster; admit 4x fewer false positives; be more defensible to clients; and enable further development with a modular, extensible codebase written in Pyspark (patent pending)
  * Improved discoverability and usability of internal data science framework by automating documentation build process with Sphinx
  * Presented a Spark tech talk to 350 data scientists, software engineers, and business leaders across Nielsen 
  * Wrote Python libraries to unify team workflow, improve code readability, and enable comparison of different models
