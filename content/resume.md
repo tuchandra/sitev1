@@ -1,7 +1,7 @@
 # Resume
 This is a web version of my resume; if you'd like, you can view a PDF [here](https://tusharc.dev/static/resume.pdf).
 
-tl;dr: I'm currently a data scientist at Nielsen. I did my master's in computer science and undergrad in computer science and the [Integrated Science Program](https://www.isp.northwestern.edu/), both at Northwestern (go 'cats!). My email address is me [at] this domain.
+tl;dr: I'm currently a data scientist at Nielsen. I did my master's in computer science and undergrad in computer science and the [Integrated Science Program](https://www.isp.northwestern.edu/), both at Northwestern (go 'cats!). My email address is me@(this domain).
 
 ## Employment
 **Data Scientist - Nielsen** (July 2018 - present)
