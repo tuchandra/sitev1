@@ -1,4 +1,6 @@
 # Resume
+This is a web version of my resume. A PDF is available here.
+
 My contact info:
  * email: me [at] this domain
  * github: [tuchandra](http://github.com/tuchandra/)
@@ -7,6 +9,7 @@ My contact info:
 ## Employment
 **Data Scientist - Nielsen** (July 2018 - present)
  * Redeveloped mission-critical model for TV tuning in Pyspark to train 10x faster; admit 4x fewer false positives; be more defensible to clients; and enable further development with a modular, extensible codebase
+ * Rebuilt legacy SAS data pipeline in Python by converting 79 sequential scripts into 15 flexible modules, reducing duplicated code, increasing code clarity, and sharing reusable components among other data scientists
  * Wrote Python libraries to unify team workflow, improve code readability, and enable comparison of different models
  * Built Chrome extension for Databricks to apply unified "Black" code style, deploying to dozens of users in data science
  * Created testing harness for production model to gather metrics for undocumented, black-box processes
@@ -26,15 +29,17 @@ My contact info:
  * Wrote Python scripts to assist with scheduling, accounting for staffing needs, class schedules, and individual preferences
 
 ## Education
-**M.S. Computer Science** (4.0) - Northwestern University, 2018
+**M.S. Computer Science** - Northwestern University, 2018
+ * GPA 4.0
+ * Coursework focusing on machine learning and data
 
 **B.S. Computer Science** - Northwestrn University, 2018
  * GPA 3.96, graduated summa cum laude
- * Student in the Integrated Science Program, a selective, research-oriented program in science and mathematics
+ * Student in the Integrated Science Program, a selective, research-oriented program in science and mathematics ([isp.northwestern.edu](https://www.isp.northwestern.edu/))
  * Member of Tau Beta Pi Engineering Honor Society
 
 ## Skills
-**Python**: fluent in core language features, along with numpy, pandas, scikit-learn, matplotlib, seaborn, pyspark
+**Python**: fluent in core language features, along with static typing and mypy, numpy, pandas, scikit-learn, matplotlib, seaborn, pyspark
 
 **Technologies**: Git, Unix, unit testing and TDD, machine learning, cloud computing, data visualization in Python and d3.js, Bayesian modeling in PyMC3
 
