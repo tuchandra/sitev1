@@ -5,12 +5,14 @@ tl;dr: I'm currently a data scientist at Nielsen. I did my master's in computer 
 
 ## Employment
 **Data Scientist - Nielsen** (July 2018 - present)
- * Redeveloped model for TV viewing to train 10x faster; admit 4x fewer false positives; be more defensible to clients; and enable further development with a modular, extensible codebase written in Pyspark (patent pending)
- * Improved discoverability and usability of internal data science framework by automating documentation build process with Sphinx
- * Presented a Spark tech talk to 350 data scientists, software engineers, and business leaders across Nielsen 
- * Wrote Python libraries to unify team workflow, improve code readability, and enable comparison of different models
- * Built Chrome extension for Databricks to apply unified "Black" code style, deploying to dozens of users in data science
- * Improved understanding of production models by creating a testing harness for an undocumented, black-box process in Python and Pandas
+ * Created model for TV viewing in Pyspark which trains 10x faster, admits 4x fewer false positives, and is more defensible to clients than current production model (US patent pending)
+ * Reduced cycle time for data cleaning process from 1 month to 10 minutes by creating an interactive web app for internal and third-party stakeholders (Python, Flask, Pandas, HTML, CSS)
+ * Rebuilt legacy SAS data pipeline in Python by converting 79 sequential scripts into 15 flexible modules, reducing duplication, increasing code clarity, and sharing reusable components with other data scientists
+ * Revamped internal documentation by configuring Sphinx, deploying as a static site on AWS, and automating build process
+ * Presented Spark tech talk to 350 data scientists, software engineers, and business leaders across Nielsen 
+ * Drove understanding of production models by creating a testing harness for an undocumented, black-box Pandas workflow
+ * Created Python libraries to unify team workflow, improve code readability, and enable comparison of different candidate models
+ * Built Chrome extension in Javascript for Databricks to apply unified "Black" code style, deploying to dozens of users in data science
 
 **Software Engineering Intern - Qualtrics** (June 2017 - August 2017)
  * Added new features (pagination, custom data types, UI enhancements) to "action planning" module on Employee Experience platform, better allowing managers to effect change in their team
