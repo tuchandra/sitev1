@@ -1,3 +1,9 @@
+<style>
+body {
+  line-height: 1.4;
+}
+</style>
+
 # Resume
 This is a web version of my resume; if you'd like, you can view a PDF [here](https://tusharc.dev/static/resume.pdf).
 
@@ -9,10 +15,8 @@ tl;dr: I'm currently a data scientist at Nielsen. I did my master's in computer 
  * Reduced time for data cleaning process from 1 month to 10 minutes by creating an interactive web app for internal and third-party users (Python, Flask, Pandas, HTML, CSS)
  * Owned creation of internal documentation by configuring Sphinx, deploying as a static site on AWS, and automating build process
  * Rebuilt legacy SAS data pipeline in Python by converting 79 sequential scripts into 15 flexible modules, reducing duplication, increasing code clarity, and sharing reusable components with other data scientists
- * Presented Spark tech talk to 350 data scientists, software engineers, and business leaders across Nielsen 
- * Drove understanding of production models by creating a testing harness for an undocumented, black-box Pandas codebase
+ * Presented Spark tech talk to 350 data scientists, software engineers, and Nielsen leaders
  * Created Python libraries to unify team workflow, improve code readability, and enable comparison of different candidate models
- * Built Chrome extension in Javascript for Databricks to apply unified "Black" code style, deploying to dozens of users in data science
 
 **Software Engineering Intern - Qualtrics** (June 2017 - August 2017)
  * Added new features (pagination, custom data types, UI enhancements) to "action planning" module on Employee Experience platform, better allowing managers to effect change in their team
