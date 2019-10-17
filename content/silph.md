@@ -49,28 +49,12 @@ rates.sample(5)
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
-      <td>https://thesilphroad.com/science/oddish-shiny-...</td>
-      <td>20191004</td>
-      <td>oddish</td>
-      <td>10988.0</td>
-      <td>94.0</td>
-    </tr>
-    <tr>
-      <td>19</td>
+      <td>18</td>
       <td>https://thesilphroad.com/science/quick-discove...</td>
       <td>20190629</td>
-      <td>rattata_a</td>
-      <td>5179.0</td>
-      <td>14.0</td>
-    </tr>
-    <tr>
-      <td>17</td>
-      <td>https://thesilphroad.com/science/quick-discove...</td>
-      <td>20190629</td>
-      <td>exeggutor_a</td>
-      <td>1048.0</td>
-      <td>17.0</td>
+      <td>geodude_a</td>
+      <td>6724.0</td>
+      <td>19.0</td>
     </tr>
     <tr>
       <td>1</td>
@@ -81,12 +65,28 @@ rates.sample(5)
       <td>24.0</td>
     </tr>
     <tr>
-      <td>26</td>
-      <td>https://thesilphroad.com/science/shiny-meltan-...</td>
-      <td>20190225</td>
-      <td>meltan</td>
-      <td>7850.0</td>
-      <td>128.0</td>
+      <td>7</td>
+      <td>https://thesilphroad.com/science/quick-discove...</td>
+      <td>20190903</td>
+      <td>gligar_later</td>
+      <td>4234.0</td>
+      <td>33.0</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>https://thesilphroad.com/science/quick-discove...</td>
+      <td>20190727</td>
+      <td>zubat</td>
+      <td>844.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>https://thesilphroad.com/science/quick-discove...</td>
+      <td>20190824</td>
+      <td>carvanha</td>
+      <td>10386.0</td>
+      <td>20.0</td>
     </tr>
   </tbody>
 </table>
@@ -99,8 +99,8 @@ Let's compute the "rarity", defined as `n_encounters / n_shinies`. A rarity R me
 
 ```python
 rates["rarity"] = rates["n_encounters"] / rates["n_shiny"]
-rates = rates.sort_values("rarity").dropna()
-rates
+rates = rates.dropna()
+rates.sample(5)
 ```
 
 
@@ -134,42 +134,6 @@ rates
   </thead>
   <tbody>
     <tr>
-      <td>26</td>
-      <td>https://thesilphroad.com/science/shiny-meltan-...</td>
-      <td>20190225</td>
-      <td>meltan</td>
-      <td>7850.0</td>
-      <td>128.0</td>
-      <td>61.328125</td>
-    </tr>
-    <tr>
-      <td>17</td>
-      <td>https://thesilphroad.com/science/quick-discove...</td>
-      <td>20190629</td>
-      <td>exeggutor_a</td>
-      <td>1048.0</td>
-      <td>17.0</td>
-      <td>61.647059</td>
-    </tr>
-    <tr>
-      <td>15</td>
-      <td>https://thesilphroad.com/science/quick-discove...</td>
-      <td>20190704</td>
-      <td>nidoran_m</td>
-      <td>5722.0</td>
-      <td>53.0</td>
-      <td>107.962264</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>https://thesilphroad.com/science/quick-discove...</td>
-      <td>20190921</td>
-      <td>yanma</td>
-      <td>4052.0</td>
-      <td>37.0</td>
-      <td>109.513514</td>
-    </tr>
-    <tr>
       <td>20</td>
       <td>https://thesilphroad.com/science/go-fest-weeke...</td>
       <td>20190613</td>
@@ -177,69 +141,6 @@ rates
       <td>7303.0</td>
       <td>64.0</td>
       <td>114.109375</td>
-    </tr>
-    <tr>
-      <td>0</td>
-      <td>https://thesilphroad.com/science/oddish-shiny-...</td>
-      <td>20191004</td>
-      <td>oddish</td>
-      <td>10988.0</td>
-      <td>94.0</td>
-      <td>116.893617</td>
-    </tr>
-    <tr>
-      <td>13</td>
-      <td>https://thesilphroad.com/science/quick-discove...</td>
-      <td>20190727</td>
-      <td>sneasel</td>
-      <td>1588.0</td>
-      <td>13.0</td>
-      <td>122.153846</td>
-    </tr>
-    <tr>
-      <td>7</td>
-      <td>https://thesilphroad.com/science/quick-discove...</td>
-      <td>20190903</td>
-      <td>gligar_later</td>
-      <td>4234.0</td>
-      <td>33.0</td>
-      <td>128.303030</td>
-    </tr>
-    <tr>
-      <td>10</td>
-      <td>https://thesilphroad.com/science/quick-discove...</td>
-      <td>20190806</td>
-      <td>poliwag</td>
-      <td>5627.0</td>
-      <td>40.0</td>
-      <td>140.675000</td>
-    </tr>
-    <tr>
-      <td>24</td>
-      <td>https://thesilphroad.com/science/extraordinary...</td>
-      <td>20190522</td>
-      <td>bronzor</td>
-      <td>2479.0</td>
-      <td>15.0</td>
-      <td>165.266667</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>https://thesilphroad.com/science/quick-discove...</td>
-      <td>20190919</td>
-      <td>patrat</td>
-      <td>4479.0</td>
-      <td>16.0</td>
-      <td>279.937500</td>
-    </tr>
-    <tr>
-      <td>14</td>
-      <td>https://thesilphroad.com/science/quick-discove...</td>
-      <td>20190727</td>
-      <td>zubat</td>
-      <td>844.0</td>
-      <td>3.0</td>
-      <td>281.333333</td>
     </tr>
     <tr>
       <td>4</td>
@@ -251,94 +152,31 @@ rates
       <td>326.214286</td>
     </tr>
     <tr>
-      <td>12</td>
+      <td>3</td>
       <td>https://thesilphroad.com/science/quick-discove...</td>
-      <td>20190727</td>
-      <td>ekans</td>
-      <td>13018.0</td>
-      <td>37.0</td>
-      <td>351.837838</td>
+      <td>20190919</td>
+      <td>patrat</td>
+      <td>4479.0</td>
+      <td>16.0</td>
+      <td>279.937500</td>
     </tr>
     <tr>
-      <td>18</td>
-      <td>https://thesilphroad.com/science/quick-discove...</td>
-      <td>20190629</td>
-      <td>geodude_a</td>
-      <td>6724.0</td>
-      <td>19.0</td>
-      <td>353.894737</td>
+      <td>0</td>
+      <td>https://thesilphroad.com/science/oddish-shiny-...</td>
+      <td>20191004</td>
+      <td>oddish</td>
+      <td>10988.0</td>
+      <td>94.0</td>
+      <td>116.893617</td>
     </tr>
     <tr>
-      <td>5</td>
-      <td>https://thesilphroad.com/science/quick-discove...</td>
-      <td>20190903</td>
-      <td>sentret</td>
-      <td>19297.0</td>
-      <td>54.0</td>
-      <td>357.351852</td>
-    </tr>
-    <tr>
-      <td>19</td>
-      <td>https://thesilphroad.com/science/quick-discove...</td>
-      <td>20190629</td>
-      <td>rattata_a</td>
-      <td>5179.0</td>
-      <td>14.0</td>
-      <td>369.928571</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>https://thesilphroad.com/science/quick-discove...</td>
-      <td>20190928</td>
-      <td>zangoose_seviper</td>
-      <td>8977.0</td>
-      <td>24.0</td>
-      <td>374.041667</td>
-    </tr>
-    <tr>
-      <td>11</td>
-      <td>https://thesilphroad.com/science/quick-discove...</td>
-      <td>20190727</td>
-      <td>koffing</td>
-      <td>24902.0</td>
-      <td>65.0</td>
-      <td>383.107692</td>
-    </tr>
-    <tr>
-      <td>8</td>
-      <td>https://thesilphroad.com/science/quick-discove...</td>
-      <td>20190824</td>
-      <td>barboach</td>
-      <td>9958.0</td>
-      <td>23.0</td>
-      <td>432.956522</td>
-    </tr>
-    <tr>
-      <td>16</td>
-      <td>https://thesilphroad.com/science/quick-discove...</td>
-      <td>20190629</td>
-      <td>diglett_a</td>
-      <td>5373.0</td>
-      <td>11.0</td>
-      <td>488.454545</td>
-    </tr>
-    <tr>
-      <td>9</td>
-      <td>https://thesilphroad.com/science/quick-discove...</td>
-      <td>20190824</td>
-      <td>carvanha</td>
-      <td>10386.0</td>
-      <td>20.0</td>
-      <td>519.300000</td>
-    </tr>
-    <tr>
-      <td>6</td>
-      <td>https://thesilphroad.com/science/quick-discove...</td>
-      <td>20190903</td>
-      <td>gligar_early</td>
-      <td>1971.0</td>
-      <td>3.0</td>
-      <td>657.000000</td>
+      <td>26</td>
+      <td>https://thesilphroad.com/science/shiny-meltan-...</td>
+      <td>20190225</td>
+      <td>meltan</td>
+      <td>7850.0</td>
+      <td>128.0</td>
+      <td>61.328125</td>
     </tr>
   </tbody>
 </table>
@@ -506,13 +344,22 @@ unboosted
       <td>0</td>
       <td>https://thesilphroad.com/science/quick-discove...</td>
       <td>20190629</td>
+      <td>diglett_a</td>
+      <td>5373.0</td>
+      <td>11.0</td>
+      <td>488.454545</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>https://thesilphroad.com/science/quick-discove...</td>
+      <td>20190629</td>
       <td>geodude_a</td>
       <td>6724.0</td>
       <td>19.0</td>
       <td>353.894737</td>
     </tr>
     <tr>
-      <td>1</td>
+      <td>2</td>
       <td>https://thesilphroad.com/science/quick-discove...</td>
       <td>20190629</td>
       <td>rattata_a</td>
@@ -521,22 +368,13 @@ unboosted
       <td>369.928571</td>
     </tr>
     <tr>
-      <td>2</td>
-      <td>https://thesilphroad.com/science/quick-discove...</td>
-      <td>20190629</td>
-      <td>diglett_a</td>
-      <td>5373.0</td>
-      <td>11.0</td>
-      <td>488.454545</td>
-    </tr>
-    <tr>
       <td>3</td>
       <td>https://thesilphroad.com/science/quick-discove...</td>
       <td>20190727</td>
-      <td>zubat</td>
-      <td>844.0</td>
-      <td>3.0</td>
-      <td>281.333333</td>
+      <td>koffing</td>
+      <td>24902.0</td>
+      <td>65.0</td>
+      <td>383.107692</td>
     </tr>
     <tr>
       <td>4</td>
@@ -551,10 +389,10 @@ unboosted
       <td>5</td>
       <td>https://thesilphroad.com/science/quick-discove...</td>
       <td>20190727</td>
-      <td>koffing</td>
-      <td>24902.0</td>
-      <td>65.0</td>
-      <td>383.107692</td>
+      <td>zubat</td>
+      <td>844.0</td>
+      <td>3.0</td>
+      <td>281.333333</td>
     </tr>
     <tr>
       <td>6</td>
@@ -705,7 +543,7 @@ with model:
     Initializing NUTS using jitter+adapt_diag...
     Multiprocess sampling (4 chains in 2 jobs)
     NUTS: [p]
-    Sampling 4 chains: 100%|██████████| 6000/6000 [00:03<00:00, 1942.45draws/s]
+    Sampling 4 chains: 100%|██████████| 6000/6000 [00:03<00:00, 1821.65draws/s]
 
 
 
@@ -736,7 +574,7 @@ with model:
     Initializing NUTS using jitter+adapt_diag...
     Multiprocess sampling (4 chains in 2 jobs)
     NUTS: [p]
-    Sampling 4 chains: 100%|██████████| 6000/6000 [00:03<00:00, 1991.00draws/s]
+    Sampling 4 chains: 100%|██████████| 6000/6000 [00:03<00:00, 1835.00draws/s]
 
 
 
@@ -765,8 +603,7 @@ with model:
     Initializing NUTS using jitter+adapt_diag...
     Multiprocess sampling (4 chains in 2 jobs)
     NUTS: [p]
-    Sampling 4 chains: 100%|██████████| 6000/6000 [00:04<00:00, 1294.96draws/s]
-    The acceptance probability does not match the target. It is 0.8991062818208793, but should be close to 0.8. Try to increase the number of tuning steps.
+    Sampling 4 chains: 100%|██████████| 6000/6000 [00:03<00:00, 1651.98draws/s]
 
 
 
@@ -793,7 +630,8 @@ with model:
     Initializing NUTS using jitter+adapt_diag...
     Multiprocess sampling (4 chains in 2 jobs)
     NUTS: [p]
-    Sampling 4 chains: 100%|██████████| 6000/6000 [00:03<00:00, 1665.28draws/s]
+    Sampling 4 chains: 100%|██████████| 6000/6000 [00:03<00:00, 1844.41draws/s]
+    The acceptance probability does not match the target. It is 0.9023306786521638, but should be close to 0.8. Try to increase the number of tuning steps.
 
 
 
@@ -829,7 +667,7 @@ with model:
     Initializing NUTS using jitter+adapt_diag...
     Multiprocess sampling (4 chains in 2 jobs)
     NUTS: [p]
-    Sampling 4 chains: 100%|██████████| 6000/6000 [00:03<00:00, 1606.33draws/s]
+    Sampling 4 chains: 100%|██████████| 6000/6000 [00:03<00:00, 1762.18draws/s]
 
 
 
@@ -889,8 +727,8 @@ with model:
     Initializing NUTS using jitter+adapt_diag...
     Multiprocess sampling (4 chains in 2 jobs)
     NUTS: [p]
-    Sampling 4 chains: 100%|██████████| 10000/10000 [00:06<00:00, 1479.37draws/s]
-    The acceptance probability does not match the target. It is 0.8805453367903292, but should be close to 0.8. Try to increase the number of tuning steps.
+    Sampling 4 chains: 100%|██████████| 10000/10000 [00:10<00:00, 917.38draws/s]
+    The acceptance probability does not match the target. It is 0.8849638700714829, but should be close to 0.8. Try to increase the number of tuning steps.
 
 
 
@@ -911,9 +749,4 @@ We re-analyzed the Silph shiny data and found that both of the assumed shiny rat
 
 Let's draw attention to **how natural the Bayesian way of thinking was.** Given how people were framing this problem--"is the rate of 1 in 150 accurate?"--the Bayesian way let us incorporate this belief naturally into our analysis. We set that rate as a prior, then looked at how well the data supported it (in this case, it did not), then drew conclusions from this posterior. That's not to say the frequentist paradigm doens't make sense; rather that in cases like this, we can draw more informative conclusions than before, and we can easily incorporate multiple events' worth of data.
 
-This document may be reshared with a link back to this website (https://tusharc.dev).
-
-
-```python
-
-```
+Finally: to Silph's credit, they are a group of volunteer researchers doing the best that they can. They have done as much (or more) for the Pokemon GO community as anyone else has. Their treatment of statistics is far better than the average person's, and I greatly appreciate the work that they have done to shed light upon the game mechanics and (more importantly!) educate the community. This analysis, and others like it, would not be possible without their work.
