@@ -76,8 +76,18 @@ def read_content(filename: Path) -> Dict[str, str]:
             content["title"] = get_title(text)
         text = commonmark.commonmark(text)
         text = re.sub(
-            r'<a href="([^:\s]+).md">', lambda match: f'<a href="{match.group(1)}.html">', text
+            r'<a href="([^:\s]+).md">',
+            lambda match: f'<a href="{match.group(1)}.html">',
+            text,
         )
+
+        # If the imgdir key was in the header, update paths to PNGs with the correct folder
+        if "imagedir" in content:
+            text = re.sub(
+                r'<img src="([^:\s]+).png"',
+                lambda match: f'<img src="{content["imagedir"]}/{match.group(1)}.png"',
+                text,
+            )
 
     content.update({"content": text})
     return content
@@ -95,7 +105,7 @@ def render(template: str, **params) -> str:
 
 def make_page(src: Path, dst: Path, layout: str, **params):
     """Render one output page
-    
+
     src: a file, either HTML or Markdown, and notably not a directory.
     dst: the output directory for the page (the filename will be generated automatically)
     """
@@ -128,7 +138,7 @@ def make_pages(src: Path, dst: Path, layout: str, **params):
         if src_path.is_dir():
             subdir = dst / src_path.stem
             make_pages(src_path, subdir, layout, **params)
-        else:
+        elif src_path.suffix in (".html", ".md"):  # do not render e.g., image files
             make_page(src_path, dst, layout, **params)
 
 
