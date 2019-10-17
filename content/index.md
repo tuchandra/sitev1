@@ -3,6 +3,10 @@
 Hello, world! Welcome to my website. Everything is still very much under construction.
 
 ## Pages
+### [Pokemon GO shiny rates: a Bayesian perspective](silph.html)
+###### October 16, 2019
+[The Silph Road](https://thesilphroad.com/) is the largest online and in-person network of Pokemon GO players and researchers. We investigate the question of how accurate their proposed shiny rates are by putting on our Bayesian hat, setting the "consensus" shiny rate as our prior, and using Silph field studies as observed data.
+
 ### [How I built this website](about_website.md)
 ###### April 29, 2019
 
