@@ -482,7 +482,7 @@ az.style.use("fivethirtyeight")
 Let's use a [Beta](https://en.m.wikipedia.org/wiki/Beta_distribution) prior over p, since a Beta can be used as a distribution over probabilities. Using the [success rate interpretation](https://stats.stackexchange.com/a/47782) of the Beta, our prior will be
 fairly weak: equivalent to having seen 10 shinies in 1500 encounters. Put otherwise, our prior is that anything between 1 in 100 and 1 in 300 is plausible.
 
-We'll add a second variable, rarity, which is 1 / p as defined before. This makes it easier to use phrases like "1 in 150" or "1 in N," and is more intuitive when talking about extremely small probabilities. Through the rest of this document, we'll mostly focus on the plots of the rarity.
+We'll add a second variable, rarity, which is 1 / p as defined before. This makes it easier to use phrases like "1 in 150" or "1 in N," and is more intuitive when talking about extremely small probabilities. For example, a rarity of 100 means that for every 100 Horsea you see, on average 1 will be shiny. Through the rest of this document, we'll mostly focus on the plots of the rarity.
 
 
 ```python
@@ -586,7 +586,7 @@ _ = az.plot_trace(trace)
 ![png](output_23_0.png)
 
 
-Because we observed a rate of 1 in 114 for Poliwag, the likelihood for the rarity has now shifted much further left. It is now almost entirely implausible for the shiny rate to be any lower than 1 in 200, and even 1 in 150 is starting to look unlikely.
+Because we observed a rate of 1 in 114 for Horsea, the likelihood for the rarity has now shifted much further left. It is now almost entirely implausible for the shiny rate to be any lower than 1 in 200, and even 1 in 150 is starting to look unlikely.
 
 The next shiny released was Nidoran M.
 
