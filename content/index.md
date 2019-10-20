@@ -3,6 +3,10 @@
 Hello, world! Welcome to my website. Everything is still very much under construction.
 
 ## Pages
+### Statistical nuance & the importance of uncertainty
+###### October 20, 2019
+In [my last post](silph.md), I re-analyzed shiny rates from The Silph Road and came to the conclusion that their proposed shiny rates were inconsistent with their own data. This post explores how that happened and what we can do to avoid it in the future.
+
 ### [Pokemon GO shiny rates: a Bayesian perspective](silph.html)
 ###### October 16, 2019
 [The Silph Road](https://thesilphroad.com/) is the largest online and in-person network of Pokemon GO players and researchers. We investigate the question of how accurate their proposed shiny rates are by putting on our Bayesian hat, setting the "consensus" shiny rate as our prior, and using Silph field studies as observed data.
