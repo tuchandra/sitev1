@@ -1,5 +1,5 @@
 <!-- date: 2019-10-24 -->
-# Netflix and Polynote
+# Netflix and Polynote: first thoughts
 Netflix [announced yesterday](https://medium.com/netflix-techblog/open-sourcing-polynote-an-ide-inspired-polyglot-notebook-7f929d3f447) that they are open-sourcing Polynote, a new notebook with features like Spark integration, as-you-type autocomplete, and more. At a glance, it seems to address almost every common complaint with notebooks. How much of that is too good to be true?
 
 
