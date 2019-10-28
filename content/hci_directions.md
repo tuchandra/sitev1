@@ -27,7 +27,7 @@ And over the past year, I've been able to take more time to reflect on HCI and e
 I took a few minutes to think about research questions that I've thought about or read papers on. This is a brainstorm, so I haven't filtered this list at all, and there's certainly existing work in all of these areas. But here we are:
 
  * How much do "feed algorithms" (e.g., Facebook news feed, Twitter feed, Reddit homepage) influence what kinds of content people are exposed to? How much can users control those algorithms? What effects do those algorithms have on users' emotions?
- * If I'm a malicious actor, what are the most effective strategies for spreading fake news or misinformation? How do we stop it? How do we even study this ethically
+ * If I'm a malicious actor, what are the most effective strategies for spreading fake news or misinformation? How do we stop it? How do we even study this ethically?
  * What is the extent of filter bubbles on Reddit? How much does self-selecting subreddits limit the information you are exposed to?
  * How do we build tools for content moderation and fact checking at scale?
  * Where is the line between censorship and free speech on social media? To what extent are users okay with different degrees of moderation on various platforms?
