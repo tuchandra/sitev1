@@ -3,6 +3,10 @@
 Hello, world! Welcome to my website. Everything is still very much under construction.
 
 ## Pages
+### [Paper: The Curse of Knowledge in Visual Data Communication](papers/curse_of_knowledge_xiong.md)
+###### November 13, 2019
+Summary of the paper by Cindy Xiong, Lisanne van Weeldan, and Steven Franconeri.
+
 ### [Why I'm interested in HCI](hci_directions.md)
 ###### October 28, 2019
 A couple nights ago, I was at a bar talking to a grad student friend and we started having a conversation about HCI and research interests. This post captures some of my thoughts after reflecting for a couple of days.
