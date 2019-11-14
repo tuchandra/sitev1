@@ -140,6 +140,9 @@ def make_pages(src: Path, dst: Path, layout: str, **params):
             make_pages(src_path, subdir, layout, **params)
         elif src_path.suffix in (".html", ".md"):  # do not render e.g., image files
             make_page(src_path, dst, layout, **params)
+        elif src_path.suffix in (".png",):
+            shutil.copy(src_path, dst)
+            log("Copying image {} into {}", src_path, dst)
 
 
 def main():
