@@ -3,6 +3,10 @@
 Hello, world! Welcome to my website. Everything is still very much under construction.
 
 ## Pages
+### [Using Paperill to wrap model runns](papermill_experiences.md)
+###### November 15, 2019
+I recently started using [papermill](https://github.com/nteract/papermill/) from nteract to parameterize model runs. I've started to like it a lot, and this post will discuss my experiences with it and my current setup.
+
 ### [Paper: The Curse of Knowledge in Visual Data Communication](papers/curse_of_knowledge_xiong.md)
 ###### November 13, 2019
 Summary of the paper by Cindy Xiong, Lisanne van Weeldan, and Steven Franconeri.
