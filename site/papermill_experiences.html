@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Using papermill to wrap model runs - Tushar Chandra</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="/site/style.css">
+</head>
+
+<body id="papermill_experiences">
+
+    <nav>
+        <section>
+            <span class="home">
+                <a href="/site/">Home</a>
+            </span>
+            <span class="links">
+                //
+                <a href="/site/contact.html">Contact</a>
+                //
+                <a href="/site/resume.html">Resume</a>
+                //
+                <a href="/site/projects.html">Projects</a>
+            </span>
+        </section>
+    </nav>
+
+    <main>
+        <h1>Using papermill to wrap model runs</h1>
+<p>I recently started using <a href="https://github.com/nteract/papermill/">papermill</a> from nteract to parameterize model runs. I've started to like it a lot, and this post will discuss my experiences with it and my current setup.</p>
+<h2>My use case</h2>
+<p>My current task at work is a modeling problem where I'm trying out different versions of models fairly quickly. I have a lot of freedom in my toolchain; I'm using <a href="http://pyro.ai/">Pyro</a> for probabilistic models, but beyond that I can use any other libraries to help me with this process.</p>
+<p>At first, I was trying out basic models to better understand my problem and my dataset. As those matured, I got into a fairly quick train/diagnose/modify cycle, where I'd (1) train some model, (2) make visualizations to understand what it's doing, (3) update the model based on hunches about how to make it better, and (4) repeat. I think this is a fairly common cycle for data scientists to find themselves in.</p>
+<p>The main limitation here was the disconnect between training and visualizations. I want all of my data prep code and modeling code to be in Python scripts, but I want to make visualizations in Jupyter notebooks. I <em>don't</em> want my modeling code in notebooks, because notebooks <a href="https://www.youtube.com/watch?v=7jiPeIFXb6U">encourage poor software development</a>. I don't want my visualizations in scripts because they either (1) open up and block the rest of my script or (2) get saved to disk somewhere, and I have to spend time opening them myself and remembering which graph went with which model. More generally, I wanted report-style visualizations, where the graphs were surrounded by code, headings, and prose.</p>
+<p>I'd heard of papermill a year ago, but never got around using it; a couple weeks ago, I decided to take the plunge into figuring it out. It has been a huge success.</p>
+<h2>My setup</h2>
+<p>It took a lot of iteration to reach this point, so I'll just describe the final result.</p>
+<ul>
+<li>data prep code: in an library (e.g., <code>lib.data</code>), which has code to initialize my dataset objects, clean them, and transform them</li>
+<li>plotting code: in a library (e.g., <code>lib.plots</code>), which has code to make common visualizations from datasets of predictions</li>
+<li>modeling code: my main script (e.g., <code>model.py</code>), which is where model classes are declared. The training loop lives in a <code>main</code> function here</li>
+</ul>
+<p>So far, things are pretty standard. I have code factored out into libraries, testable functions, and the ability to train a model by running the main modeling script. Here is where papermill comes in.</p>
+<p>I have a <strong>template visualization notebook</strong> which calls the <code>main</code> function of <code>model.py</code> to train a model, then goes on to make diagnostic plots and reports for me. It's parameterized at the top with things like the number of hidden units in my neural network, the learning rate, or the number of epochs to train for. Note that <em>I never run this notebook directly</em>--only papermill does.</p>
+<p>Finally, I have a driver script which (1) uses <code>papermill</code> to run the notebook with parameters that I specify there, (2) uses <code>nbconvert</code> to convert the notebook to an HTML document. This lets me open up the HTML report directly in my browser without having to have Jupyter running. Additionally, the HTML report is immutable--by design, I can't go back and mess with anything, so I don't have to worry about changing code after it has executed, one of the common pitfalls of notebooks.</p>
+<p>Having a driver script lets me run the same model multiple times to check for stability, train models with different hyperparameters, or test out different model architectures. It means I can run <code>python pm_driver.py</code>, wait for my model to train (and go write, say, a blog post on papermill), and come back to finished HTML documents with visualizations on how they performed.</p>
+<h2>Final thoughts</h2>
+<p>Papermill is incredible--it's undoubtedly changed my workflow for the better. At first, it was a lot of messing around to get everything to work, and it took a couple of weeks to land on a setup that worked for me. But now that I can separate model code from reporting code, but run both at the same time, iterating has gotten easier and faster.</p>
+<p>Because all of this is work code, I unfortunately can't share what I've created. I'm happy to talk about my experiences further if you'd like to email me@[this domain].</p>
+
+    </main>
+
+    <footer>
+        <section>
+            <p>&copy; 2019 Tushar Chandra
+                (<a href="https://github.com/tuchandra">GitHub</a> // <a href="https://tusharc.dev/">Website</a>)
+            </p>
+        </section>
+    </footer>
+
+</body>
+
+</html>
