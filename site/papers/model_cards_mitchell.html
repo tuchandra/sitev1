@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Paper: Model Cards for Model Reporting - Tushar Chandra</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="/site/style.css">
+</head>
+
+<body id="model_cards_mitchell">
+
+    <nav>
+        <section>
+            <span class="home">
+                <a href="/site/">Home</a>
+            </span>
+            <span class="links">
+                //
+                <a href="/site/contact.html">Contact</a>
+                //
+                <a href="/site/resume.html">Resume</a>
+                //
+                <a href="/site/projects.html">Projects</a>
+            </span>
+        </section>
+    </nav>
+
+    <main>
+        <h1>Paper: Model Cards for Model Reporting</h1>
+<p>Authors: Margaret Mitchell, Simone Wu, Andrew Zaldivar, Parker Barnes, Lucy Vasserman, Ben Hutchinson, Elena Spitzer, Inioluwa Deborah Raji, Timnit Gebru</p>
+<p>Link: <a href="https://arxiv.org/abs/1810.03993">arXiv</a></p>
+<p>How I found this paper: from a talk at Spark+AI Summit given by Patrick Hall, called <a href="https://databricks.com/session/interpretable-ai-not-just-for-regulators">Interpretable AI: not just for regulators</a>. One of the many papers cited in the talk was this one, as an example of how we can do better when reporting model performance.</p>
+<h2>Summary</h2>
+<p>This paper proposes a framework called &quot;model cards&quot; for reporting not only the performance, but also the limitations and expected usage, of machine learning models. The authors write in the abstract &quot;in order to clarify the intended use case of machine learning models and minimize their usage in contexts for which they are not well suited, we recommend that released models be accompanied by documentation detailing their performance characteristics.&quot; There are not really any standards for reporting on machine learning models, and this paper takes a step towards creating those.</p>
+<p>Model cards should have the following sections:</p>
+<ul>
+<li><strong>Model details</strong>: basic housekeeping about who developed the model and when, how it was trained, relevant papers, who to send questions to, etc.</li>
+<li><strong>Intended use</strong>: primary intended uses and users, use cases that are out-of-scope (important!). An example is &quot;not for text examples shorter than 100 tokens,&quot; where it's easy for people to apply a model to something that they shouldn't.</li>
+<li><strong>Factors</strong>: model performance across primarily groups (in an intersectional analysis, which requires thinking about the intended use cases and people it affects), but also instruments (what camera was used for the pictures in a face detection model?) and environment (e.g., lighting). They also suggest talking about forseeable salient factors and why the evaluation factors were chosen.</li>
+<li><strong>Metrics</strong>: what measures of performance were chosen and why? What thresholds were used and why?</li>
+<li><strong>Evaluation data</strong>: What datasets were used, why were they chosen, and how were they preprocessed? Is the evaluation dataset representative of the intended use cases?</li>
+<li><strong>Training data</strong>: basically the same as evaluation data. If the data is proprietary, they recommend discussing distributions over groups or other features.</li>
+<li><strong>Quantitative analyses</strong>: Diaggregated metrics over different factors, including how the model performed w.r.t. each factor and an intersectional combination of factors.</li>
+<li><strong>Ethical considerations</strong>: Does the model use sensitive data? Is the model intended to inform decisions about human health or safety? What risks might be present and what mitigation strategies were used? Are there use cases that are ethically questionable?</li>
+<li><strong>Caveats and recommendations</strong>: anything else not mentioned. Is there further testing required? What recommendations are there for model use?</li>
+</ul>
+<p>They cite another paper, <a href="https://arxiv.org/abs/1803.09010?context=cs">Datasheets for Datasets</a>, which shares the author Timnit Gebru, as a complement to (and possibly inspiration for?) this idea. More generally, the authors discuss how more mature industries have well-defined standards for documenting how systems work (e.g., nutrition labels for food or datasheets for electronic hardware). There are also governmental regulations about how e.g., clinical trials must be conducted, but nothing close to that exists for ML models. &quot;Those looking to use trained machine learning models in a particular context have no way of understanding the systemic impacts of these models before deploying them,&quot; they write. Anyone can lift a pretrained model off Github, but they might have no idea what the model was trained on, what it <em>wasn't</em> trained on, how well it performs, etc.</p>
+<p>Model cards are important for many people:</p>
+<ul>
+<li>ML practitioners can understand how well the model will work for its intended use case</li>
+<li>Model developers can compare results across models</li>
+<li>Software developers can use these to inform design decisions (e.g., by knowing that the model should never be run on certain types of inputs)</li>
+<li>Policymakers can understand how a system may fail or succeed in ways that affect different groups of people</li>
+<li>Organizations (what are these?) can be better informed about adopting ML systems</li>
+<li>ML-knowledgeable people can learn more about models that exist</li>
+<li>General people who the systems effect can better understand how it works</li>
+</ul>
+<p>Going through this process &quot;encourages forward-looking model analysis techniques&quot; by asking these questions up front.</p>
+<p>The authors present a two examples. The first is an image classifier for if someone is smiling, and a hidden issue is that the classifier misclassifies older men as smiling more often than other groups. A text toxicity classifier has unstable performance for text featuring the terms &quot;lesbian,&quot; &quot;gay,&quot; or &quot;homosexual,&quot; indicating that an incorrect application of this classifier could cause disparate impact w.r.t. LGBTQ+ groups.</p>
+<p><strong>The takeaway</strong>: model cards are one proposal for how to increase transparency in machine learning models. By adding to models discussions about what they should and shouldn't be used for, how they were trained and evaluated, and metrics for performance on intersectional groups, we can improve transparency across machine learning researchers, users, and stakeholders.</p>
+<h2>Thoughts, connections, and questions</h2>
+<p>This is definitely a <em>framework</em> for how to do this, and not a well-defined standard. The authors hedge their suggestions several times and discuss how their proposal may not be complete--which is great!--and so this is clearly a first step towards doing better at this. It's unlikely that this will emerge as a standard over time, too, so we have to consider this in the context of other transparency approaches.</p>
+<p>One of the things that Hall said in the Interpretable AI talk linked above is that &quot;our failure to address [these things] on our own could very well result in potentially draconian overregulation ... that government bodies that are not as educated about what we do will come in and say you can't do this, you can't do this, you can't do this.&quot; I completely agree with this--not that I'm against regulation, but that I trust machine learning researchers to do this much more than I trust governments to. That's why this kind of research is so interesting and necessary.</p>
+<p>The authors discuss &quot;performance on different groups&quot; several times, and I think this is the single most important application of model cards. Knowing how a machine learning model affects different groups of people is imprortant, but more important is that this question gets asked throughout the model development process. They also repeatedly discuss <em>intersectional</em> analysis for human-centric models, pulling in sociology concepts to ensure that researchers treat individuals as &quot;a complex combination of many factors,&quot; not just shaped by e.g., their age, gender, and race.</p>
+<p>This is just one approach to increasing transparency in machine learning. Another class of research is that on interpretable models, so that we can know why models are making the decisions that they are (without resorting to post-hoc methods like LIME or SHAP). Adversarial attacks are also interesting, though I know less about them. I like these because they're information sheets about models, when currently models are often just some code and parameter weights.</p>
+
+    </main>
+
+    <footer>
+        <section>
+            <p>&copy; 2019 Tushar Chandra
+                (<a href="https://github.com/tuchandra">GitHub</a> // <a href="https://tusharc.dev/">Website</a>)
+            </p>
+        </section>
+    </footer>
+
+</body>
+
+</html>
