@@ -7,7 +7,7 @@ Hello, world! Welcome to my website. Everything is still very much under constru
 ###### November 17, 2019
 Summary of the paper by Mitchell et al.
 
-### [Using Paperill to wrap model runns](papermill_experiences.md)
+### [Using Paperill to wrap model runs](papermill_experiences.md)
 ###### November 15, 2019
 I recently started using [papermill](https://github.com/nteract/papermill/) from nteract to parameterize model runs. I've started to like it a lot, and this post will discuss my experiences with it and my current setup.
 
