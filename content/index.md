@@ -3,9 +3,12 @@
 Hello, world! Welcome to my website. Everything is still very much under construction.
 
 ## Pages
+### [Paper: A Bayesian Cognition Approach to Improve Data Visualization](papers/bayesian_cognition_viz_kim.md)
+Summary of the CHI 2019 paper by Kim et al.
+
 ### [Paper: Model Cards for Model Reporting](papers/model_cards_mitchell.md)
 ###### November 17, 2019
-Summary of the paper by Mitchell et al.
+Summary of the FAT* 2019 paper by Mitchell et al.
 
 ### [Using Paperill to wrap model runs](papermill_experiences.md)
 ###### November 15, 2019
@@ -13,7 +16,7 @@ I recently started using [papermill](https://github.com/nteract/papermill/) from
 
 ### [Paper: The Curse of Knowledge in Visual Data Communication](papers/curse_of_knowledge_xiong.md)
 ###### November 13, 2019
-Summary of the paper by Cindy Xiong, Lisanne van Weeldan, and Steven Franconeri.
+Summary of the paper by IEEE TVCG 2019 paper by Cindy Xiong, Lisanne van Weeldan, and Steven Franconeri.
 
 ### [Why I'm interested in HCI](hci_directions.md)
 ###### October 28, 2019
