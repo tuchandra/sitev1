@@ -42,7 +42,7 @@ tl;dr: I'm currently a data scientist at Nielsen. I did my master's in computer 
 ## Skills
 **Python**: fluent in core language features, along with numpy, pandas, scikit-learn, matplotlib, seaborn, pyspark, sphinx, mypy
 
-**Technologies**: Git, Unix, unit testing and TDD, machine learning, cloud computing, data visualization in Python and d3.js, Bayesian modeling in PyMC3
+**Technologies**: Git, Unix, unit testing and TDD, machine learning, cloud computing, data visualization in Python and d3.js, Bayesian modeling in PyMC3 and Pyro
 
 **Other languages**: SQL (advanced), Spark (advanced), JavaScript (intermediate), R (basic)
 
