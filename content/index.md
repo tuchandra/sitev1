@@ -4,6 +4,7 @@ Hello, world! Welcome to my website. Everything is still very much under constru
 
 ## Pages
 ### [Paper: A Bayesian Cognition Approach to Improve Data Visualization](papers/bayesian_cognition_viz_kim.md)
+###### November 20, 2019
 Summary of the CHI 2019 paper by Kim et al.
 
 ### [Paper: Model Cards for Model Reporting](papers/model_cards_mitchell.md)
