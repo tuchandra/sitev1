@@ -3,6 +3,10 @@
 Hello, world! Welcome to my website. Everything is still very much under construction.
 
 ## Pages
+### [On the digital ad industry](digital_advertising.md)
+###### November 21, 2019
+I recently read a fantastic article on The Correspondent about digital advertising, called [The new dot com bubble is here: it’s called online advertising](https://thecorrespondent.com/100/the-new-dot-com-bubble-is-here-its-called-online-advertising/13228924500-22d5fd24). This post summarizes my thoughts.
+
 ### [Paper: A Bayesian Cognition Approach to Improve Data Visualization](papers/bayesian_cognition_viz_kim.md)
 ###### November 20, 2019
 Summary of the CHI 2019 paper by Kim et al.
