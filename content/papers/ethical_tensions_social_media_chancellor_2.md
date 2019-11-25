@@ -1,15 +1,15 @@
 <!-- date: 2019-11-25 -->
-# Paper: A Taxonomy of Ethical Tensions in Inferring Mental Health States from Social Media (part 1/2)
+# Paper: A Taxonomy of Ethical Tensions in Inferring Mental Health States from Social Media (part 2/2)
 Authors: Stevie Chancellor, Michael Birnbaum, Eric Caine, Vince Silenzio, and Munmun De Choudhury.
 
 **Link**: [Stevie Chancellor's website](http://steviechancellor.com/wp-content/uploads/2019/03/taxonomy-prediction-mh-fat2019.pdf) (ACM FAT* 2019)
 
-**This is part 2 of this write-up. See the previous part [here](ethical_tensions_social_media_chancellor_1.md).**
+This is part 2 of this write-up. See the previous part [here](ethical_tensions_social_media_chancellor_1.md).
 
 ## Calls to action
 Research in this space "will continue to grow, with new algorithms, data collection means, and new implications for practical use of these algorithms." The authors call the community to begin work on these issues.
 
-**Participatory algorithmic design**: "researchers should include key stakeholders in the research process, including clinicians, social networks, and individuals who are the object of these predictions." Interdiscplinary seminars and workshops are increasing in number, but more generally CS practiioners should seek out clinicians and domain experts for this work. Platform owners and ethicists can help to tackle issues of bias, fairness, and privacy. They also suggest that those who are the targets of predictions are considered and involved through focus groups, interviews, or other human-centric design strategies.
+**Participatory algorithmic design**: "researchers should include key stakeholders in the research process, including clinicians, social networks, and individuals who are the object of these predictions." Interdisciplinary seminars and workshops are increasing in number, but more generally CS practitioners should seek out clinicians and domain experts for this work. Platform owners and ethicists can help to tackle issues of bias, fairness, and privacy. They also suggest that those who are the targets of predictions are considered and involved through focus groups, interviews, or other human-centric design strategies.
 
 **Developing best practices for methods**: "researchers should disclose study design and methods decisions to promote reproducibility, and the field should agree on what best practices are." This requires identifying gaps through meta-analyses and literature reviews (this is part of why this paper exists), and more generally speaking researchers should be more transparent about recruitment, methodology, and design.
 
