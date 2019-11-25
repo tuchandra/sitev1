@@ -49,6 +49,6 @@ Many of these papers include explicit notes about ethical or methodological tens
 
 **Bad actors and fairness / discrimination**: what happens if one of these tools falls into the hands of a bad actor, and it's used to harass someone who is vulnerable? What if health insurance agencies use this to raise premiums for those who are inferred to have a mental illness? Moreover, previous research has found that these oversample affluent white women, which could make generalizability challenging. What impact does this have on predicting for people who don't use social media (lower income people, older people)?
 
-## Calls to action + my relfections
-See part 2 [here](ethical_tensions_social_media_chancellor_2.md).
+
+
 
