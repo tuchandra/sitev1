@@ -3,6 +3,14 @@
 Hello, world! Welcome to my website. Everything is still very much under construction.
 
 ## Pages
+### [Paper: A Taxonomy of Ethical Tensions in Inferring Mental Health States from Social Media (part 2/2)](papers/ethical_tensions_social_media_chancellor_2.md)
+###### November 25, 2019
+Summary of the FAT* 2019 paper by Chancellor et al., part 2 of 2, focusing on calls to action and reflections.
+
+### [Paper: A Taxonomy of Ethical Tensions in Inferring Mental Health States from Social Media (part 1/2)](papers/ethical_tensions_social_media_chancellor_1.md)
+###### November 24, 2019
+Summary of the FAT* 2019 paper by Chancellor et al., part 1 of 2, focusing on the tensions described in the paper.
+
 ### [On the digital ad industry](digital_advertising.md)
 ###### November 21, 2019
 I recently read a fantastic article on The Correspondent about digital advertising, called [The new dot com bubble is here: it’s called online advertising](https://thecorrespondent.com/100/the-new-dot-com-bubble-is-here-its-called-online-advertising/13228924500-22d5fd24). This post summarizes my thoughts.
