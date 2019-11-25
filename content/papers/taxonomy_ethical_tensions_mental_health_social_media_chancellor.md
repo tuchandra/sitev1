@@ -25,28 +25,51 @@ The authors briefly summarize existing work in social media research ethics, pub
  * bias and validity
  * implications for different stakeholders
 
-### Three areas of tension
-**Participants and research oversight**:
+The rest of the paper described the various tensions and then calls to action.
 
+### Participants and research oversight
+**The unclear role of ethics committees:** analysis of public social media data is often exempt from ethics committees because (1) the studies are observational and (2) the data is (at the time of collection) public, so an argument can be made that this is no different than data available through the census or in courthouses. But should it be exempt? One could reasonably argue that this borders on medical diagnosis, and mental health is a complex and potentially isolating topic. Ethics boards have no clear way of handling this kind of research.
 
-**Validity, interpretability, and methods**:
+**Consent at scale**: obtaining individual consent at scale is practically impossible, and once your studies go from observational to experimental, things get really murky. People are also generally unaware that their public content could be used by researchers. Whose responsibility is it to inform them of this?
 
+**Vulnerable populations and risk**: vulnerable populations have additional protections under the US IRB. How do we treat them differently (e.g., in eating disorders research, when a large number of those affected are minors)? In traditional studies with interventions, there are always safeguards in place for when the harms outweigh the benefits; social media research lacks these. In observational studies, the *knowledge* that researchers are observing behavior may upset people. Moreover, when people "drop out" of traditional studies, there are protocols for how to handle this; when people "drop out" of social media, it could mean anything from making a new account to moving to a different platform to being at risk for suicide.
 
-**Implications for stakeholders**:
+**Contextual integrity of communities**: it's unclear if people realize their public communities can be surveilled. Are researchers violating the norms of these communities by studying them? It's feasible to ask community leaders for permission on some platforms, like Reddit or Facebook groups, but not others like Twitter.
 
+### Validity, interpretability, and methods
+**Construct validity**: there are very clear standards for making accurate psychiatric diagnoses; see the DSM, the patient health questionnaire, or the GAD-7 scale for anxiety. How do we integrate these into social media models? How should we gather "ground truth" labels (training data) for these models--from self-disclosure, specific hashtags, community participation, actual clinicians? Are we measuring the phenomena that we think we are? Must we involve clinicians to assess ground truth?
 
+**Data bias**: all of these studies are biased to those who use social media (younger and more technologically literate than the average person). If a study uses (as many do) self-diagnoses ("I was diagnosed with XXX"), the sampling is becomes biased towards people who have (likely) sought professional treatment (and therefore have the means to do so) and people who are comfortable disclosing their mental health status to others. What does this mean for people who don't have the means to seek professional help, or those who are newly diagnosed and not comfortable sharing? How do these studies (fail to) account for those people?
 
+**Algorithmic interpretability**: my favorite! Deep learning is the SOTA here, but it doesn't produce interpretable features. This can lead to biased conclusions, poor accountability, or an inability to correct failing algorithms. These models can also challenge human interpretability; what happens when results don't align with a clinically-grounded understanding of mental health? Are the insights new signs of mental illness, or are they red herrings? Also, mental health is a continuum, and SOTA models are not yet able to understand the subtleties of this.
 
+**Performance tradeoffs**: false positives can be stigmatizing and embarassing, cause undue stress, or overburden stakeholders (in the case of content moderation). False negatives can mean that one's mental health status goes untreated, raising questions about responsibility and accountability. What should these algorithms prioritize? If they miss someone, who is responsible for not intervening?
+
+**Data sharing and protection**: scientists share data for reproducibility, but rarely are these datasets cleaned of deleted or removed data. How can we share data while protecting participants? What does a benchmark dataset even look like? If examples are used in papers, how do we ensure those individuals cannot be identified?
+
+### Implications for stakeholders
+**Emotional vulnerability**: computer sceince researchers aren't trained to manage complex emotions in vulnerable populations, and also manage their own emotions when dealing with sensitive or emotionally burdening data. How do we do that?
+
+**Skillset mismatches**: interdisciplinary work is hard. Algorithms might not be interpretable to computer scientists, leave alone outsiders. CS researchers lack training in the skills clinicians possess. What happens if a clinician suggests removing a highly predictive feature because it's not relevant to preidcting depression? How do we navigate interdisciplinary partnerships?
+
+**Role of the clinician**: clinicians are bound by a "duty to treat" in their work. Do they have this duty after annotating a dataset for suicide risk? One might reasonably argue no, because they don't have a patient / physician relationship. But what about a "duty to rescue," where a bystander should help someone in peril? Does this apply here? Who has this duty, if they see a Facebook post that says someone will harm themselves? Additionally, if insights from this kind of work is given to clinicians to help, how do we design systems and interfaces that do this effectively while respecting patients and not overburdening clinicians?
+
+**Designing interventions**: this is the most mentioned application of this work, but this is plagued with ethical questions. If we detect someone might be suicidal, do we alert experts? Their family? What if an abusive family is the reason? Furthermore, if we alert individuals of their own inferred mental health status, are we doing more harm than good?
+
+**Bad actors and fairness / discrimination**: what happens if one of these tools falls into the hands of a bad actor, and it's used to harass someone who is vulnerable? What if health insurance agencies use this to raise premiums for those who are inferred to have a mental illness? Moreover, previous research has found that these oversample affluent white women, which could make generalizability challenging. What impact does this have on predicting for people who don't use social media (lower income people, older people)?
+
+### Calls to action
+...
 
 
 **The takeaway**: ...
 
 ## Thoughts, connections, and questions
+I loved how this paper was organized. They organized all of their proposed tensions clear, and I particularly appreciated how the paper posed dozens of questions without attempting to answer them. There are no easy answers when someone's well-being is on the line.
 
-
-A question I've been thinking about lately: lots of technologies can be used for good and evil. An open source tool to infer mental states from Twitter could help design interventions, but it could also open the door to harassers targeting the most vulnerable people. Or OpenAI's GPT-2, which could be used for very convincing synthetic text generation, for better or for worse.
+A question I've been thinking about lately: lots of technologies can be used for good and evil. An open source tool to infer mental states from Twitter could help design interventions, but it could also open the door to harassers targeting the most vulnerable people. Or OpenAI's GPT-2, which could be used for very convincing synthetic text generation, for better or for worse. The authors bring this up when they ask "do these algorithms only help the proverbial 'rich get richer' by predicting mental health status on those already likely to seek treatment?", and this is perhaps the most important question of the paper.
 
 I don't have an answer to this yet. I think software is different because of how much more accessible it is (getting code from Github running compared to, say, synthesizing a newly discovered dangerous chemical). We also have to be careful with the question of who software gives more power to, and who it takes power away from. Does something that infers mental health states actually help the mentally ill, or does it make them less powerful by making it easier for bad actors to take advantage of them?
 
-The questions of consent are also interesting here. If Facebook designs an intervention for individuals that they infer as high risk for suicide, they certainly wouldn't roll it out to everyone at once. But A/B testing this is equivalent to conducting psychological research on (high-risk!) human subjects--while I'd love to give credit to Facebook and [assume that they're at least thinking about this](https://xkcd.com/1390/), there's no chance that it stands up to an actual university's ethics board.
+The questions of consent are also interesting here. If Facebook designs an intervention for individuals that they infer as high risk for suicide, they certainly wouldn't roll it out to everyone at once. But A/B testing this is equivalent to conducting psychological research on (high-risk!) human subjects--while I'd love to give credit to Facebook and [assume that they're at least thinking about this](https://xkcd.com/1390/), there's no chance that it stands up to an actual university's ethics board. Moreover, we've seen that people don't realize how much of what they put on social media is public; should researchers have the responsibility of informing people of this? Should the platform?
 
