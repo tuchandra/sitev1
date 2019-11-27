@@ -3,6 +3,11 @@
 Hi, everyone! Welcome to my website. I created it using a very simple static site generator that I [wrote myself](about_website.md). This page is a landing page for links to blog posts and paper summaries.
 
 ## Pages
+### [Why all the paper summaries?](why_papers.md)
+###### November 26, 2019
+
+I've been writing a bunch of paper summaries over the past couple of weeks, and I hope to continue this for several months. Why, though? This post will clear that up.
+
 ### [Paper: Bayesian Multilevel Estimation with Poststratification: State-Level Estimates from National Polls](papers/bayesian_multilevel_estimation_gelman.md)
 ###### November 26, 2019
 Summary of the foundational paper by Park, Gelman, and Bafumi.
