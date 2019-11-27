@@ -1,6 +1,6 @@
 <!-- title: Home -->
 # Tushar Chandra
-Hello, world! Welcome to my website. Everything is still very much under construction.
+Hi, everyone! Welcome to my website. I created it using a very simple static site generator that I [wrote myself](about_website.md). This page is a landing page for links to blog posts and paper summaries.
 
 ## Pages
 ### [Paper: Bayesian Multilevel Estimation with Poststratification: State-Level Estimates from National Polls](papers/bayesian_multilevel_estimation_gelman.md)
@@ -53,7 +53,6 @@ In [my last post](silph.md), I re-analyzed shiny rates from The Silph Road and c
 
 ### [How I built this website](about_website.md)
 ###### April 29, 2019
-
 You may have noticed that the [Github repo](https://github.com/tuchandra/tuchandra.github.io) for this website has a tagline "... for people who *aren't* web developers." I am a data scientist and certainly fit that description, and so I'm going to talk about how I built this site using the tools I already know.
 
 ### [Spark + AI Summit 2019 Notes](spark/index.md)
