@@ -3,6 +3,10 @@
 Hello, world! Welcome to my website. Everything is still very much under construction.
 
 ## Pages
+### [Paper: Bayesian Multilevel Estimation with Poststratification: State-Level Estimates from National Polls](papers/bayesian_multilevel_estimation_gelman.md)
+###### November 26, 2019
+Summary of the foundational paper by Park, Gelman, and Bafumi.
+
 ### [Paper: A Taxonomy of Ethical Tensions in Inferring Mental Health States from Social Media (part 2/2)](papers/ethical_tensions_social_media_chancellor_2.md)
 ###### November 25, 2019
 Summary of the FAT* 2019 paper by Chancellor et al., part 2 of 2, focusing on calls to action and reflections.
