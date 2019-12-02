@@ -1,5 +1,5 @@
 <!-- date: 2019-12-01 -->
-# Paper: Who is the “Human” in Human-Centered Machine Learning: The Case of Predicting Mental Health from Social Media
+# Paper: Who is the "Human" in Human-Centered Machine Learning: The Case of Predicting Mental Health from Social Media
 Authors: Stevie Chancellor, Eric P.S. Baumer, and Munmun De Choudhury.
 
 **Link**: [Stevie Chancellor's website](http://steviechancellor.com/wp-content/uploads/2019/09/HCML-CSCW-2019.pdf) (CSCW 2019)
@@ -9,7 +9,7 @@ Authors: Stevie Chancellor, Eric P.S. Baumer, and Munmun De Choudhury.
 ## Summary
 This is a meta-analysis of 55 papers within human-centered machine learning (HCML), focusing specifically on papers attempting to "predict mental health status" (see the author's [other paper](ethical_tensions_social_media_chancellor_1.md)) from social media. This field is receiving increasing attention and is both promising and dangerous. The authors write "data science efforts to understand [mental disorders] are inherently humanistic," which I love.
 
-**Discourse:** the authors study "how the community describes [humans] in publications," referred to as *discourse*. "Discourse frames, shapes, and changes our formations of social and political structures, and how power and responsibility may be conferred to individuals and groups – with the ultimate goal of making such structures apparent for critique and change."
+**Discourse:** the authors study "how the community describes [humans] in publications," referred to as *discourse*. "Discourse frames, shapes, and changes our formations of social and political structures, and how power and responsibility may be conferred to individuals and groups - with the ultimate goal of making such structures apparent for critique and change."
 
 ### Five representations of the human
 The authors found 164 terms used to describe humans, then grouped these into 5 "discursive representations." I'll summarize how the authors discuss each representation.
@@ -29,7 +29,7 @@ The authors found 164 terms used to describe humans, then grouped these into 5 "
 
 **Human as data / machine learning object**: this translates people into part of an algorithm or ML pipeline. While useful in the context of describing ML systems, this is dangerously dehumanizing: the idea of "harvesting social media data" can make invisible the people who the data represents. This reduces people to their data (a common criticism of today's tech companies).
 
-**Human as a person**: ah, the one that you would expect is totally fine! Nope. One paper imprecisely used the pronoun "she" to refer to people with eating disorders, alientating the third of those with eating disorders who are male, as well as nonbinary people. Other terms highlighted demographics--"mother" in a study of postpartum depression, or "teenagers" or "adolescents" for studies on high school students. Using this kind of language isn't a magic bullet; it's still complex and has potential for misuse.
+**Human as a person**: ah, the one that you would expect is totally fine! Nope. One paper imprecisely used the pronoun "she" to refer to people with eating disorders, alienating the third of those with eating disorders who are male, as well as nonbinary people. Other terms highlighted demographics--"mother" in a study of postpartum depression, or "teenagers" or "adolescents" for studies on high school students. Using this kind of language isn't a magic bullet; it's still complex and has potential for misuse.
 
 All papers had at least 3 of 5 discourses present, and the majority had more. The authors present several examples of mixing discourses, and show that it's *very easy* to do so--otherwise natural-looking sentences can refer to people in as many as four different ways! These often-competing discourses risk dehumanization by reducing people to their profiles, data, or mental disorders, which lies in conflict with human-centered anything. This is *not* to say that we shouldn't use ML in this field; rather that we need to take care to "recenter the human ... and make [our] commitment to humans clear." I might go into this more in a future post.
 
