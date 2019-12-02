@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Paper: Who is the “Human” in Human-Centered Machine Learning: The Case of Predicting Mental Health from Social Media - Tushar Chandra</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="/site/style.css">
+</head>
+
+<body id="who_is_human_chancellor">
+
+    <nav>
+        <section>
+            <span class="home">
+                <a href="/site/">Home</a>
+            </span>
+            <span class="links">
+                //
+                <a href="/site/contact.html">Contact</a>
+                //
+                <a href="/site/resume.html">Resume</a>
+                //
+                <a href="/site/projects.html">Projects</a>
+            </span>
+        </section>
+    </nav>
+
+    <main>
+        <h1>Paper: Who is the “Human” in Human-Centered Machine Learning: The Case of Predicting Mental Health from Social Media</h1>
+<p>Authors: Stevie Chancellor, Eric P.S. Baumer, and Munmun De Choudhury.</p>
+<p><strong>Link</strong>: <a href="http://steviechancellor.com/wp-content/uploads/2019/09/HCML-CSCW-2019.pdf">Stevie Chancellor's website</a> (CSCW 2019)</p>
+<p><strong>How I found this paper</strong>: from the lead author's website!</p>
+<h2>Summary</h2>
+<p>This is a meta-analysis of 55 papers within human-centered machine learning (HCML), focusing specifically on papers attempting to &quot;predict mental health status&quot; (see the author's <a href="ethical_tensions_social_media_chancellor_1.html">other paper</a>) from social media. This field is receiving increasing attention and is both promising and dangerous. The authors write &quot;data science efforts to understand [mental disorders] are inherently humanistic,&quot; which I love.</p>
+<p><strong>Discourse:</strong> the authors study &quot;how the community describes [humans] in publications,&quot; referred to as <em>discourse</em>. &quot;Discourse frames, shapes, and changes our formations of social and political structures, and how power and responsibility may be conferred to individuals and groups – with the ultimate goal of making such structures apparent for critique and change.&quot;</p>
+<h3>Five representations of the human</h3>
+<p>The authors found 164 terms used to describe humans, then grouped these into 5 &quot;discursive representations.&quot; I'll summarize how the authors discuss each representation.</p>
+<p><img src="who_is_human_chancellor_img1.png" alt="Discursive categories and example terms" /></p>
+<p><strong>Human as patient / disorder</strong>: many papers conceptualize people as clinical subjects; this can be inaccurate because of the direct implication that they're in a health care relationship. Discourse here often frames people without mental disorders as &quot;normal,&quot; which is stimgatizing for those who do have them.</p>
+<p><strong>Human as social media</strong>: this is the most interesting to me. There are a lot of ideas at play here:</p>
+<ul>
+<li>The term <em>user</em> was used in <em>every single paper</em>; some papers additionally use &quot;poster&quot; or &quot;tweeter.&quot; This portrays humans as entities who use a platform or curate a social media profile.</li>
+<li>Other discourse uses more impersonal terms, like &quot;account&quot; or &quot;profile.&quot; In these cases, the &quot;post&quot; is later scaled to the human who created it.</li>
+<li>The primary risk (and what the vast majority of researchers did) is reducing individuals to single posts, which are rarely placed in a broader context about who they are.</li>
+<li>There is often an assumption that participation in a community is indicative of mental health status, which is a reductionist view of communities and participation therein. The term &quot;community&quot; was often used as a label, perhaps implying that e.g., a &quot;depression community&quot; exists.</li>
+</ul>
+<p><strong>Human as a scientific subject</strong>: the primary risk here is with imprecise language. The term &quot;participant&quot; implies active consent and human research ethics boards, which are often not present. The term &quot;control&quot; implies a control / treatment split, which is rarely the case with passive studies. The term &quot;population&quot; obfuscates who the research actually refers to (people who suffer from a mental disorder? people in a Reddit community? people sampled from a Reddit community?). These terms imply &quot;experimental rigor and human subjects protections that are not realized through the actual experiment design.&quot;</p>
+<p><strong>Human as data / machine learning object</strong>: this translates people into part of an algorithm or ML pipeline. While useful in the context of describing ML systems, this is dangerously dehumanizing: the idea of &quot;harvesting social media data&quot; can make invisible the people who the data represents. This reduces people to their data (a common criticism of today's tech companies).</p>
+<p><strong>Human as a person</strong>: ah, the one that you would expect is totally fine! Nope. One paper imprecisely used the pronoun &quot;she&quot; to refer to people with eating disorders, alientating the third of those with eating disorders who are male, as well as nonbinary people. Other terms highlighted demographics--&quot;mother&quot; in a study of postpartum depression, or &quot;teenagers&quot; or &quot;adolescents&quot; for studies on high school students. Using this kind of language isn't a magic bullet; it's still complex and has potential for misuse.</p>
+<p>All papers had at least 3 of 5 discourses present, and the majority had more. The authors present several examples of mixing discourses, and show that it's <em>very easy</em> to do so--otherwise natural-looking sentences can refer to people in as many as four different ways! These often-competing discourses risk dehumanization by reducing people to their profiles, data, or mental disorders, which lies in conflict with human-centered anything. This is <em>not</em> to say that we shouldn't use ML in this field; rather that we need to take care to &quot;recenter the human ... and make [our] commitment to humans clear.&quot; I might go into this more in a future post.</p>
+<p><strong>The takeaway</strong>: language matters! The language that we use to describe the humans involved in these studies can seem like an afterthought, but the use of inconsistent and competing discourses may risk dehumanization. This paper demonstrates a need to ensure that human-centric ML is <em>actually</em> human-centric, and this starts with the language we use to talk about those people.</p>
+<h2>Thoughts, connections, and questions</h2>
+<p>Four unrelated reactions.</p>
+<p>(1) This paper seemed awfully long at first--the PDF checks in at 32 pages--but the actual text is &quot;only&quot; 32, and there are a ton of references due to the fact that this is basically a literature review. I was surprised by how easy it was to read!</p>
+<p>(2) An unexpected benefit of this paper is that I now have a nicely curated list of papers in the data science / social media / mental health space. While I'm not sure how much my future research interests are aligned with this field, it's nice to have this list to refer to if I need something to read.</p>
+<p>(3) I am certainly guilty of using inconsistent language myself. I learned to use &quot;people-first&quot; language (e.g., &quot;a person with schizophrenia&quot; rather than &quot;a schizophrenic&quot;), since the latter defines the person by their mental disorder, while the first recognizes that schizophrenia is but one part of their complex identity. This paper helps me to put that idea into a broader context--there are lots of other ways, good and bad, to refer to people.</p>
+<p>(4) Lastly, I think this paper subtly raises a broader issue about the people behind these research studies. Potentially dehumanizing people through language is demonstrably an issue, but what does this say about how social media companies think about the &quot;users&quot; on their platforms? To what extent am I a &quot;person&quot; to Facebook, or an &quot;account&quot; on Twitter, or an &quot;example&quot; on Reddit? How much do platform owners care about the actual people using their platforms? And how does this positively or negatively impact--empower or dehumanize--those people?</p>
+
+    </main>
+
+    <footer>
+        <section>
+            <p>&copy; 2019 Tushar Chandra
+                (<a href="https://github.com/tuchandra">GitHub</a> // <a href="https://tusharc.dev/">Website</a>)
+            </p>
+        </section>
+    </footer>
+
+</body>
+
+</html>
