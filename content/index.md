@@ -1,8 +1,15 @@
 <!-- title: Home -->
+
 # Tushar Chandra
 Hi, everyone! Welcome to my website. I created it using a very simple static site generator that I [wrote myself](about_website.md). This page is a landing page for links to blog posts and paper summaries.
 
 ## Pages
+
+### [(Talk notes) Data Indicators for Equity: Flash in the Pan or Mobilizing Force? ](equity_indicators.md)
+
+###### December 4, 2019
+
+These are notes from a [tech talk](https://www.meetup.com/ChicagoCityData/events/266787601/) that I went to on December 4th. The talk was by Dan Cooper, the Director of Research @ the [Metropolitan Planning Council](https://metroplanning.org/). 
 
 ### [Paper: Who is the "Human" in Human-Centered Machine Learning](papers/who_is_human_chancellor.md)
 ###### December 1, 2019
