@@ -5,7 +5,7 @@ Hi, everyone! Welcome to my website. I created it using a very simple static sit
 
 ## Pages
 
-### [(Talk notes) Data Indicators for Equity: Flash in the Pan or Mobilizing Force? ](equity_indicators.md)
+### [(Talk notes) Data Indicators for Equity: Flash in the Pan or Mobilizing Force? ](talk_equity_indicators.md)
 
 ###### December 4, 2019
 
