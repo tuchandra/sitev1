@@ -8,6 +8,10 @@ Hi, everyone! Welcome to my website. I created it using a very simple static sit
 ###### December 14, 2019
 Summaries and thoughts about articles that I read this week, including "The grim conclusions of the largest-ever study of fake news," "No, AI is not for social good," and more.
 
+### [Features I would like to add to my SSG](site_wishlist.md)
+###### December 9, 2019
+I [wrote](https://tusharc.dev/site/about_website.html) about my SSG and how I built this website back in April. Over time, I've started to realize that some of the features I stripped out may actually be useful. This post is a wishlist of features that I would like to add over time.
+
 ### [What I read this week (December 1 - 7)](what_i_read_20191207.md)
 ###### December 8, 2019
 Summaries and thoughts about articles that I read this week, including "A Comment is an Invitation for Refactoring" and "Code Less, Engineer More."
