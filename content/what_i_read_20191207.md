@@ -1,0 +1,58 @@
+<!-- date: 2019-12-07 -->
+
+# What I read this week (December 1 - 7)
+I am considering posting regularly about other things I'm reading, particularly blog posts and articles. But these rarely warrant their own standalone post (a blog post about someone else's blog post?), so I'll write a couple paragraphs about interesting articles I find.
+
+## [A comment is an invitation for refactoring](https://blog.pragmaticengineer.com/a-comment-is-an-invitation-for-refactoring)
+**Author:** Gergely Orosz
+
+**How I found this**: from [Pointer](http://www.pointer.io/)
+
+This post re-examined Uncle Bob's often-quoted advice "a comment is an apology." The premise of the post was that a comment is an invitation to refactor the code in a way that makes the comment unnecessary. Put another way, "*most* inline comments can be eliminated by refactoring the code itself." The three examples they cited were comments for (1) methods that are too long, (2) saying that code fixes a particular bug, and (3) temporarily commented out code. Each of these cases, the author argues, could be refactored (or in (3), deleted) to make the purpose of the code more clear. 
+
+A related quote from Jeff Atwood at the end of the article:
+
+> If your feel your code is too complex to understand without comments, your code is probably just bad. Rewrite it until it doesn't need comments anymore. If, at the end of that effort, you still feel comments are necessary, then by all means, add comments. Carefully.
+
+I'm not really sure how much this applies to modeling code. Methodology comments are a huge part of my codebase, and eliminating them would make my code substantially less clear. At that point, it would be akin to a bunch of equations without motivation or justification.
+
+## [Code less, engineer more](https://increment.com/teams/code-less-engineer-more/)
+**Author**: Liz Fong-Jones
+
+**How I found this**: from [Pointer](http://www.pointer.io)
+
+This post didn't contain any advice I hadn't heard before, but rephrased the advice "code is a liability" in a more practical way. That advice boils down to the idea that every line of code written is a line of code that has to be tested, maintained, and debugged; it's a line of code that could cause a bug or an outage; it's a line of code that could (will) eventually become part of a legacy codebase.
+
+Fong-Jones focuses on a few key principles:
+
+ * Build what you must, buy what you can, and write it all down
+ * Focus on the impact, not the volume
+ * Share what you make, and how you made it
+
+What stood out to me most was the repeated emphasis on writing and sharing. Decisions, as well as code, should be documented not only for future maintainability but also to share what we've learned in our community (team, company, software industry). Writing down alternatives you considered can help someone else avoid solving the same problem a year later.
+
+Finally, if you build something that others could use, share it! This goes beyond open-sourcing code; share design decisions and motivations in the same vein as above. Additionally, make sure your company is set up to easily share code across teams (this is harder than it sounds, speaking from experience!).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

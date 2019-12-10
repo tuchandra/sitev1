@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>What I read this week (December 1 - 7) - Tushar Chandra</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="/site/style.css">
+</head>
+
+<body id="what_i_read_20191207">
+
+    <nav>
+        <section>
+            <span class="home">
+                <a href="/site/">Home</a>
+            </span>
+            <span class="links">
+                //
+                <a href="/site/contact.html">Contact</a>
+                //
+                <a href="/site/resume.html">Resume</a>
+                //
+                <a href="/site/projects.html">Projects</a>
+            </span>
+        </section>
+    </nav>
+
+    <main>
+        <h1>What I read this week (December 1 - 7)</h1>
+<p>I am considering posting regularly about other things I'm reading, particularly blog posts and articles. But these rarely warrant their own standalone post (a blog post about someone else's blog post?), so I'll write a couple paragraphs about interesting articles I find.</p>
+<h2><a href="https://blog.pragmaticengineer.com/a-comment-is-an-invitation-for-refactoring">A comment is an invitation for refactoring</a></h2>
+<p><strong>Author:</strong> Gergely Orosz</p>
+<p><strong>How I found this</strong>: from <a href="http://www.pointer.io/">Pointer</a></p>
+<p>This post re-examined Uncle Bob's often-quoted advice &quot;a comment is an apology.&quot; The premise of the post was that a comment is an invitation to refactor the code in a way that makes the comment unnecessary. Put another way, &quot;<em>most</em> inline comments can be eliminated by refactoring the code itself.&quot; The three examples they cited were comments for (1) methods that are too long, (2) saying that code fixes a particular bug, and (3) temporarily commented out code. Each of these cases, the author argues, could be refactored (or in (3), deleted) to make the purpose of the code more clear.</p>
+<p>A related quote from Jeff Atwood at the end of the article:</p>
+<blockquote>
+<p>If your feel your code is too complex to understand without comments, your code is probably just bad. Rewrite it until it doesn't need comments anymore. If, at the end of that effort, you still feel comments are necessary, then by all means, add comments. Carefully.</p>
+</blockquote>
+<p>I'm not really sure how much this applies to modeling code. Methodology comments are a huge part of my codebase, and eliminating them would make my code substantially less clear. At that point, it would be akin to a bunch of equations without motivation or justification.</p>
+<h2><a href="https://increment.com/teams/code-less-engineer-more/">Code less, engineer more</a></h2>
+<p><strong>Author</strong>: Liz Fong-Jones</p>
+<p><strong>How I found this</strong>: from <a href="http://www.pointer.io">Pointer</a></p>
+<p>This post didn't contain any advice I hadn't heard before, but rephrased the advice &quot;code is a liability&quot; in a more practical way. That advice boils down to the idea that every line of code written is a line of code that has to be tested, maintained, and debugged; it's a line of code that could cause a bug or an outage; it's a line of code that could (will) eventually become part of a legacy codebase.</p>
+<p>Fong-Jones focuses on a few key principles:</p>
+<ul>
+<li>Build what you must, buy what you can, and write it all down</li>
+<li>Focus on the impact, not the volume</li>
+<li>Share what you make, and how you made it</li>
+</ul>
+<p>What stood out to me most was the repeated emphasis on writing and sharing. Decisions, as well as code, should be documented not only for future maintainability but also to share what we've learned in our community (team, company, software industry). Writing down alternatives you considered can help someone else avoid solving the same problem a year later.</p>
+<p>Finally, if you build something that others could use, share it! This goes beyond open-sourcing code; share design decisions and motivations in the same vein as above. Additionally, make sure your company is set up to easily share code across teams (this is harder than it sounds, speaking from experience!).</p>
+
+    </main>
+
+    <footer>
+        <section>
+            <p>&copy; 2019 Tushar Chandra
+                (<a href="https://github.com/tuchandra">GitHub</a> // <a href="https://tusharc.dev/">Website</a>)
+            </p>
+        </section>
+    </footer>
+
+</body>
+
+</html>

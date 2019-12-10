@@ -4,6 +4,10 @@
 Hi, everyone! Welcome to my website. I created it using a very simple static site generator that I [wrote myself](about_website.md). This page is a landing page for links to blog posts and paper summaries.
 
 ## Pages
+### [What I read this week (December 1 - 7)](what_i_read_20191207.md)
+###### December 8, 2019
+Summaries and thoughts about articles that I read this week.
+
 ### ["I don't know if that'll work, but go ahead and try it"](effective_hunches.md)
 ###### December 6, 2019
 This post reflects on how some of my managers were so effective. One of the key ways is through the phrase "I don't know if that'll work, but go ahead and try it." 
