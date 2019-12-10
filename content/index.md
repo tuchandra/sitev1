@@ -4,9 +4,13 @@
 Hi, everyone! Welcome to my website. I created it using a very simple static site generator that I [wrote myself](about_website.md). This page is a landing page for links to blog posts and paper summaries.
 
 ## Pages
+### [What I read this week (December 8 - 14)](what_i_read_20191214.md)
+###### December 14, 2019
+Summaries and thoughts about articles that I read this week, including "The grim conclusions of the largest-ever study of fake news," "No, AI is not for social good," and more.
+
 ### [What I read this week (December 1 - 7)](what_i_read_20191207.md)
 ###### December 8, 2019
-Summaries and thoughts about articles that I read this week.
+Summaries and thoughts about articles that I read this week, including "A Comment is an Invitation for Refactoring" and "Code Less, Engineer More."
 
 ### ["I don't know if that'll work, but go ahead and try it"](effective_hunches.md)
 ###### December 6, 2019
