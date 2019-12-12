@@ -25,3 +25,17 @@ This article is essentially a critique of the idea of "AI for social good," comm
 > Likewise, the promise of “AI for the good” ignores the fact that problems like poverty, recidivism, and the distribution of resources are political ones; they’re often the results of institutional failure. Technologies, when not aimed at the root of problems, divert our attention. On top of that, do we really want to leave big tech to “solve” these social problems when it has shown it’s capable of creating substantial social problems of its own — I’m thinking here of Facebook with its Cambridge Analytica deal, for example.
 
 Put otherwise, technology cannot be used to solve complex social problems (see [xkcd](https://xkcd.com/1831/)). Moreover, it's not unlikely that it's currently *creating* more complex social problems than it's solving. A great deal of "AI for social good" commentary is "AI to [try to] solve [as of yet unsolvable] social issues," like policing, terrorism, healthcare, or content moderation. While it certainly offers great promise, taking a technology-first approach to these problems means we're all but certain to ignore, and possibly even amplify, institutional and systemic issues that create these problems in the first place. 
+
+## [https://ux.christmas/2019/11](The UX of APIs)
+**Author**: Linda Christin Halvorsen
+
+**How I found this**: from [Pointer](https://pointer.io)
+
+Written by a designer, this article discusses some surprising (to me) aspects of the UX of APIs. The author found that their teams were making APIs that "worked" in that they did their job and provided the necessary functionality ... but they were not at all enjoyable to use.
+
+> The key take-away for me, from the user interviews, was **how important a user centric view was even when developing APIs.** We had developed APIs based on functional specs – API this shall make that possible. And when it was possible – we were done. ... [But] fairly soon, we experienced exactly what you would expect when you don’t pay attention to the user experience of your product or service: our users found our APIs difficult to use.
+
+The author continues with a list of steps their teams took to treat APIs more like products. APIs are part of the delivery, and they're likely the part that developers are *most* responsible for (the author mentioned that they were, as a designer, too far away from the code internals to be able to design an effective one). "Once I started interviewing developers – as good old fashioned user insight – I found different sets of needs, of motivational factors, barriers – and examples and stories of how APIs can delight them, frustrate them, confuse them, and make them want to build more with them."
+
+It's easy to think about "delightful APIs" in the context of my favorite libraries. Most notable is scikit-learn, whose [clear object model](https://scikit-learn.org/stable/modules/classes.html) makes working with the library a breeze. Likewise, I've found PyTorch to be intuitive to work with in large part because of its clear APIs. As consumers of software, we love these well-designed APIs; naturally that means that, when we're writing our own, we need to think about them in the same way.
+
