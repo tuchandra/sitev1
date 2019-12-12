@@ -50,3 +50,21 @@ The author followed Gelman's approach of model building, inference, critique, an
 
 A natural extension of this (not included in the post) is trying to put all of these factors together. The author built three models that were each hierarchical over one factor (season / week / team), which was useful to answer their original questions. But expanding the model to include all three would be interesting, as would doing this for college teams. I love posts like this that break down how someone approached an interesting question.
 
+## [Biased algorithms are easier to fix than biased people](https://www.nytimes.com/2019/12/06/business/algorithm-bias-fix.html) 
+
+**Author**: Sendhil Mullainathan
+
+**How I found this**: from [Pointer](https://pointer.io)
+
+Bias exists in both algorithms and people—that much is obvious. A famous study 15 years ago showed that people with white-sounding names received more callbacks for job applications than those with black-sounding ones. Another from this year showed that a black patient received worse care than a white patient with identical symptoms. One decision was human, one was algorithmic. 
+
+Testing for bias in algorithms is far easier than in humans. Assuming we have access to the algorithm (which is, granted, nontrivial), we feed it otherwise identical examples which differ in race only, and see what happens. In humans, we do ... what? Lab experiments, field studies, linguistic analyses, the list goes on—humans are far more difficult to study.
+
+**Thoughts**: The author argues that biased algorithms should be easier to identify and to fix. A [criticism](https://twitter.com/felixsalmon/status/1204032018406883328) on Twitter discusses that simply getting access to these algorithms, even just as a black box, can be challenging or impossible. Perhaps a better way to describe this is "less hard"—nothing about this task sounds easy, especially in the absence of any sort of regulation (which the author does call for).
+
+## [How GitHub’s CTO Architects Engineering Teams That Scale](https://medium.com/@FirstMark/githubs-cto-on-architecting-engineering-teams-that-scale-cb79dd6132ae)
+**Author**: a company called FirstMark that interviewed the actual CTO, Jason Warner
+
+**How I found this** from [Pointer](https://pointer.io)
+
+This isn't super worth summarizing (it's already a summary of an interview) but it's a decent read. It's not actionable for me in my current role, but it does provide interesting perspective on organizational structure and engineering leadership.
