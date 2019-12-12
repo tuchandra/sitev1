@@ -21,3 +21,6 @@ This is a page of things I'm hoping to read soon.
 Most things on [this course project page](https://courses.cs.washington.edu/courses/cse492e/20wi/project.html), found from the author of the Skynet Today article
 
 [The coming software apocalypse](https://www.theatlantic.com/technology/archive/2017/09/saving-the-world-from-code/540393/) from The Atlantic. I've already read this, but worth revisiting.
+
+[How Git works, from the inside out](https://codewords.recurse.com/issues/two/git-from-the-inside-out?). Detailed essay on the graph structure of Git, for someone already familiar with how to use it. Very long.
+
