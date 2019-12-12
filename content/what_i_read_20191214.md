@@ -39,3 +39,14 @@ The author continues with a list of steps their teams took to treat APIs more li
 
 It's easy to think about "delightful APIs" in the context of my favorite libraries. Most notable is scikit-learn, whose [clear object model](https://scikit-learn.org/stable/modules/classes.html) makes working with the library a breeze. Likewise, I've found PyTorch to be intuitive to work with in large part because of its clear APIs. As consumers of software, we love these well-designed APIs; naturally that means that, when we're writing our own, we need to think about them in the same way.
 
+## [Bayesian Modeling of NFL Football Fourth Down Attempts with PyMC3](https://calogica.com/pymc3/python/2019/12/08/nfl-4thdown-attempts.html)
+**Author**: Claus Herther
+
+**How I found this**: from the [PyMC3 forums](https://discourse.pymc.io/t/bayesian-modeling-of-nfl-football-fourth-down-attempts-with-pymc3/4198)
+
+This is a Bayesian modeling case study focusing on model expansion. The topic is 4th down conversions in the NFL, looking at the proportion of 4th downs where teams decide to go for it. The author made a few observations—that 4th down attempt % seems to be increasing by season, that teams seem to get more aggressive as a season goes on, and that some teams (the Eagles) are more aggressive than most. 
+
+The author followed Gelman's approach of model building, inference, critique, and expansion to create various models and iterate on them. The first model was a "complete pooling" approach where they used a Beta Binomial model for the overall proportion of 4th down conversion attempts. Predictably, this didn't capture anywhere near the amount of variability across seasons, but it's a useful baseline. The remaining models were hierarchical over seasons, over weeks in the season, and over teams, each aiming to understand the observations made earlier.
+
+A natural extension of this (not included in the post) is trying to put all of these factors together. The author built three models that were each hierarchical over one factor (season / week / team), which was useful to answer their original questions. But expanding the model to include all three would be interesting, as would doing this for college teams. I love posts like this that break down how someone approached an interesting question.
+
