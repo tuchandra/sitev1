@@ -65,6 +65,6 @@ Testing for bias in algorithms is far easier than in humans. Assuming we have ac
 ## [How GitHub’s CTO Architects Engineering Teams That Scale](https://medium.com/@FirstMark/githubs-cto-on-architecting-engineering-teams-that-scale-cb79dd6132ae)
 **Author**: a company called FirstMark that interviewed the actual CTO, Jason Warner
 
-**How I found this** from [Pointer](https://pointer.io)
+**How I found this**: from [Pointer](https://pointer.io)
 
 This isn't super worth summarizing (it's already a summary of an interview) but it's a decent read. It's not actionable for me in my current role, but it does provide interesting perspective on organizational structure and engineering leadership.
