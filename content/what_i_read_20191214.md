@@ -11,7 +11,7 @@ This is an article summarizing a research paper, [The spread of true and false n
 
 Fake news reached a larger audience (more total retweets) *and* propagated deeper into networks (longer average length of the retweet chains "A retweeted B retweeted C ..."). They identified two possible reasons: fake news seemed more "novel," and that it evoked more emotion than the average tweet. This was true even in spite of the fact that users who shared accurate information had been on Twitter longer, were more likely to be verified, and had more followers—in other words, they had *every structural advantage possible*, and the truth still lost. Another key finding was that Twitter bots amplified true stories as much as false ones, so they're not to blame either.
 
-> In short, social media seems to systematically amplify falsehood at the expense of the truth, and no one—neither experts nor politicians nor tech companies—knows how to reverse that trend. It is a dangerous moment for any system of government premised on a common public reality.
+In short, social media seems to systematically amplify falsehood at the expense of the truth, and no one—neither experts nor politicians nor tech companies—knows how to reverse that trend. It is a dangerous moment for any system of government premised on a common public reality.
 
 **My commentary**: the last bit (evoking more emotion) is one of the most worrisome problems in social media. The fact that platforms optimize for engagement, and engagement is often facilitated by outrage, speaks to the danger of social media. The amount of influence that they have over people's information consumption is even more worrisome. And it only seems to be getting worse, especially as our lawmakers seem increasingly technologically inept, the platforms continue to grow, and false information continues to provoke outrage.
 
@@ -26,14 +26,14 @@ This article is essentially a critique of the idea of "AI for social good," comm
 
 Put otherwise, technology cannot be used to solve complex social problems (see [xkcd](https://xkcd.com/1831/)). Moreover, it's not unlikely that it's currently *creating* more complex social problems than it's solving. A great deal of "AI for social good" commentary is "AI to [try to] solve [as of yet unsolvable] social issues," like policing, terrorism, healthcare, or content moderation. While it certainly offers great promise, taking a technology-first approach to these problems means we're all but certain to ignore, and possibly even amplify, institutional and systemic issues that create these problems in the first place. 
 
-## [https://ux.christmas/2019/11](The UX of APIs)
+## [The UX of APIs](https://ux.christmas/2019/11)
 **Author**: Linda Christin Halvorsen
 
 **How I found this**: from [Pointer](https://pointer.io)
 
 Written by a designer, this article discusses some surprising (to me) aspects of the UX of APIs. The author found that their teams were making APIs that "worked" in that they did their job and provided the necessary functionality ... but they were not at all enjoyable to use.
 
-> The key take-away for me, from the user interviews, was **how important a user centric view was even when developing APIs.** We had developed APIs based on functional specs – API this shall make that possible. And when it was possible – we were done. ... [But] fairly soon, we experienced exactly what you would expect when you don’t pay attention to the user experience of your product or service: our users found our APIs difficult to use.
+The key take-away for me, from the user interviews, was **how important a user centric view was even when developing APIs.** We had developed APIs based on functional specs – API this shall make that possible. And when it was possible – we were done. ... [But] fairly soon, we experienced exactly what you would expect when you don’t pay attention to the user experience of your product or service: our users found our APIs difficult to use.
 
 The author continues with a list of steps their teams took to treat APIs more like products. APIs are part of the delivery, and they're likely the part that developers are *most* responsible for (the author mentioned that they were, as a designer, too far away from the code internals to be able to design an effective one). "Once I started interviewing developers – as good old fashioned user insight – I found different sets of needs, of motivational factors, barriers – and examples and stories of how APIs can delight them, frustrate them, confuse them, and make them want to build more with them."
 
