@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Paper: The spread of true and false news online - Tushar Chandra</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="/site/style.css">
+</head>
+
+<body id="spread_of_news_vosoughi">
+
+    <nav>
+        <section>
+            <span class="home">
+                <a href="/site/">Home</a>
+            </span>
+            <span class="links">
+                //
+                <a href="/site/contact.html">Contact</a>
+                //
+                <a href="/site/resume.html">Resume</a>
+                //
+                <a href="/site/projects.html">Projects</a>
+                //
+                <a href="/site/reading_list.html">Reading List</a>
+            </span>
+        </section>
+    </nav>
+
+    <main>
+        <h1>Paper: The spread of true and false news online</h1>
+<p>Authors: Soroush Vosoughi, Deb Roy, Sinan Aral</p>
+<p>Link: <a href="https://science.sciencemag.org/content/359/6380/1146">Science website</a></p>
+<p>How I found this paper: from the Atlantic article, <a href="https://www.theatlantic.com/technology/archive/2018/03/largest-study-ever-fake-news-mit-twitter/555104/"><em>The grim conclusions of the largest ever study on fake news</em></a>. This is the original paper.</p>
+<h2>Summary</h2>
+<p>From the abstract: &quot;we investigated the differential diffusion of all the verified true and false news stories distributed on Twitter from 2006 to 2017 ... falsehood diffused significantly <strong>farther, faster, deeper, and more broadly than the truth in all categories of information</strong>, and the effects were more pronounced for false political news than for false news about [a list of other things].&quot; Also, this wasn't due to bots.</p>
+<p>Some context for the paper:</p>
+<ul>
+<li>previous work studied the spread of single rumors, developed theoretical models for rumor diffusion, or designed interventions. But none studied the differences between true and false rumors, and none operated at such a large scale.</li>
+<li>the authors adopt a very broad definition of &quot;news&quot; as &quot;any asserted claim made on Twitter&quot;</li>
+<li>they were particularly interested in &quot;rumor cascades&quot; which are basically (1) someone making an assertion in a tweet and (2) the subsequent retweets of the rumor.</li>
+</ul>
+<p>The authors studied a dataset of 126,000 rumor cascades spread by 3M people 4.5M times. The rumors were evaluated for truthiness according to six independent fact-checking organizations (e.g., Snopes, Politifact). They quantified the cascades' depth (# of unique retweets over time), size (# of users involved in the cascade), breadth (max number of users involved at any depth) and virality (a measure where the extremes are one large broadcast and many individuals sharing the same thing).</p>
+<p>The conclusions are worrying:</p>
+<ul>
+<li>&quot;falsehood diffused significantly farther, faster, deeper, and more broadly&quot; in all categories of information.</li>
+<li>more false cascades exceeded a depth of 10, and the top 0.01% of false cascades had a depth 8 longer than truth</li>
+<li>truth never diffused beyond a depth of 10</li>
+<li>truth rarely diffused to more than 1K people, but the top 1% of false cascades regularly reached between 1K and 100K</li>
+<li>it took the truth 6x as long as falsehood to reach 1500 people</li>
+<li>falsehood was retweeted by more unique users than truth at every level of depth</li>
+</ul>
+<p>It gets worse. Users who spread false news had fewer followers, followed fewer people, were less active on Twitter, were verified less often, and had been on Twitter for less time. Falsehood spread so well in spite of the truth having every possible structural advantage.</p>
+<p>A possible explanation: novelty attracts attention. The authors studied this by fitting a Latent Dirichlet Allocation model to 10M tweets, which generated a probability distribution over 200 topics, and they were able to compare the topics of the rumor tweets with the topics of the tweets that the rumor-spreaders had seen in the 60 days prior. The false rumors were more novel than the truth.</p>
+<p>The authors then studied users' perceptions of information in true and false rumors by comparing the emotional content of the replies. They used the NRC lexicon to create emotion weight vectors, finding that false rumors inspired greater surprise, and truth inspired sadness, anticipation, joy, and trust.</p>
+<p>They used still more diagnostics:</p>
+<ul>
+<li>because there were multiple cascades for every rumor, the variance and errors associated with the cascades for each rumor were correlated. They specified cluster-robust errors and refit their models, but found that none of their conclusions changed.</li>
+<li>there may have been selection bias from the fact-checking organizations. The authors recruited some undergrads to independently gather and annotate other rumors, and the results held up on this dataset.</li>
+<li>bots may have skewed the results. In the main analysis, the authors algorithmically removed bot activity, but adding it back didn't change any conclusions either. This held up when using a second bot-detection algorithm, when removing tweet cascades starting by bots, and when removing human retweets of bot tweets.</li>
+</ul>
+<p><strong>The takeaway</strong>: fake news spreads faster than the truth on Twitter, no matter how you look at it. We are doomed.</p>
+<h2>Thoughts, connections, and questions</h2>
+<p>It's crazy that this paper came out in March 2018 and this is the first large-scale study of its kind; not because research was slow, but rather that no one thought to study this until a year and a half ago. Given how much blame we place on false information on social media for things like the 2016 election, it's astounding that either people didn't see it coming at all or they didn't think it was a large problem. The authors point out that previous work analysed the spread of single rumors, but none compared true and false information, and none operated at such a large scale.</p>
+<p>I also don't think I've ever seen a paper whose conclusions are so one-sided. Many papers I read have a narrow scope and have many qualifiers on their conclusions (&quot;in certain conditions, X is true&quot;). There is zero ambiguity in the conclusions of this paper, and all of the assertions about true vs. false rumor cascades support the same result.</p>
+<p>The use of LDA is interesting, and not something I had seen in the summary that I read. LDA is a pretty standard example used in Bayesian inference, so I've heard about it a lot lately even though I'm not doing any work related to it. This is a perhaps surprising application of it (the focus of this paper is not topic modeling), but it helped support the findings by validating the explanation that false rumors are novel. Likewise, the application of a simple sentiment analysis model (8-vector of emotion weights) helped to support their findings from yet another angle.</p>
+<p>I'm curious to know how the authors got all of this data. Searching for historical data on Twitter is challenging, and I wonder if they were able to get it from Twitter directly. This is relevant to the column I read earlier today, which asserted that biased algorithms are easier to fix than biased people, but was criticized for understating the difficulty in getting access to these algorithms. The same is true of data.</p>
+<p>To me, this seems like one of the most important research areas in HCI going forward. False information is anecdotally a huge problem online, and it's come to the point where <em>facts</em> are politicized (climate change, vaccines). Understanding how this information spreads and designing interventions for it is critical.</p>
+
+    </main>
+
+    <footer>
+        <section>
+            <p>&copy; 2019 Tushar Chandra
+                (<a href="https://github.com/tuchandra">GitHub</a> // <a href="https://tusharc.dev/">Website</a>)
+            </p>
+        </section>
+    </footer>
+
+</body>
+
+</html>
