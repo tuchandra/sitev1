@@ -11,6 +11,8 @@ This is a page of things I'm hoping to read soon.
 
 [Me, my echo chamber, and I: Introspection on Social Media Polarization](https://arxiv.org/pdf/1803.01731.pdf) by Nabeel Gillani, Ann Yuan, Martin Saveski, Soroush Vosoughi, Deb Roy. Found because Vosoughi is an author and wrote the "spread of false news" paper
 
+[Proposed Guidelines for the Responsible Use of Explainable Machine Learning](https://arxiv.org/pdf/1906.03533.pdf) by Patrick Hall, Navdeep Gill, Nicholas Schmidt, found from Patrick's linkedin 
+
 ## Blog posts
 
 [Commentary: Andy Jassy aims to reinvent Amazon Web Services for the cloud’s next generation](https://siliconangle.com/2019/12/01/commentary-andy-jassy-aims-reinvent-amazon-web-services-clouds-next-generation) from SiliconAngle (what?), an interview with Andy Jassy, the cloud chief at AWS.
@@ -22,6 +24,14 @@ Most things on [this course project page](https://courses.cs.washington.edu/cour
 [The coming software apocalypse](https://www.theatlantic.com/technology/archive/2017/09/saving-the-world-from-code/540393/) from The Atlantic. I've already read this, but worth revisiting.
 
 [How Git works, from the inside out](https://codewords.recurse.com/issues/two/git-from-the-inside-out?). Detailed essay on the graph structure of Git, for someone already familiar with how to use it. Very long.
+
+[Social media is warping democracy / The Dark Psychology of Social Networks](https://www.theatlantic.com/magazine/archive/2019/12/social-media-democracy/600763/) from, ironically enough, Reddit. I think there's a paper in here somewhere.
+
+[FAIR blog post](https://ai.facebook.com/blog/powered-by-ai-instagrams-explore-recommender-system) on insta recommendations, from Miranda
+
+[An epidemic of AI misinformation](https://thegradient.pub/an-epidemic-of-ai-misinformation) from Data Elixir
+
+[Why machine learning can't save the NFL](https://mostlycloudy.substack.com/p/why-machine-learning-cant-save-the) from Data Elixir
 
 ## Talks
 
