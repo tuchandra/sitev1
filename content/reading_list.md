@@ -21,6 +21,7 @@ Most things on [this course project page](https://courses.cs.washington.edu/cour
 [The coming software apocalypse](https://www.theatlantic.com/technology/archive/2017/09/saving-the-world-from-code/540393/) from The Atlantic. I've already read this, but worth revisiting.
 
 [How Git works, from the inside out](https://codewords.recurse.com/issues/two/git-from-the-inside-out?). Detailed essay on the graph structure of Git, for someone already familiar with how to use it. Very long.
+
 ## Talks
 
 [Getting specific about algorithmic bias](https://www.youtube.com/watch?v=S-6YGPrmtYc) by Rachel Thomas, from the USF Center for Applied Data Ethics. Found from Twitter, the author of the [biased algorithms NYT article](https://www.nytimes.com/2019/12/06/business/algorithm-bias-fix.html) (Sendhil Mullainathan) retweeted. Also the [Twitter chain](https://twitter.com/math_rachel/status/1191069453389189122).
