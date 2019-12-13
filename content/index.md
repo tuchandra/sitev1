@@ -8,6 +8,10 @@ Hi, everyone! Welcome to my website. I created it using a very simple static sit
 ###### December 14, 2019
 Summaries and thoughts about articles that I read this week, including "The grim conclusions of the largest-ever study of fake news," "No, AI is not for social good," and more.
 
+### [Paper: The spread of true and false news online](papers/spread_of_news_vosoughi.md)
+###### December 12, 2019
+Summary of the 2018 paper in Science, and one of my favorite papers that I've written about here. 
+
 ### [Features I would like to add to my SSG](site_wishlist.md)
 ###### December 9, 2019
 I [wrote](https://tusharc.dev/site/about_website.html) about my SSG and how I built this website back in April. Over time, I've started to realize that some of the features I stripped out may actually be useful. This post is a wishlist of features that I would like to add over time.
