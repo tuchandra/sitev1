@@ -13,6 +13,8 @@ This is a page of things I'm hoping to read soon.
 
 [Proposed Guidelines for the Responsible Use of Explainable Machine Learning](https://arxiv.org/pdf/1906.03533.pdf) by Patrick Hall, Navdeep Gill, Nicholas Schmidt, found from Patrick's linkedin 
 
+[Struggles with survey weighting](http://www.stat.columbia.edu/~gelman/research/published/STS226.pdf) by Gelman
+
 ## Blog posts
 
 [Commentary: Andy Jassy aims to reinvent Amazon Web Services for the cloud’s next generation](https://siliconangle.com/2019/12/01/commentary-andy-jassy-aims-reinvent-amazon-web-services-clouds-next-generation) from SiliconAngle (what?), an interview with Andy Jassy, the cloud chief at AWS.
@@ -32,6 +34,10 @@ Most things on [this course project page](https://courses.cs.washington.edu/cour
 [An epidemic of AI misinformation](https://thegradient.pub/an-epidemic-of-ai-misinformation) from Data Elixir
 
 [Why machine learning can't save the NFL](https://mostlycloudy.substack.com/p/why-machine-learning-cant-save-the) from Data Elixir
+
+[Testifying at the Senate about A.I.‑Selected Content on the Internet](https://writings.stephenwolfram.com/2019/06/testifying-at-the-senate-about-a-i-selected-content-on-the-internet/) by Steven Wolfram
+
+[What's my data worth?](https://bair.berkeley.edu/blog/2019/12/16/data-worth/) from BAIR by Ruoxi Jia
 
 ## Talks
 
