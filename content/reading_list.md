@@ -15,6 +15,8 @@ This is a page of things I'm hoping to read soon.
 
 [Struggles with survey weighting](http://www.stat.columbia.edu/~gelman/research/published/STS226.pdf) by Gelman
 
+[On the Utility of Learning about Humans for Human-AI Coordination](https://arxiv.org/pdf/1910.05789.pdf) from BAIR, NeurIPS 2019
+
 ## Blog posts
 
 [Commentary: Andy Jassy aims to reinvent Amazon Web Services for the cloud’s next generation](https://siliconangle.com/2019/12/01/commentary-andy-jassy-aims-reinvent-amazon-web-services-clouds-next-generation) from SiliconAngle (what?), an interview with Andy Jassy, the cloud chief at AWS.
@@ -38,6 +40,8 @@ Most things on [this course project page](https://courses.cs.washington.edu/cour
 [Testifying at the Senate about A.I.‑Selected Content on the Internet](https://writings.stephenwolfram.com/2019/06/testifying-at-the-senate-about-a-i-selected-content-on-the-internet/) by Steven Wolfram
 
 [What's my data worth?](https://bair.berkeley.edu/blog/2019/12/16/data-worth/) from BAIR by Ruoxi Jia
+
+[Overcooked blog post by BAIR what?](https://bair.berkeley.edu/blog/2019/10/21/coordination/)
 
 ## Talks
 
