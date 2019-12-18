@@ -41,8 +41,15 @@ Most things on [this course project page](https://courses.cs.washington.edu/cour
 
 [What's my data worth?](https://bair.berkeley.edu/blog/2019/12/16/data-worth/) from BAIR by Ruoxi Jia
 
-[Overcooked blog post by BAIR what?](https://bair.berkeley.edu/blog/2019/10/21/coordination/)
+[Overcooked blog post by BAIR what?](https://bair.berkeley.edu/blog/2019/10/21/coordination/), from Judah
+
+[Public opinion lessons on AI regulation](https://www.brookings.edu/research/public-opinion-lessons-for-ai-regulation) from the brookings institute, from Skynet
+
+[The AI community needs to take responsibility for its actions](https://www.technologyreview.com/s/614923/ai-tech-industry-take-responsibility/) also from Skynet, also about NeurIPS
 
 ## Talks
 
 [Getting specific about algorithmic bias](https://www.youtube.com/watch?v=S-6YGPrmtYc) by Rachel Thomas, from the USF Center for Applied Data Ethics. Found from Twitter, the author of the [biased algorithms NYT article](https://www.nytimes.com/2019/12/06/business/algorithm-bias-fix.html) (Sendhil Mullainathan) retweeted. Also the [Twitter chain](https://twitter.com/math_rachel/status/1191069453389189122).
+
+The NeurIPS keynotes!
+
