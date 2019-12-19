@@ -13,7 +13,7 @@ From the introduction (emphasis mine):
 
 In other words, it has been well-established that "echo chambers" exist online, but this was the first work to design and test an intervention for increasing people's awareness of political homogeneity, or even changing their behavior. "Social Mirror" is an application the authors built to visualize how politically active Twitter users' networks are. The authors recruited politically active Twitter users and introduced them to Social Mirror (in one of 3 ways, depending on treatment condition). 93 users accounted for 108 sessions with a median length of roughly 6 minutes. The participants were asked questions about their political views, shown Social Mirror, then asked the same questions afterwards.
 
-![Sample image from "Social Mirror" application](introspection_echo_chamber_gillani_img1.png)]
+![Sample image from "Social Mirror" application](introspection_echo_chamber_gillani_img1.png)
 
 Showing participants Social Mirror enhanced "their belief in the extent to which they live in a political echo chamber," as hypothesized. However, supplementing the visualizations with recommendations for people to follow led to the opposite--participants were *less* inclined to want to have a conversation with someone who did not share their political beliefs. There were other evaluations of effects on the political diversity of users' networks and the content that they chose to share, which I omit here.
 
