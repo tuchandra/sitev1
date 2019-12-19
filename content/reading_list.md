@@ -47,6 +47,8 @@ Most things on [this course project page](https://courses.cs.washington.edu/cour
 
 [The AI community needs to take responsibility for its actions](https://www.technologyreview.com/s/614923/ai-tech-industry-take-responsibility/) also from Skynet, also about NeurIPS
 
+From Pointer 12/19: [Developing the Largest Contentful Paint Metric](https://calendar.perfplanet.com/2019/developing-the-largest-contentful-paint-metric), [What makes Python a great language?](https://stevedower.id.au/blog/python-a-great-language/), [Don't use booleans](https://www.luu.io/posts/dont-use-booleans/), [Tech lead expectations for engineering projects](https://docs.google.com/document/d/1kngKHUCS0DHNvZAO8PfkcsTD4Mq7b11L09RIaVpQnwI/preview#heading=h.dj481vc87f3), [The #1 bug predictor is not technical, it's organizational complexity](https://augustl.com/blog/2019/best_bug_predictor_is_organizational_complexity)
+
 ## Talks
 
 [Getting specific about algorithmic bias](https://www.youtube.com/watch?v=S-6YGPrmtYc) by Rachel Thomas, from the USF Center for Applied Data Ethics. Found from Twitter, the author of the [biased algorithms NYT article](https://www.nytimes.com/2019/12/06/business/algorithm-bias-fix.html) (Sendhil Mullainathan) retweeted. Also the [Twitter chain](https://twitter.com/math_rachel/status/1191069453389189122).
