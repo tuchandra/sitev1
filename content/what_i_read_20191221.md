@@ -91,3 +91,4 @@ I read [The Amazon Premium](http://calpaterson.com/amazon-premium.html) by Cal P
 
 [Don't Use Booleans](https://www.luu.io/posts/dont-use-booleans/) by Steven Luu discusses how *generally*, "the use of enums is often a better choice compared to booleans." The tl;dr is that `fetch(account_id, False, True, True)` is unreadable, and `fetch(account_id, ItemStatus.Disabled, FetchOptions.History, FetchOptions.Details)` is immediately understandable. You also get the benefit of static type checking so that you avoid flipping the order of arguments. This is a reasonable take, especially when flags start proliferating.
 
+[Why you should use `python -m pip`](https://snarky.ca/why-you-should-use-python-m-pip/) by Brett Cannon is about what it says. The reason is basically to have more control over where everything gets installed, so that you avoid `pip` picking up the wrong Python interpreter by accident. This way, you will always use whatever python is active.
