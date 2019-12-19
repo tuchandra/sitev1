@@ -5,8 +5,12 @@ Hi, everyone! Welcome to my website. I created it using a very simple static sit
 
 ## Pages
 ### [What I read this week (December 15 - 21)](what_i_read_20191221.md)
-###### December 14, 2019
+###### December 21, 2019
 Summaries and thoughts about articles that I read this week, including summaries of NeurIPS talks and more.
+
+### [Paper: Me, My Echo Chamber, and I: Introspection on Social Media Polarization](introspection_echo_chamber_gillani.md)
+###### December 18, 2019
+Summary of the paper by Gillani et al., published at IW3C2 2019.
 
 ### [What I read this week (December 8 - 14)](what_i_read_20191214.md)
 ###### December 14, 2019
@@ -14,7 +18,7 @@ Summaries and thoughts about articles that I read this week, including "The grim
 
 ### [Paper: The spread of true and false news online](papers/spread_of_news_vosoughi.md)
 ###### December 12, 2019
-Summary of the 2018 paper in Science, and one of my favorite papers that I've written about here. 
+Summary of the 2018 paper in Science, and one of my favorite papers that I've written about here.
 
 ### [Features I would like to add to my SSG](site_wishlist.md)
 ###### December 9, 2019
@@ -26,11 +30,11 @@ Summaries and thoughts about articles that I read this week, including "A Commen
 
 ### ["I don't know if that'll work, but go ahead and try it"](effective_hunches.md)
 ###### December 6, 2019
-This post reflects on how some of my managers were so effective. One of the key ways is through the phrase "I don't know if that'll work, but go ahead and try it." 
+This post reflects on how some of my managers were so effective. One of the key ways is through the phrase "I don't know if that'll work, but go ahead and try it."
 
 ### [(Talk notes) Data Indicators for Equity: Flash in the Pan or Mobilizing Force? ](talk_equity_indicators.md)
 ###### December 4, 2019
-These are notes from a [tech talk](https://www.meetup.com/ChicagoCityData/events/266787601/) that I went to on December 4th. The talk was by Dan Cooper, the Director of Research @ the [Metropolitan Planning Council](https://metroplanning.org/). 
+These are notes from a [tech talk](https://www.meetup.com/ChicagoCityData/events/266787601/) that I went to on December 4th. The talk was by Dan Cooper, the Director of Research @ the [Metropolitan Planning Council](https://metroplanning.org/).
 
 ### [Paper: Who is the "Human" in Human-Centered Machine Learning](papers/who_is_human_chancellor.md)
 ###### December 1, 2019
