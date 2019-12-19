@@ -8,7 +8,7 @@ Hi, everyone! Welcome to my website. I created it using a very simple static sit
 ###### December 21, 2019
 Summaries and thoughts about articles that I read this week, including summaries of NeurIPS talks and more.
 
-### [Paper: Me, My Echo Chamber, and I: Introspection on Social Media Polarization](introspection_echo_chamber_gillani.md)
+### [Paper: Me, My Echo Chamber, and I: Introspection on Social Media Polarization](papers/introspection_echo_chamber_gillani.md)
 ###### December 18, 2019
 Summary of the paper by Gillani et al., published at IW3C2 2019.
 
