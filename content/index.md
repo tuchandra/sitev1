@@ -4,6 +4,10 @@
 Hi, everyone! Welcome to my website. I created it using a very simple static site generator that I [wrote myself](about_website.md). This page is a landing page for links to blog posts and paper summaries.
 
 ## Pages
+### [What I read this week (December 22 - 28)](what_i_read/20191222.md)
+###### December 28, 2019
+Summaries and thoughts about articles that I read this week, including summaries of articles on AI bias and more.
+
 ### [What I read this week (December 15 - 21)](what_i_read/20191215.md)
 ###### December 21, 2019
 Summaries and thoughts about articles that I read this week, including summaries of NeurIPS talks and more.
