@@ -1,5 +1,5 @@
 <!-- date: 2019-12-26 -->
-# Reflections on AI bias in the news
+# Reflections on ImageNet bias in the news
 This post is a reflection on two articles, [The viral app that labels you isn't quite what you think](https://www.wired.com/story/viral-app-labels-you-isnt-what-you-think/) and [AI is biased. Here's how scientists are trying to fix it](https://www.wired.com/story/ai-biased-how-scientists-trying-fix/), both from Wired.
 
 ## ImageNet Roulette
