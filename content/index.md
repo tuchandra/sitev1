@@ -8,9 +8,13 @@ Hi, everyone! Welcome to my website. I created it using a very simple static sit
 ###### December 28, 2019
 Summaries and thoughts about articles that I read this week, including summaries of articles on AI bias and more.
 
+### [Talk: Celeste Kidd from NeurIPS 2019](posts/talk_kidd_neurips.md)
+###### December 27, 2019
+Celeste Kidd's invited talk from NeurIPS 2019 about "how humans learn," but also spreading a powerful message on sexual harassment.
+
 ### [Reflections on ImageNet bias in the news](posts/imagenet_bias_wired.md)
-This post is a reflection on two articles, [The viral app that labels you isn't quite what you think](https://www.wired.com/story/viral-app-labels-you-isnt-what-you-think/) and [AI is biased. Here's how scientists are trying to fix it](https://www.wired.com/story/ai-biased-how-scientists-trying-fix/), both from Wired.
 ###### December 26, 2019
+This post is a reflection on two articles, [The viral app that labels you isn't quite what you think](https://www.wired.com/story/viral-app-labels-you-isnt-what-you-think/) and [AI is biased. Here's how scientists are trying to fix it](https://www.wired.com/story/ai-biased-how-scientists-trying-fix/), both from Wired.
 
 ### [What I read this week (December 15 - 21)](what_i_read/20191215.md)
 ###### December 21, 2019
