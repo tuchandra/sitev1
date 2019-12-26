@@ -8,7 +8,7 @@ Hi, everyone! Welcome to my website. I created it using a very simple static sit
 ###### December 28, 2019
 Summaries and thoughts about articles that I read this week, including summaries of articles on AI bias and more.
 
-### [Reflections on ImageNet bias in the news](imagenet_bias_wired.md)
+### [Reflections on ImageNet bias in the news](posts/imagenet_bias_wired.md)
 This post is a reflection on two articles, [The viral app that labels you isn't quite what you think](https://www.wired.com/story/viral-app-labels-you-isnt-what-you-think/) and [AI is biased. Here's how scientists are trying to fix it](https://www.wired.com/story/ai-biased-how-scientists-trying-fix/), both from Wired.
 ###### December 26, 2019
 
@@ -28,7 +28,7 @@ Summaries and thoughts about articles that I read this week, including "The grim
 ###### December 12, 2019
 Summary of the 2018 paper in Science, and one of my favorite papers that I've written about here.
 
-### [Features I would like to add to my SSG](site_wishlist.md)
+### [Features I would like to add to my SSG](posts/site_wishlist.md)
 ###### December 9, 2019
 I [wrote](https://tusharc.dev/site/about_website.html) about my SSG and how I built this website back in April. Over time, I've started to realize that some of the features I stripped out may actually be useful. This post is a wishlist of features that I would like to add over time.
 
@@ -36,11 +36,11 @@ I [wrote](https://tusharc.dev/site/about_website.html) about my SSG and how I bu
 ###### December 7, 2019
 Summaries and thoughts about articles that I read this week, including "A Comment is an Invitation for Refactoring" and "Code Less, Engineer More."
 
-### ["I don't know if that'll work, but go ahead and try it"](effective_hunches.md)
+### ["I don't know if that'll work, but go ahead and try it"](posts/effective_hunches.md)
 ###### December 6, 2019
 This post reflects on how some of my managers were so effective. One of the key ways is through the phrase "I don't know if that'll work, but go ahead and try it."
 
-### [(Talk notes) Data Indicators for Equity: Flash in the Pan or Mobilizing Force? ](talk_equity_indicators.md)
+### [(Talk notes) Data Indicators for Equity: Flash in the Pan or Mobilizing Force? ](posts/talk_equity_indicators.md)
 ###### December 4, 2019
 These are notes from a [tech talk](https://www.meetup.com/ChicagoCityData/events/266787601/) that I went to on December 4th. The talk was by Dan Cooper, the Director of Research @ the [Metropolitan Planning Council](https://metroplanning.org/).
 
@@ -48,7 +48,7 @@ These are notes from a [tech talk](https://www.meetup.com/ChicagoCityData/events
 ###### December 1, 2019
 Summary of the CSCW 2019 paper by Chancellor et al.
 
-### [Why all the paper summaries?](why_papers.md)
+### [Why all the paper summaries?](posts/why_papers.md)
 ###### November 26, 2019
 I've been writing a bunch of paper summaries over the past couple of weeks, and I hope to continue this for several months. Why, though? This post will clear that up.
 
@@ -64,7 +64,7 @@ Summary of the FAT* 2019 paper by Chancellor et al., part 2 of 2, focusing on ca
 ###### November 24, 2019
 Summary of the FAT* 2019 paper by Chancellor et al., part 1 of 2, focusing on the tensions described in the paper.
 
-### [On the digital ad industry](digital_advertising.md)
+### [On the digital ad industry](posts/digital_advertising.md)
 ###### November 21, 2019
 I recently read a fantastic article on The Correspondent about digital advertising, called [The new dot com bubble is here: it’s called online advertising](https://thecorrespondent.com/100/the-new-dot-com-bubble-is-here-its-called-online-advertising/13228924500-22d5fd24). This post summarizes my thoughts.
 
@@ -76,7 +76,7 @@ Summary of the CHI 2019 paper by Kim et al.
 ###### November 17, 2019
 Summary of the FAT* 2019 paper by Mitchell et al.
 
-### [Using Paperill to wrap model runs](papermill_experiences.md)
+### [Using Paperill to wrap model runs](posts/papermill_experiences.md)
 ###### November 15, 2019
 I recently started using [papermill](https://github.com/nteract/papermill/) from nteract to parameterize model runs. I've started to like it a lot, and this post will discuss my experiences with it and my current setup.
 
@@ -84,19 +84,19 @@ I recently started using [papermill](https://github.com/nteract/papermill/) from
 ###### November 13, 2019
 Summary of the paper by IEEE TVCG 2019 paper by Cindy Xiong, Lisanne van Weeldan, and Steven Franconeri.
 
-### [Why I'm interested in HCI](hci_directions.md)
+### [Why I'm interested in HCI](posts/hci_directions.md)
 ###### October 28, 2019
 A couple nights ago, I was at a bar talking to a grad student friend and we started having a conversation about HCI and research interests. This post captures some of my thoughts after reflecting for a couple of days.
 
-### [Netflix and Polynote: first thoughts](polynote_netflix.md)
+### [Netflix and Polynote: first thoughts](posts/polynote_netflix.md)
 ###### October 24, 2019
 Netflix [announced yesterday](https://medium.com/netflix-techblog/open-sourcing-polynote-an-ide-inspired-polyglot-notebook-7f929d3f447) that they are open-sourcing Polynote, a new notebook with features like Spark integration, as-you-type autocomplete, and more. At a glance, it seems to address almost every common complaint with notebooks. How much of that is too good to be true?
 
-### [Statistical nuance & the importance of uncertainty](statistical_nuance.md)
+### [Statistical nuance & the importance of uncertainty](posts/statistical_nuance.md)
 ###### October 20, 2019
 In [my last post](silph.md), I re-analyzed shiny rates from The Silph Road and came to the conclusion that their proposed shiny rates were inconsistent with their own data. This post explores how that happened and what we can do to avoid it in the future.
 
-### [Pokemon GO shiny rates: a Bayesian perspective](silph.html)
+### [Pokemon GO shiny rates: a Bayesian perspective](posts/silph.html)
 ###### October 16, 2019
 [The Silph Road](https://thesilphroad.com/) is the largest online and in-person network of Pokemon GO players and researchers. We investigate the question of how accurate their proposed shiny rates are by putting on our Bayesian hat, setting the "consensus" shiny rate as our prior, and using Silph field studies as observed data.
 

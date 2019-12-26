@@ -1,4 +1,3 @@
-<!-- imagedir: silph_images -->
 <!-- date: 2019-10-17 -->
 # Statistical nuance & the importance of uncertainty
 In [my last post](silph.md), I re-analyzed shiny rates from The Silph Road and came to the conclusion that their proposed shiny rates were inconsistent with their own data. This post explores how that happened and what we can do to avoid it in the future.

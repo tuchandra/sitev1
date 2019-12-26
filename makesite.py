@@ -81,14 +81,6 @@ def read_content(filename: Path) -> Dict[str, str]:
             text,
         )
 
-        # If the imgdir key was in the header, update paths to PNGs with the correct folder
-        if "imagedir" in content:
-            text = re.sub(
-                r'<img src="([^:\s]+).png"',
-                lambda match: f'<img src="{content["imagedir"]}/{match.group(1)}.png"',
-                text,
-            )
-
     content.update({"content": text})
     return content
 
@@ -134,7 +126,12 @@ def make_pages(src: Path, dst: Path, layout: str, **params):
     layout: page layout, stored as renderable string
     """
 
+    if not dst.exists():
+        dst.mkdir()
+
     for src_path in src.iterdir():
+        if "silph" in src_path.as_posix():
+            ...  # breakpoint()
         if src_path.is_dir():
             subdir = dst / src_path.stem
             make_pages(src_path, subdir, layout, **params)

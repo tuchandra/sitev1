@@ -1,5 +1,4 @@
 <!-- date: 2019-10-16 -->
-<!-- imagedir: silph_images -->
 # Pokemon GO shiny rates: a Bayesian perspective
 [The Silph Road](https://thesilphroad.com/) is the largest online and in-person network of Pokemon GO players and researchers. We investigate the question of how accurate their proposed shiny rates are by putting on our Bayesian hat, setting the "consensus" shiny rate as our prior, and using Silph field studies as observed data.
 
@@ -506,7 +505,7 @@ axes = az.plot_density(
 ```
 
 
-![png](output_14_0.png)
+![png](silph_images/output_14_0.png)
 
 
 From this, we can see that while 1/150 is at the center of our prior beliefs, we wouldn't be surprised with a rarity of 1 in 100 or 1 in 200 either. This is without having collected any data--if *all* we had heard was "the shiny rate is 1 in 150," but we weren't sure about that 150 number, this plot represents a plausible range of values.
@@ -552,7 +551,7 @@ _ = az.plot_trace(trace)
 ```
 
 
-![png](output_20_0.png)
+![png](silph_images/output_20_0.png)
 
 
 This plot represents what we might have believed in February 2019, after seeing 15 out of 2479 shinies for Bronzor. The left curves represent the likely ranges for the shiny rate p and the rarity 1-in-N. For those unfamiliar with MCMC, ignore the fuzzy-caterpillar-like plots on the right; for those familiar with it, this model exhibits excellent sampling behavior.
@@ -583,7 +582,7 @@ _ = az.plot_trace(trace)
 ```
 
 
-![png](output_23_0.png)
+![png](silph_images/output_23_0.png)
 
 
 Because we observed a rate of 1 in 114 for Horsea, the likelihood for the rarity has now shifted much further left. It is now almost entirely implausible for the shiny rate to be any lower than 1 in 200, and even 1 in 150 is starting to look unlikely.
@@ -612,7 +611,7 @@ _ = az.plot_trace(trace)
 ```
 
 
-![png](output_26_0.png)
+![png](silph_images/output_26_0.png)
 
 
 Nidoran's observed rarity was 1 in 107 over 5700 encounters, shifting our rarity curve evne further left, and now it's becoming more clear that 1 in 150 is a pretty unlikely shiny rate. Let's do this one more time for Sneasel.
@@ -640,7 +639,7 @@ _ = az.plot_trace(trace)
 ```
 
 
-![png](output_29_0.png)
+![png](silph_images/output_29_0.png)
 
 
 At this point (perhaps earlier) I would feel confident saying that the shiny rate, whatever it is, is not 1 in 150. The Sneasel event happened in July 2019, and I'm writing this in October, so clearly that wasn't enough for the Pokemon GO community. Fortunately, four more events happened between then and now, and we can pass them all at once.
@@ -676,7 +675,7 @@ _ = az.plot_trace(trace)
 ```
 
 
-![png](output_32_0.png)
+![png](silph_images/output_32_0.png)
 
 
 We can confidently say that **it is extremely unlikely that the boosted shiny rate is 1 in 150.** It is much more plausible that the rate is in the neighborhood of 1 in 120, as 150 hasn't even registered on our posterior plot of the rarity.
@@ -708,7 +707,7 @@ axes = az.plot_density(
 ```
 
 
-![png](output_36_0.png)
+![png](silph_images/output_36_0.png)
 
 
 Our prior is again relatively uninformative because we're not very confident in the particular value of 1 in 450. Let's add the data.
@@ -737,7 +736,7 @@ _ = az.plot_trace(trace)
 ```
 
 
-![png](output_39_0.png)
+![png](silph_images/output_39_0.png)
 
 
 Here, too, we see that the prior belief of 1 in 450 is no longer likely after considering our data. According to the Silph studies, the true shiny rate is likely between 1 in 350 and 1 in 425.
