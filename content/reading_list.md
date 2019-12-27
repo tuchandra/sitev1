@@ -17,6 +17,8 @@ This is a page of things I'm hoping to read soon.
 
 [Towards fairer datasets: filtering and balancing the distribution of the people subtree in the ImageNet hierarchy](https://arxiv.org/abs/1912.07726) from FAT* 2020
 
+[Generative models for effective ML on private, decentralized datasets](https://research.google/pubs/pub48690/) from Google on federated learning
+
 ## Blog posts
 
 [Commentary: Andy Jassy aims to reinvent Amazon Web Services for the cloud’s next generation](https://siliconangle.com/2019/12/01/commentary-andy-jassy-aims-reinvent-amazon-web-services-clouds-next-generation) from SiliconAngle (what?), an interview with Andy Jassy, the cloud chief at AWS.

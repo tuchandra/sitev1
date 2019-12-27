@@ -8,6 +8,10 @@ Hi, everyone! Welcome to my website. I created it using a very simple static sit
 ###### December 28, 2019
 Summaries and thoughts about articles that I read this week, including summaries of articles on AI bias and more.
 
+### [Talk: Blaise Aguera from NeurIPS 2019](posts/talk_aguera_neurips.md)
+###### December 28, 2019
+Blaise Aguera's invited talk from NeurIPS 2019 about "social intelligence," talking about new approaches to building ML systems.
+
 ### [Talk: Celeste Kidd from NeurIPS 2019](posts/talk_kidd_neurips.md)
 ###### December 27, 2019
 Celeste Kidd's invited talk from NeurIPS 2019 about "how humans learn," but also spreading a powerful message on sexual harassment.
