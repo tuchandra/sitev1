@@ -1,6 +1,6 @@
-<!-- date: 2019-12-26 -->
+<!-- date: 2019-12-27 -->
 # Celeste Kidd: How to Know (NeurIPS 2019)
-These are my thoughts on Celeste Kidd's invited talk at NeurIPS 2019, [How to Know](https://slideslive.com/38921495/how-to-know).
+This is a summary of Celeste Kidd's invited talk at NeurIPS 2019, [How to Know](https://slideslive.com/38921495/how-to-know), plus some thoughts at the end.
 
 ## What everyone in ML should know about humans
 Early on, Kidd discusses how (human) learners pick out what they want to learn. If I were to pick a book to read, one "predictable" possibility would be a children's book about the alphabet, but this would be redundant with all of my existing knowledge. Another "surprising" possibility, which has no overlap with my existing knowledge, would be a book written in German about billiards or trade treaties; theoretically I'd be able to learn a new topic and new language, but it's *too* new for me to even be able to get started. This, Kidd argues, highlights that ML algorithms might not want to seek out the most surprising data at the edge of the world, but rather the data at the edge of what can be learned. The point of all this was that "humans continuously form beliefs," and that they are never done learning.
