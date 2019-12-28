@@ -31,8 +31,6 @@ Most things on [this course project page](https://courses.cs.washington.edu/cour
 
 [How Git works, from the inside out](https://codewords.recurse.com/issues/two/git-from-the-inside-out?). Detailed essay on the graph structure of Git, for someone already familiar with how to use it. Very long.
 
-[Social media is warping democracy / The Dark Psychology of Social Networks](https://www.theatlantic.com/magazine/archive/2019/12/social-media-democracy/600763/) from, ironically enough, Reddit. I think there's a paper in here somewhere.
-
 [FAIR blog post](https://ai.facebook.com/blog/powered-by-ai-instagrams-explore-recommender-system) on insta recommendations, from Miranda
 
 [An epidemic of AI misinformation](https://thegradient.pub/an-epidemic-of-ai-misinformation) from Data Elixir
@@ -46,12 +44,6 @@ Most things on [this course project page](https://courses.cs.washington.edu/cour
 [Overcooked blog post by BAIR what?](https://bair.berkeley.edu/blog/2019/10/21/coordination/), from Judah
 
 [Public opinion lessons on AI regulation](https://www.brookings.edu/research/public-opinion-lessons-for-ai-regulation) from the brookings institute, from Skynet
-
-[The AI community needs to take responsibility for its actions](https://www.technologyreview.com/s/614923/ai-tech-industry-take-responsibility/) also from Skynet, also about NeurIPS
-
-[Interview with Yoshua Bengio](https://spectrum.ieee.org/tech-talk/robotics/artificial-intelligence/yoshua-bengio-revered-architect-of-ai-has-some-ideas-about-what-to-build-next?) from Skynet Today
-
-[It's time to start writing](https://alexnixon.github.io/2019/12/10/writing.html) blog post from Reddit
 
 ## Talks
 
