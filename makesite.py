@@ -70,7 +70,8 @@ def read_content(filename: Path) -> Dict[str, str]:
     # Convert Markdown content to HTML: get the title from the original text, then parse the
     # Markdown as HTML, then replace any links to other Markdown files with ones to the generated
     # HTML files (using regex that matches <a href="filename.md">, where filename is anything
-    # without whitespace or a colon)
+    # without whitespace or a colon). The links should all be relative to the directory where the
+    # current file is, allowing "..." to go up a level.
     if filename.suffix == ".md":
         if "title" not in content:  # only overwrite if title not already found
             content["title"] = get_title(text)

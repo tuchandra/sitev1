@@ -4,11 +4,11 @@
 Hi, everyone! Welcome to my website. I created it using a very simple static site generator that I [wrote myself](about_website.md). This page is a landing page for links to blog posts and paper summaries.
 
 ## Pages
-### [Paper: Discrimination in the Age of Algorithms (part 2/2)](discrimination_algorithms_kleinberg_2.md)
+### [Paper: Discrimination in the Age of Algorithms (part 2/2)](papers/discrimination_algorithms_kleinberg_2.md)
 ###### December 30, 2019
 Part 2 of the summary of the paper by Kleinberg et al., focusing on regulation of algorithms, algorithms for equity, and my thoughts about the paper.
 
-### [Paper: Discrimination in the Age of Algorithms (part 1/2)](discrimination_algorithms_kleinberg_1.md)
+### [Paper: Discrimination in the Age of Algorithms (part 1/2)](papers/discrimination_algorithms_kleinberg_1.md)
 ###### December 29, 2019
 Part 1 of the summary of the paper by Kleinberg et al., mostly summarizing the paper and discussing the proposed benefits.
 
