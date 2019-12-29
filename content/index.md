@@ -9,7 +9,7 @@ Hi, everyone! Welcome to my website. I created it using a very simple static sit
 Part 2 of the summary of the paper by Kleinberg et al., focusing on regulation of algorithms, algorithms for equity, and my thoughts about the paper.
 
 ### [Paper: Discrimination in the Age of Algorithms (part 1/2)](discrimination_algorithms_kleinberg_1.md)
-###### December 30, 2019
+###### December 29, 2019
 Part 1 of the summary of the paper by Kleinberg et al., mostly summarizing the paper and discussing the proposed benefits.
 
 ### [What I read this week (December 22 - 28)](what_i_read/20191222.md)
