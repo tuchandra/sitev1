@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Paper: Discrimination in the Age of Algorithms (1/2) - Tushar Chandra</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="/site/style.css">
+</head>
+
+<body id="discrimination_algorithms_kleinberg_1">
+
+    <nav>
+        <section>
+            <span class="home">
+                <a href="/site/">Home</a>
+            </span>
+            <span class="links">
+                //
+                <a href="/site/contact.html">Contact</a>
+                //
+                <a href="/site/resume.html">Resume</a>
+                //
+                <a href="/site/projects.html">Projects</a>
+                //
+                <a href="/site/reading_list.html">Reading List</a>
+            </span>
+        </section>
+    </nav>
+
+    <main>
+        <h1>Paper: Discrimination in the Age of Algorithms (1/2)</h1>
+<p>Authors: Jon Kleinberg, Jens Ludwig, Sendhil Mullainathan, Cass R Sunstein</p>
+<p>Link: <a href="https://academic.oup.com/jla/article/doi/10.1093/jla/laz001/5476086">Journal of Legal Analysis</a> (yeah, this was published in a law journal, we'll see how reading this goes)</p>
+<p>How I found this paper: from the NYT article, <a href="https://www.nytimes.com/2019/12/06/business/algorithm-bias-fix.html">biased algorithms are easier to fix than biased people</a></p>
+<p>This is part 1/2; view part 2 <a href="discrimination_algorithms_kleinberg_2.html">here</a>.</p>
+<h2>Summary</h2>
+<p>From the abstract (bolded emphasis mine):</p>
+<blockquote>
+<p>To understand how algorithms affect discrimination, we must understand how they affect the <em>detection</em> of discrimination. With the appropriate requirements in place, algorithms create the potential for new forms of transparency and hence opportunities to detect discrimination that are otherwise unavailable. The specificity of algorithms also makes transparent tradeoffs among competing values. This implies <strong>algorithms are not only a threat to be regulated; with the right safeguards, they can be a potential positive force for equity.</strong></p>
+</blockquote>
+<p>The central claim of the paper is that &quot;when algorithms are involved, proving discrimination will be easier—or at least it should be, and can be made to be.&quot; Regulating the design of algorithms with detailed record-keeping requirements, the authors claim, could provide transparency about the decisions being made. Opaque algorithms do not prevent regulators from studying their construction or behavior, which are both impossible with humans. Crucially, though, this requires that all components of the algorithm be stored, including training data.</p>
+<p>The authors state that &quot;a well-regulated process involving algorithms stands out for its <em>transparency</em> and <em>specificity</em>&quot;, in contrast to humans who often do not know why they make the decisions that they do. In other words, answering the questions &quot;on what basis are they choosing&quot; and &quot;why did they pick those factors&quot;—two important questions when evaluating humans for discrimination—are much more feasible with algorithms. The authors make clear that &quot;algorithmic&quot; does not mean &quot;objective,&quot; and to conflate the two is dangerous.</p>
+<p>Consider a hypothetical, summarized from the paper: a company is accused of gender discrimination in hiring. A plaintiff argues that they have more education than male candidates who were hired, but the company argues that they value work experience as well, of which the plaintiff has less. The plaintiff argues that work experience is cited after the fact ... this goes back and forth, and the point is that it's difficult to know whether or not the company has discriminated based on gender. But &quot;in a well-regulated world with algorithms,&quot; one could ask for the screening and training algorithms and the training data, experts could use counterfactuals to statistically evaluate how different applicants are treated, and look for signs of disparate impact.</p>
+<h2>Five critical points</h2>
+<p>The authors make five points, which they develop in detail throughout the paper. I summarize them here.</p>
+<p><strong>1:</strong> &quot;The challenge of regulating discrimination is fundamentally one of attribution&quot;: that is, when we observe disparity for a particular group, how do we explain that gap? It could be because the algorithm explicitly takes into account gender. It could be because of average differences in the training data. It could be because there's a proxy for race in a feature.</p>
+<p><strong>2</strong>: &quot;This decomposition becomes easier once an algorithm is in the decision loop.&quot; The decisions studied become more specific than why an algorithm decided X; they now include why a particular objective was used (minimize MSE, predict salespeople with the highest revenue, maximize tenure at a company, etc.). This knowledge increases the amount of scrutiny that can be given to these decisions.</p>
+<p><strong>3</strong>: &quot;If we regulate the human choices well, we might be willing to be more permissive towards how the algorithm uses information about personal attributes in certain ways.&quot; In some cases, the best way to mitigate the impact of biased data is to incorporate that data into algorithms, so that they can correct for these factors. This point was less clear to me.</p>
+<p><strong>4</strong>: &quot;Algorithms will force us to make more explicit judgments about underlying principles.&quot; If there is a tradeoff between the desires to admit more minority students into a college and to maximize first year GPAs, the algorithms can quantify this tradeoff, and decision makers and regulators can decide what tradeoffs are acceptable.</p>
+<p><strong>5</strong>: &quot;If appropriate regulation can protect against malfeasance in their deployment, then algorithms can become a potentially powerful force for good: they can dramatically reduce discrimination of multiple kinds.&quot; Implicit biases matter most inn an unstructured decision-making process; while algorithms will certainly have human biases in their e.g., objectives and data, they will reduce human bias present in an ambiguous decision process.</p>
+<h2>Summary, continued</h2>
+<p>The remainder of the 40+ page paper goes into detail about the legal ideas around discrimination (disparate treatment, disparate impact, and fair treatment), challenges with detecting discrimination (individual decisions being hard to explain, the inability to simulate counterfactuals, etc.), and other relevant legal perspectives surrounding these concepts.</p>
+<p>The authors take care to discriminate between the <em>screener</em> (the algorithm that takes inputs and produces a decision) and the <em>trainer</em> (the algorithm that produces the screener). They argue that the distinction between the two is often overlooked, but important in practice. One common concern about algorithms &quot;doing literally anything&quot; can be assuaged when considering that the screener is constrained by the trainer, so given an appropriate trainer we need not worry about this.</p>
+<p>The proposed framework is &quot;relevant to the situations where the training algorithm, screening algorithm, and training dataset are all fixed, stored objects that can be inspected.&quot; Importantly, this is not the case for e.g., online ad placement, where the algorithms used change rapidly and data flows in quickly. The authors are more concerned with &quot;micro-prediction&quot; tasks that typically affect an individual, like hiring.</p>
+<p>The authors discuss where discrimination is and is not likely to arise in algorithmic decision making systems. It can easily arise in the choice of outcome, choice of features, and choice of training procedure (e.g., by using biased data, or more generally by using data that reflects past, biased, human decisions). It is unlikely to arise in choosing which features are used in the selection process (that happens statistically), in the screening algorithm (which is a mechanical result of a training algorithm given data, so discrimination in the screener must come from discrimination earlier in the pipeline), and by systematic differences across groups (which are not, by themselves, discriminatory in the legal sense).</p>
+<p>They present four case studies of firms making hiring decisions then evaluate them from a legal perspective. Following that, they discuss how they would and would not be different given the use of algorithms to inform hiring. I don't have the legal background to make very many comments about this, but the theme appears to be that (when properly regulated and documented) there are different questions to be asked like what kinds of proof are necessary and what tradeoffs were made.</p>
+
+    </main>
+
+    <footer>
+        <section>
+            <p>&copy; 2019 Tushar Chandra
+                (<a href="https://github.com/tuchandra">GitHub</a> // <a href="https://tusharc.dev/">Website</a>)
+            </p>
+        </section>
+    </footer>
+
+</body>
+
+</html>

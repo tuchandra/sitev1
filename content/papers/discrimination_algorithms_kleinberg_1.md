@@ -1,10 +1,12 @@
-<!-- date: 2019-12-28 -->
-# Paper: Discrimination in the Age of Algorithms
+<!-- date: 2019-12-29 -->
+# Paper: Discrimination in the Age of Algorithms (1/2)
 Authors: Jon Kleinberg, Jens Ludwig, Sendhil Mullainathan, Cass R Sunstein
 
 Link: [Journal of Legal Analysis](https://academic.oup.com/jla/article/doi/10.1093/jla/laz001/5476086) (yeah, this was published in a law journal, we'll see how reading this goes)
 
 How I found this paper: from the NYT article, [biased algorithms are easier to fix than biased people](https://www.nytimes.com/2019/12/06/business/algorithm-bias-fix.html)
+
+This is part 1/2; view part 2 [here](discrimination_algorithms_kleinberg_2.md).
 
 ## Summary
 From the abstract (bolded emphasis mine):
@@ -30,7 +32,6 @@ The authors make five points, which they develop in detail throughout the paper.
 
 **5**: "If appropriate regulation can protect against malfeasance in their deployment, then algorithms can become a potentially powerful force for good: they can dramatically reduce discrimination of multiple kinds." Implicit biases matter most inn an unstructured decision-making process; while algorithms will certainly have human biases in their e.g., objectives and data, they will reduce human bias present in an ambiguous decision process.
 
-> Our central claim ... is that safeguards against the biases of people who build algorithms, rather than against algorithms per se, could play a key role in ensuring that algorithms are not being built in a way that discriminates ... If we do that, then algorithms go beyond merely being a threat to be regulated; they can also be a positive force for social justice.
 
 ## Summary, continued
 The remainder of the 40+ page paper goes into detail about the legal ideas around discrimination (disparate treatment, disparate impact, and fair treatment), challenges with detecting discrimination (individual decisions being hard to explain, the inability to simulate counterfactuals, etc.), and other relevant legal perspectives surrounding these concepts.
@@ -39,17 +40,8 @@ The authors take care to discriminate between the *screener* (the algorithm that
 
 The proposed framework is "relevant to the situations where the training algorithm, screening algorithm, and training dataset are all fixed, stored objects that can be inspected." Importantly, this is not the case for e.g., online ad placement, where the algorithms used change rapidly and data flows in quickly. The authors are more concerned with "micro-prediction" tasks that typically affect an individual, like hiring.
 
-The authors discuss where discrimination is and is not likely to arise in algorithmic decision making systems. It can easily arise in the choice of outcome, choice of features, and choice of training procedure (e.g., by using biased data, or more generally by using data that reflects past, biased, human decisions). It is unlikely to arise in choosing which features are used in the selection process (that happens statistically), in the screening algorithm (which is a mechanical result of a training algorithm given data, so discrimination in the screener must come from discrimination earlier in the pipeline), and by systematic differences across groups (which are not, by themselves, discriminatory in the legal sense). 
+The authors discuss where discrimination is and is not likely to arise in algorithmic decision making systems. It can easily arise in the choice of outcome, choice of features, and choice of training procedure (e.g., by using biased data, or more generally by using data that reflects past, biased, human decisions). It is unlikely to arise in choosing which features are used in the selection process (that happens statistically), in the screening algorithm (which is a mechanical result of a training algorithm given data, so discrimination in the screener must come from discrimination earlier in the pipeline), and by systematic differences across groups (which are not, by themselves, discriminatory in the legal sense).
 
+They present four case studies of firms making hiring decisions then evaluate them from a legal perspective. Following that, they discuss how they would and would not be different given the use of algorithms to inform hiring. I don't have the legal background to make very many comments about this, but the theme appears to be that (when properly regulated and documented) there are different questions to be asked like what kinds of proof are necessary and what tradeoffs were made.
 
-**The takeaway**: ...
-
-## Thoughts, connections, and questions
-A great quote from the introduction:
-
-> Algorithms do not build themselves. The Achilles' heel of all algorithms is the humans who build them and the choices they make about outcomes, candidate predictors for the algorithm to consider, and the training sample. A critical element of regulating algorithms is regulating humans.
-
-I loved this paper. I didn't get around to reading the whole thing because it's 40+ pages, but I did skim it. Seeing the connection between algorithmic bias and the existing legal framework around discrimination was a unique read; to date, I haven't seen any treatment as in-depth as this one. Kleinberg and the other authors did an excellent job at making both complex legal concepts and complex CS concepts accessible to people of either background.
-
-I think a likely underappreciated point (well, I have no idea how much anyone appreciates any point in this paper) is the importance of choosing the right objective function. [Aguera discussed](../posts/talk_kidd_neurips.md) how few problems can be specified in terms of a loss function, and the authors here make clear that the choice of this objective is one of the keys to understanding discrimination in algorithms. 
 
