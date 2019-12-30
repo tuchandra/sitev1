@@ -131,8 +131,6 @@ def make_pages(src: Path, dst: Path, layout: str, **params):
         dst.mkdir()
 
     for src_path in src.iterdir():
-        if "silph" in src_path.as_posix():
-            ...  # breakpoint()
         if src_path.is_dir():
             subdir = dst / src_path.stem
             make_pages(src_path, subdir, layout, **params)
